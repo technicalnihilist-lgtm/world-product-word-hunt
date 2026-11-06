@@ -1,0 +1,28 @@
+{
+ "runAt": "2026-11-06T23:21:13.422Z",
+ "mode": "offline (cache only)",
+ "products": 282,
+ "verifiedSpelling": 35,
+ "imagesAvailable": 1,
+ "newImages": 0,
+ "categories": {
+  "Smartphones": 23,
+  "Laptops": 16,
+  "Cars": 28,
+  "Bikes": 15,
+  "Clothing": 12,
+  "Shoes": 15,
+  "Watches": 8,
+  "Electronics": 16,
+  "Cosmetics": 12,
+  "Beauty": 6,
+  "Food": 25,
+  "Drinks": 27,
+  "Toys": 14,
+  "Furniture": 6,
+  "Appliances": 21,
+  "Sports": 17,
+  "Gaming": 21
+ },
+ "skipped": 48
+}
