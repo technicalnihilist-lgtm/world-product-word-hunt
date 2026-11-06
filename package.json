@@ -1,0 +1,13 @@
+{
+  "name": "world-product-word-hunt",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WORLD PRODUCT WORD HUNT — an offline-first worldwide product name word-search game with an AI content agent.",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "refresh": "node tools/refresh-catalog.mjs && node tools/build.mjs",
+    "refresh:offline": "node tools/refresh-catalog.mjs --offline && node tools/build.mjs",
+    "serve": "npx --yes http-server -p 8080 -c-1 ."
+  },
+  "license": "MIT"
+}
