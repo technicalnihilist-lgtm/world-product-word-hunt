@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#070b1c">
+<meta name="description" content="WORLD PRODUCT WORD HUNT — an offline-first worldwide product name word-search game. Find real product spellings from every category and country.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>WORLD PRODUCT WORD HUNT</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+<style>__CSS__</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============================ HOME ============================ -->
+  <section id="screen-home" class="screen active">
+    <div class="card home-hero">
+      <div>
+        <div class="eyebrow"><span class="dot-live"></span><span id="home-live-label">Offline ready · content agent active</span></div>
+        <h1 class="hero-title">WORLD PRODUCT<br>WORD HUNT</h1>
+        <p class="hero-sub" id="home-tagline">Hunt the correct spelling of real products from every corner of the world — phones, cars, shoes, snacks, consoles and more. Swipe letters in any direction and build your collection.</p>
+        <div class="btn-row">
+          <button class="btn btn-primary btn-lg" id="btn-quickplay"><span data-icon="play"></span> <span data-i18n="play">Play</span></button>
+          <button class="btn btn-lg" data-go="modes" data-i18n="chooseMode">Choose mode</button>
+          <button class="btn btn-lg" data-go="settings" aria-label="Settings"><span data-icon="settings"></span></button>
+        </div>
+        <div class="stat-grid" style="margin-top:18px">
+          <div class="stat"><div class="stat-label" data-i18n="level">Level</div><div class="stat-value" id="stat-level">1</div></div>
+          <div class="stat"><div class="stat-label" data-i18n="coins">Coins</div><div class="stat-value" id="stat-coins">0</div></div>
+          <div class="stat"><div class="stat-label" data-i18n="streak">Streak</div><div class="stat-value"><span id="stat-streak">0</span> <small data-i18n="days">days</small></div></div>
+          <div class="stat"><div class="stat-label" data-i18n="wordsFound">Words found</div><div class="stat-value" id="stat-words">0</div></div>
+        </div>
+      </div>
+      <div style="display:grid;gap:12px">
+        <div class="card" style="padding:16px">
+          <div class="stat-label" data-i18n="dailyChallenge">Daily challenge</div>
+          <div class="stat-value" id="daily-title" style="font-size:18px">Today's puzzle</div>
+          <p class="small muted" id="daily-meta" style="margin:8px 0 12px">Same puzzle for everyone today · double coins</p>
+          <button class="btn btn-primary btn-wide" data-mode="daily" data-i18n="playDaily">Play daily challenge</button>
+        </div>
+        <div class="card" style="padding:16px">
+          <div class="stat-label" data-i18n="catalogue">Catalogue</div>
+          <div class="stat-value" style="font-size:18px"><span id="cat-count">0</span> <small data-i18n="products">products</small></div>
+          <p class="small muted" id="cat-meta" style="margin:8px 0 0">—</p>
+          <div class="btn-row" style="margin-top:12px">
+            <button class="btn btn-sm" data-go="leaderboard"><span data-icon="trophy"></span> <span data-i18n="leaderboard">Leaderboard</span></button>
+            <button class="btn btn-sm" data-go="achievements"><span data-icon="medal"></span> <span data-i18n="achievements">Achievements</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title" data-i18n="modes">Game modes</div>
+    <div class="mode-grid" id="mode-grid"></div>
+
+    <div class="btn-row" style="margin-top:18px">
+      <button class="btn" data-go="howto"><span data-icon="book"></span> <span data-i18n="howToPlay">How to play</span></button>
+      <button class="btn" data-go="credits"><span data-icon="copy"></span> <span data-i18n="credits">Credits</span></button>
+      <button class="btn" data-go="settings"><span data-icon="settings"></span> <span data-i18n="settings">Settings</span></button>
+    </div>
+    <p class="footer-note" id="home-footer"></p>
+  </section>
+
+  <!-- ============================ MODES ============================ -->
+  <section id="screen-modes" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Back"><span data-icon="back"></span></button>
+      <div><div class="brand-title" data-i18n="modes">Game modes</div><div class="brand-sub" data-i18n="pickDifficulty">Pick your challenge</div></div>
+      <div class="spacer"></div>
+      <span class="chip"><span class="k" data-i18n="coins">Coins</span><span id="modes-coins">0</span></span>
+    </div>
+    <div class="mode-grid" id="mode-grid-full"></div>
+    <p class="footer-note" data-i18n="modeNote">Every mode draws from the same expanding catalogue. Difficulty changes grid size, word count, timer and allowed directions.</p>
+  </section>
+
+  <!-- ============================ GAME ============================ -->
+  <section id="screen-game" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Home"><span data-icon="back"></span></button>
+      <div><div class="brand-title" id="g-mode">Easy</div><div class="brand-sub" id="g-level">Level 1</div></div>
+      <div class="spacer"></div>
+      <span class="chip"><span class="k" data-i18n="score">Score</span><span id="g-score">0</span></span>
+      <span class="chip" id="g-timer-chip"><span class="k" data-i18n="time">Time</span><span id="g-timer">03:00</span></span>
+      <span class="chip"><span class="k" data-i18n="coins">Coins</span><span id="g-coins">0</span></span>
+      <button class="btn btn-icon btn-primary" id="btn-pause" aria-label="Pause"><span data-icon="pause"></span></button>
+    </div>
+
+    <div class="progress-shell" style="margin-bottom:12px"><div class="progress-fill" id="g-progress"></div></div>
+
+    <div class="game-wrap">
+      <div class="side" style="display:grid;gap:12px">
+        <div class="card board-card">
+          <div class="board-head">
+            <span class="title" data-i18n="letterGrid">Letter grid</span>
+            <div class="spacer"></div>
+            <span class="chip"><span class="k" data-i18n="remaining">Remaining</span><span id="g-remaining">0</span></span>
+            <button class="btn btn-sm" id="btn-hint"><span data-icon="hint"></span> <span data-i18n="hint">Hint</span> <span class="muted" id="hint-cost">25</span></button>
+          </div>
+          <div class="grid-shell"><div class="grid" id="grid" role="grid" aria-label="Letter grid"></div></div>
+          <div class="btn-row" style="margin-top:12px">
+            <button class="btn btn-primary" id="btn-play" data-i18n="play">Play</button>
+            <button class="btn" id="btn-pause-2"><span data-icon="pause"></span> <span data-i18n="pause">Pause</span></button>
+            <button class="btn btn-ghost" id="btn-restart"><span data-icon="restart"></span> <span data-i18n="restart">Restart</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid;gap:12px">
+        <div class="card product-card">
+          <div class="product-visual" id="p-visual">
+            <div class="product-glyph" id="p-glyph"></div>
+            <div class="veil">
+              <div>
+                <div class="p-name" id="p-name">—</div>
+                <div class="p-brand" id="p-brand">—</div>
+              </div>
+              <div class="tag accent" id="p-len">0</div>
+            </div>
+          </div>
+          <div class="product-body">
+            <div class="tag-row" id="p-tags"></div>
+            <p class="product-desc" id="p-desc">Find the product name hidden in the grid to reveal its card.</p>
+            <div class="attrib" id="p-attrib"></div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:14px">
+          <div class="board-head"><span class="title" data-i18n="findThese">Find these products</span></div>
+          <div class="word-list" id="word-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SETTINGS ============================ -->
+  <section id="screen-settings" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Back"><span data-icon="back"></span></button>
+      <div><div class="brand-title" data-i18n="settings">Settings</div><div class="brand-sub" data-i18n="settingsSub">Sound, look, language, data</div></div>
+    </div>
+    <div class="two-col">
+      <div class="card" style="padding:16px">
+        <div class="section-title" style="margin-top:0" data-i18n="audio">Audio & feedback</div>
+        <div class="settings-list">
+          <div class="setting-row"><div class="grow"><div class="label" data-i18n="sound">Sound effects</div><div class="hint" data-i18n="soundHint">Correct, wrong and win sounds</div></div><button class="switch" data-toggle="sound" aria-label="Sound"></button></div>
+          <div class="setting-row"><div class="grow"><div class="label" data-i18n="music">Background music</div><div class="hint" data-i18n="musicHint">Gentle generated loop</div></div><button class="switch" data-toggle="music" aria-label="Music"></button></div>
+          <div class="setting-row"><div class="grow"><div class="label" data-i18n="vibration">Vibration</div><div class="hint" data-i18n="vibrationHint">Haptic feedback on mobile</div></div><button class="switch" data-toggle="vibration" aria-label="Vibration"></button></div>
+        </div>
+        <div class="section-title" data-i18n="appearance">Appearance</div>
+        <div class="setting-row"><div class="grow"><div class="label" data-i18n="theme">Theme</div><div class="hint" data-i18n="themeHint">Dark is easier at night</div></div>
+          <div class="seg" id="seg-theme"><button data-theme-set="dark">Dark</button><button data-theme-set="light">Light</button></div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:16px">
+        <div class="section-title" style="margin-top:0" data-i18n="language">Language</div>
+        <div class="settings-list"><div class="setting-row"><div class="grow"><div class="label" data-i18n="language">Language</div><div class="hint" data-i18n="languageHint">Interface language</div></div>
+          <select id="sel-lang" style="padding:10px 12px;border-radius:12px;background:var(--panel-2);color:var(--text);border:1px solid var(--stroke-strong);font-weight:800"></select>
+        </div></div>
+        <div class="section-title" data-i18n="difficulty">Difficulty</div>
+        <div class="setting-row"><div class="grow"><div class="label" data-i18n="difficulty">Preferred difficulty</div><div class="hint" data-i18n="difficultyHint">Used by quick play</div></div>
+          <select id="sel-difficulty" style="padding:10px 12px;border-radius:12px;background:var(--panel-2);color:var(--text);border:1px solid var(--stroke-strong);font-weight:800"></select>
+        </div>
+        <div class="section-title" data-i18n="more">More</div>
+        <div class="settings-list">
+          <button class="btn btn-wide" data-go="howto"><span data-icon="book"></span> <span data-i18n="howToPlay">How to play</span></button>
+          <button class="btn btn-wide" data-go="credits"><span data-icon="copy"></span> <span data-i18n="credits">Credits</span></button>
+          <button class="btn btn-wide" id="btn-refresh"><span data-icon="refresh"></span> <span data-i18n="refresh">Refresh catalogue</span></button>
+          <button class="btn btn-wide" id="btn-reset"><span data-icon="trash"></span> <span data-i18n="reset">Reset progress</span></button>
+        </div>
+        <p class="small muted" id="data-note" style="margin-top:12px"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ HOW TO PLAY ============================ -->
+  <section id="screen-howto" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Back"><span data-icon="back"></span></button>
+      <div><div class="brand-title" data-i18n="howToPlay">How to play</div><div class="brand-sub" data-i18n="instructions">Instructions</div></div>
+    </div>
+    <div class="card" style="padding:20px" id="howto-body"></div>
+  </section>
+
+  <!-- ============================ CREDITS ============================ -->
+  <section id="screen-credits" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Back"><span data-icon="back"></span></button>
+      <div><div class="brand-title" data-i18n="credits">Credits</div><div class="brand-sub">WORLD PRODUCT WORD HUNT</div></div>
+    </div>
+    <div class="card" style="padding:20px" id="credits-body"></div>
+  </section>
+
+  <!-- ============================ LEADERBOARD ============================ -->
+  <section id="screen-leaderboard" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Back"><span data-icon="back"></span></button>
+      <div><div class="brand-title" data-i18n="leaderboard">Leaderboard</div><div class="brand-sub" data-i18n="leaderboardSub">Stored on this device</div></div>
+      <div class="spacer"></div>
+      <button class="btn btn-sm" id="btn-clear-board">Clear</button>
+    </div>
+    <div class="card" style="padding:16px"><div class="list" id="board-list"></div></div>
+  </section>
+
+  <!-- ============================ ACHIEVEMENTS ============================ -->
+  <section id="screen-achievements" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Back"><span data-icon="back"></span></button>
+      <div><div class="brand-title" data-i18n="achievements">Achievements</div><div class="brand-sub" id="ach-count">0 / 12</div></div>
+    </div>
+    <div class="card" style="padding:16px"><div class="list" id="ach-list"></div></div>
+  </section>
+</div>
+
+<!-- ============================ OVERLAYS ============================ -->
+<div class="overlay" id="ov-pause">
+  <div class="card modal center">
+    <h2 data-i18n="paused">Paused</h2>
+    <p data-i18n="pausedSub">Timer stopped. Take your time.</p>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="btn-resume" data-i18n="resume">Resume</button>
+      <button class="btn" id="btn-restart-2" data-i18n="restart">Restart</button>
+      <button class="btn" data-go="home" data-close-overlay data-i18n="mainMenu">Main menu</button>
+      <button class="btn" data-go="settings" data-close-overlay data-i18n="settings">Settings</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="ov-result">
+  <div class="card modal center">
+    <div class="stars" id="res-stars">★★★</div>
+    <h2 id="res-title">Level complete</h2>
+    <p id="res-sub">Nice hunting.</p>
+    <div class="stat-grid" style="margin-top:8px">
+      <div class="stat"><div class="stat-label" data-i18n="score">Score</div><div class="stat-value" id="res-score">0</div></div>
+      <div class="stat"><div class="stat-label" data-i18n="coins">Coins</div><div class="stat-value" id="res-coins">0</div></div>
+      <div class="stat"><div class="stat-label" data-i18n="wordsFound">Words found</div><div class="stat-value" id="res-words">0</div></div>
+      <div class="stat"><div class="stat-label" data-i18n="best">Best</div><div class="stat-value" id="res-best">0</div></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="btn-next" data-i18n="nextLevel">Next level</button>
+      <button class="btn" id="btn-again" data-i18n="playAgain">Play again</button>
+      <button class="btn" data-go="home" data-close-overlay data-i18n="mainMenu">Main menu</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="ov-daily">
+  <div class="card modal center">
+    <div id="daily-glyph" style="display:grid;place-items:center;margin-bottom:6px;color:var(--accent-3)"><span data-icon="gift"></span></div>
+    <h2 id="daily-head">Daily reward</h2>
+    <p id="daily-body">—</p>
+    <div class="btn-row"><button class="btn btn-primary" id="btn-daily-claim">Collect</button></div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toasts"></div>
+<div class="confetti hidden" id="confetti"></div>
+
+<script>
+/* ====================== CONTENT (injected at build time) ====================== */
+const CATALOG = __CATALOG__;
+const CREDITS_DATA = __CREDITS__;
+const BUILD = __BUILD__;
+</script>
+<script>__JS__</script>
+</body>
+</html>
