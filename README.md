@@ -15,6 +15,9 @@ Find the correct spelling of a real product name in a letter grid: horizontally,
   <img alt="No tracking" src="https://img.shields.io/badge/tracking-none-FF4D9D?style=for-the-badge">
 </p>
 
+**▶ Play in your browser:** <https://technicalnihilist-lgtm.github.io/world-product-word-hunt/>
+**⬇ Android APK:** <https://github.com/technicalnihilist-lgtm/world-product-word-hunt/releases/latest>
+
 ---
 
 ## What's in the box
@@ -33,7 +36,9 @@ Find the correct spelling of a real product name in a letter grid: horizontally,
 **On a phone (recommended):** download `world-product-word-hunt.apk` from the
 [latest release](../../releases/latest) and install it. Fully offline.
 
-**On desktop / in a browser:** open `index.html`. That's it — double-click the
+**In your browser, right now:** <https://technicalnihilist-lgtm.github.io/world-product-word-hunt/> — no install.
+
+**On desktop / offline:** open `index.html`. That's it — double-click the
 file. No server, no install, no network calls.
 
 **As an installable web app:** serve the folder over HTTP (`npx http-server .`)
