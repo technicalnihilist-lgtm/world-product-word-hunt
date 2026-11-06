@@ -1,0 +1,36 @@
+name: Refresh catalogue (content agent)
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'   # every Monday 03:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run the content agent
+        run: node tools/refresh-catalog.mjs --concurrency 2 --gap 300 --max-images 40
+
+      - name: Rebuild the game
+        run: node tools/build.mjs
+
+      - name: Commit changes
+        run: |
+          git config user.name  "content-agent"
+          git config user.email "content-agent@users.noreply.github.com"
+          git add -A data assets index.html catalog.json
+          if git diff --cached --quiet; then
+            echo "catalogue unchanged"
+          else
+            git commit -m "chore(catalogue): refresh products and licensed images [agent]"
+            git push
+          fi
