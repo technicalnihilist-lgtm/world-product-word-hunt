@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#070b1c">
+<meta name="description" content="WORLD PRODUCT WORD HUNT — an offline-first worldwide product name word-search game. Find real product spellings from every category and country.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>WORLD PRODUCT WORD HUNT</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+<style>/* ============================================================
+   WORLD PRODUCT WORD HUNT — design system
+   Premium, mobile-first, offline-friendly (no web fonts, no CDN)
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --bg-0: #070b1c;
+  --bg-1: #0d1330;
+  --bg-2: #141b41;
+  --panel: rgba(255, 255, 255, .055);
+  --panel-2: rgba(255, 255, 255, .09);
+  --stroke: rgba(255, 255, 255, .12);
+  --stroke-strong: rgba(255, 255, 255, .22);
+  --text: #f4f6ff;
+  --muted: #9aa5cc;
+  --accent: #7c5cff;
+  --accent-2: #ff4d9d;
+  --accent-3: #ffc14d;
+  --good: #2ee6a8;
+  --bad: #ff5c7a;
+  --cell: rgba(255, 255, 255, .07);
+  --cell-line: rgba(255, 255, 255, .09);
+  --radius: 22px;
+  --radius-sm: 14px;
+  --shadow: 0 24px 60px rgba(3, 6, 20, .55);
+  --shadow-sm: 0 10px 24px rgba(3, 6, 20, .35);
+  --font: "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --glow: 0 0 0 2px rgba(124, 92, 255, .55), 0 8px 24px rgba(124, 92, 255, .35);
+}
+
+[data-theme="light"] {
+  --bg-0: #eef1fb;
+  --bg-1: #f7f8ff;
+  --bg-2: #e6e9fa;
+  --panel: rgba(255, 255, 255, .82);
+  --panel-2: rgba(255, 255, 255, .95);
+  --stroke: rgba(24, 30, 70, .10);
+  --stroke-strong: rgba(24, 30, 70, .18);
+  --text: #131a3a;
+  --muted: #5c6690;
+  --cell: rgba(24, 30, 70, .055);
+  --cell-line: rgba(24, 30, 70, .07);
+  --shadow: 0 24px 50px rgba(30, 40, 90, .14);
+  --shadow-sm: 0 8px 20px rgba(30, 40, 90, .10);
+}
+
+html { background: var(--bg-0); }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background:
+    radial-gradient(900px 620px at 12% -8%, rgba(124, 92, 255, .40), transparent 62%),
+    radial-gradient(760px 540px at 92% 4%, rgba(255, 77, 157, .30), transparent 60%),
+    radial-gradient(820px 620px at 50% 108%, rgba(46, 230, 168, .16), transparent 62%),
+    linear-gradient(170deg, var(--bg-0), var(--bg-1) 46%, var(--bg-2));
+  background-attachment: scroll; background-repeat: no-repeat; background-size: cover;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+  min-height: 100vh;
+}
+[data-theme="light"] body {
+  background:
+    radial-gradient(900px 620px at 10% -10%, rgba(124, 92, 255, .22), transparent 60%),
+    radial-gradient(760px 540px at 94% 2%, rgba(255, 77, 157, .16), transparent 58%),
+    radial-gradient(820px 620px at 50% 106%, rgba(46, 230, 168, .16), transparent 60%),
+    linear-gradient(170deg, var(--bg-1), var(--bg-0));
+  background-attachment: scroll; background-repeat: no-repeat; background-size: cover;
+}
+
+button { font-family: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+a { color: #b9a7ff; }
+[data-theme="light"] a { color: #5a3ff0; }
+
+/* ---------- shell ---------- */
+.app { max-width: 1180px; margin: 0 auto; padding: 14px 14px 40px; }
+.screen { display: none; animation: fade .32s ease both; }
+.screen.active { display: block; }
+@keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.card {
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+
+/* ---------- brand ---------- */
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-mark {
+  width: 46px; height: 46px; border-radius: 14px; flex: 0 0 auto;
+  display: grid; place-items: center; font-size: 24px;
+  background: linear-gradient(140deg, var(--accent), var(--accent-2) 62%, var(--accent-3));
+  box-shadow: 0 10px 24px rgba(255, 77, 157, .32);
+}
+.brand-title { font-weight: 800; letter-spacing: .12em; font-size: 12px; color: var(--muted); text-transform: uppercase; }
+.brand-sub { font-weight: 800; font-size: 15px; letter-spacing: .01em; }
+
+h1.hero-title {
+  margin: 0 0 6px; font-size: clamp(30px, 7.4vw, 58px); line-height: 1.02; font-weight: 900;
+  letter-spacing: -.02em;
+  background: linear-gradient(100deg, #fff 8%, #d6c9ff 38%, #ffb3d5 66%, #ffd79a 96%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+[data-theme="light"] h1.hero-title {
+  background: linear-gradient(100deg, #2a1b6b 6%, #6d3ff0 42%, #d81b76 72%, #b86a00 98%);
+  -webkit-background-clip: text; background-clip: text;
+}
+.hero-sub { color: var(--muted); font-size: 15px; line-height: 1.6; max-width: 56ch; margin: 0 0 18px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 800;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+  padding: 7px 12px; border-radius: 999px; border: 1px solid var(--stroke);
+  background: var(--panel); margin-bottom: 16px;
+}
+.dot-live { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 4px rgba(46, 230, 168, .18); animation: pulse 2.4s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 14px 22px; border-radius: 16px; font-weight: 800; font-size: 15px;
+  border: 1px solid var(--stroke-strong); background: var(--panel-2);
+  transition: transform .14s ease, box-shadow .18s ease, background .18s ease, opacity .18s;
+  min-height: 50px; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.btn:active { transform: translateY(0) scale(.985); }
+.btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.btn-primary {
+  background: linear-gradient(120deg, var(--accent), var(--accent-2) 78%);
+  border-color: transparent; color: #fff;
+  box-shadow: 0 14px 32px rgba(124, 92, 255, .38);
+}
+.btn-primary:hover { box-shadow: 0 18px 40px rgba(255, 77, 157, .42); }
+.btn-ghost { background: transparent; }
+.btn-wide { width: 100%; }
+.btn-lg { padding: 18px 30px; font-size: 17px; border-radius: 18px; }
+.btn-sm { padding: 9px 14px; font-size: 13px; min-height: 40px; border-radius: 12px; }
+.btn-icon { width: 46px; height: 46px; min-height: 46px; padding: 0; border-radius: 14px; font-size: 18px; }
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ---------- home ---------- */
+.home-hero { padding: clamp(20px, 4vw, 38px); display: grid; gap: 22px; grid-template-columns: 1.25fr .75fr; align-items: center; }
+@media (max-width: 860px) { .home-hero { grid-template-columns: 1fr; } }
+.stat-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.stat {
+  padding: 14px 16px; border-radius: 18px; background: var(--panel); border: 1px solid var(--stroke);
+}
+.stat-label { font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 800; }
+.stat-value { font-size: 22px; font-weight: 900; margin-top: 4px; }
+.stat-value small { font-size: 12px; font-weight: 700; color: var(--muted); }
+
+.mode-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.mode-card {
+  text-align: left; padding: 18px; border-radius: 20px; position: relative; overflow: hidden;
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--stroke); transition: transform .16s, box-shadow .2s, border-color .2s;
+}
+.mode-card:hover { transform: translateY(-3px); border-color: var(--stroke-strong); box-shadow: var(--shadow-sm); }
+.mode-card::after {
+  content: ""; position: absolute; inset: auto -30% -60% -30%; height: 120px;
+  background: radial-gradient(closest-side, var(--tint, rgba(124, 92, 255, .5)), transparent);
+  opacity: .55; pointer-events: none;
+}
+.mode-name { font-size: 17px; font-weight: 900; display: flex; align-items: center; gap: 8px; }
+.mode-meta { color: var(--muted); font-size: 12.5px; margin-top: 6px; font-weight: 600; letter-spacing: .01em; }
+.mode-best { margin-top: 10px; font-size: 11.5px; color: var(--muted); font-weight: 700; }
+.mode-card.locked { opacity: .55; }
+
+/* ---------- game screen ---------- */
+.game-wrap { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr) 340px; align-items: start; }
+@media (max-width: 980px) {
+  .game-wrap { grid-template-columns: 1fr; }
+  .game-wrap > .side { order: 1; }
+  .game-wrap > .side + div { order: 2; }
+}
+
+.topbar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 10px 12px; margin-bottom: 12px;
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; border-radius: 12px;
+  background: var(--panel); border: 1px solid var(--stroke); font-weight: 800; font-size: 13px;
+  white-space: nowrap;
+}
+.chip .k { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 800; }
+.chip.warn { border-color: rgba(255, 92, 122, .55); color: #ffb3c1; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: .55; } }
+.spacer { flex: 1 1 auto; }
+
+.progress-shell { height: 10px; border-radius: 999px; background: var(--cell); overflow: hidden; border: 1px solid var(--cell-line); }
+.progress-fill {
+  height: 100%; width: 0%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2) 60%, var(--accent-3));
+  transition: width .45s cubic-bezier(.2, .9, .2, 1);
+  box-shadow: 0 0 18px rgba(255, 77, 157, .55);
+}
+
+.board-card { padding: 14px; }
+.board-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.board-head .title { font-weight: 900; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+.grid-shell { display: grid; place-items: center; padding: 4px; }
+.grid {
+  display: grid; gap: 4px; touch-action: none; user-select: none; -webkit-user-select: none;
+  width: min(100%, 620px); margin: 0 auto;
+}
+.cell {
+  position: relative; aspect-ratio: 1 / 1; display: grid; place-items: center;
+  border-radius: 12px; background: var(--cell); border: 1px solid var(--cell-line);
+  font-weight: 800; font-size: var(--cell-font, 16px); color: var(--text);
+  transition: transform .1s ease, background .12s ease, color .12s ease, box-shadow .12s;
+  -webkit-tap-highlight-color: transparent;
+}
+.cell.sel { background: linear-gradient(150deg, rgba(124, 92, 255, .95), rgba(255, 77, 157, .9)); color: #fff; transform: scale(1.04); box-shadow: var(--glow); }
+.cell.found { background: linear-gradient(150deg, rgba(46, 230, 168, .30), rgba(46, 230, 168, .16)); border-color: rgba(46, 230, 168, .55); color: #c8fff0; }
+[data-theme="light"] .cell.found { color: #045c41; }
+.cell.hint { animation: hintPulse 1.1s ease 2; }
+@keyframes hintPulse { 50% { background: rgba(255, 193, 77, .55); color: #23180a; } }
+.cell.pop { animation: pop .42s ease; }
+@keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.22); } 100% { transform: scale(1); } }
+
+/* ---------- product showcase ---------- */
+.product-card { padding: 0; overflow: hidden; }
+.product-visual {
+  position: relative; aspect-ratio: 16 / 10; display: grid; place-items: center;
+  background: linear-gradient(140deg, #2a1f63, #46246b 45%, #7a2352);
+  overflow: hidden;
+}
+[data-theme="light"] .product-visual { background: linear-gradient(140deg, #ded9ff, #ffd8ec 50%, #ffe9c7); }
+.product-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.product-glyph { font-size: 54px; filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .4)); }
+.product-visual .veil {
+  position: absolute; inset: auto 0 0 0; padding: 30px 14px 12px;
+  background: linear-gradient(180deg, transparent, rgba(6, 8, 22, .82));
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 8px;
+}
+[data-theme="light"] .product-visual .veil { background: linear-gradient(180deg, transparent, rgba(255, 255, 255, .92)); }
+.product-visual .veil .p-name { font-weight: 900; font-size: 16px; line-height: 1.15; }
+.product-visual .veil .p-brand { font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.product-body { padding: 12px 14px 14px; display: grid; gap: 8px; }
+.tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag {
+  font-size: 10.5px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase;
+  padding: 5px 9px; border-radius: 999px; background: var(--panel-2); border: 1px solid var(--stroke); color: var(--muted);
+}
+.tag.accent { color: #d9ccff; border-color: rgba(124, 92, 255, .5); background: rgba(124, 92, 255, .16); }
+.product-desc { font-size: 12.5px; line-height: 1.55; color: var(--muted); margin: 0; }
+.attrib { font-size: 10.5px; color: var(--muted); opacity: .85; line-height: 1.4; }
+
+/* ---------- word list ---------- */
+.word-list { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 0 0; }
+.word-chip {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 12px;
+  background: var(--panel); border: 1px dashed var(--stroke-strong); font-weight: 800; font-size: 13px;
+  letter-spacing: .04em; transition: all .3s;
+}
+.word-chip.done {
+  border-style: solid; border-color: rgba(46, 230, 168, .6); color: #9dffdc;
+  background: rgba(46, 230, 168, .14); text-decoration: line-through; opacity: .95;
+}
+[data-theme="light"] .word-chip.done { color: #046c4c; }
+.word-chip .len { font-size: 10px; color: var(--muted); font-weight: 700; }
+
+/* ---------- overlay / modal ---------- */
+.overlay {
+  position: fixed; inset: 0; z-index: 60; display: none; place-items: center; padding: 18px;
+  background: rgba(5, 8, 22, .72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.overlay.open { display: grid; animation: fade .22s ease both; }
+.modal { width: min(520px, 100%); padding: 24px; max-height: 88vh; overflow: auto; }
+.modal h2 { margin: 0 0 6px; font-size: 24px; font-weight: 900; letter-spacing: -.01em; }
+.modal p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+.modal .btn-row { margin-top: 16px; }
+.modal .btn-row .btn { flex: 1 1 140px; }
+
+/* toast */
+.toast-wrap { position: fixed; left: 0; right: 0; bottom: 18px; z-index: 80; display: grid; justify-items: center; gap: 8px; pointer-events: none; }
+.toast {
+  padding: 11px 18px; border-radius: 14px; font-weight: 800; font-size: 13.5px;
+  background: rgba(14, 19, 44, .94); border: 1px solid var(--stroke-strong); color: #fff;
+  box-shadow: var(--shadow); animation: toastIn .3s ease both;
+}
+.toast.good { border-color: rgba(46, 230, 168, .6); }
+.toast.bad { border-color: rgba(255, 92, 122, .6); }
+@keyframes toastIn { from { opacity: 0; transform: translateY(12px) scale(.96); } to { opacity: 1; transform: none; } }
+
+/* settings */
+.settings-list { display: grid; gap: 10px; }
+.setting-row {
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px;
+  background: var(--panel); border: 1px solid var(--stroke);
+}
+.setting-row .label { font-weight: 800; font-size: 14px; }
+.setting-row .hint { font-size: 11.5px; color: var(--muted); margin-top: 3px; font-weight: 600; }
+.switch {
+  width: 54px; height: 30px; border-radius: 999px; background: var(--cell); border: 1px solid var(--stroke-strong);
+  position: relative; flex: 0 0 auto; transition: background .2s;
+}
+.switch::after {
+  content: ""; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%;
+  background: #fff; transition: transform .22s cubic-bezier(.2, .9, .2, 1); box-shadow: 0 2px 6px rgba(0, 0, 0, .35);
+}
+.switch.on { background: linear-gradient(120deg, var(--accent), var(--accent-2)); border-color: transparent; }
+.switch.on::after { transform: translateX(24px); }
+.seg { display: flex; gap: 6px; padding: 4px; border-radius: 12px; background: var(--cell); border: 1px solid var(--stroke); }
+.seg button { padding: 7px 12px; border-radius: 9px; font-weight: 800; font-size: 12.5px; color: var(--muted); }
+.seg button.on { background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: #fff; }
+
+/* tables / lists */
+.list { display: grid; gap: 8px; }
+.list-row {
+  display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px;
+  background: var(--panel); border: 1px solid var(--stroke);
+}
+.list-row .rank { width: 26px; font-weight: 900; color: var(--muted); font-size: 13px; }
+.list-row .grow { flex: 1 1 auto; min-width: 0; }
+.list-row .name { font-weight: 800; font-size: 14px; }
+.list-row .sub { font-size: 11.5px; color: var(--muted); font-weight: 600; }
+.list-row .val { font-weight: 900; font-size: 15px; }
+.badge { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-size: 19px; background: var(--panel-2); border: 1px solid var(--stroke); flex: 0 0 auto; }
+.badge.locked { filter: grayscale(1); opacity: .4; }
+
+.section-title { font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 800; margin: 22px 0 10px; }
+.two-col { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } }
+
+/* celebration */
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 70; overflow: hidden; }
+.confetti i {
+  position: absolute; top: -12px; width: 9px; height: 14px; border-radius: 2px; opacity: .95;
+  animation: fall linear forwards;
+}
+@keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: .2; } }
+
+.stars { font-size: 30px; letter-spacing: 6px; }
+.hidden { display: none !important; }
+.center { text-align: center; }
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+.footer-note { text-align: center; color: var(--muted); font-size: 11.5px; margin-top: 26px; line-height: 1.7; }
+.kbd {
+  display: inline-block; padding: 2px 7px; border-radius: 7px; border: 1px solid var(--stroke-strong);
+  background: var(--panel-2); font-size: 11.5px; font-weight: 800; font-family: ui-monospace, monospace;
+}
+
+.product-visual.pop { animation: pop .5s ease; }
+
+/* ---------- font-independent icons ---------- */
+.ico { width: 1.05em; height: 1.05em; display: inline-block; vertical-align: -0.15em; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
+.ico.fill { fill: currentColor; stroke: none; }
+.btn .ico, .word-chip .ico { margin-right: 2px; }
+
+/* difficulty meter on mode cards */
+.dbar { display: inline-flex; align-items: flex-end; gap: 3px; height: 15px; margin-right: 2px; }
+.dbar i { width: 4px; border-radius: 2px; background: currentColor; opacity: .22; }
+.dbar i.on { opacity: 1; }
+.dbar i:nth-child(1) { height: 5px; } .dbar i:nth-child(2) { height: 7px; }
+.dbar i:nth-child(3) { height: 9px; } .dbar i:nth-child(4) { height: 12px; }
+.dbar i:nth-child(5) { height: 15px; }
+
+/* monogram product art */
+.mono-glyph {
+  font-size: clamp(40px, 9vw, 68px); font-weight: 900; letter-spacing: -.02em;
+  width: 1.7em; height: 1.7em; display: grid; place-items: center; border-radius: 30%;
+  background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .28);
+  color: #fff; text-shadow: 0 6px 20px rgba(0, 0, 0, .45); backdrop-filter: blur(6px);
+}
+[data-theme="light"] .mono-glyph { background: rgba(255,255,255,.65); border-color: rgba(24,30,70,.15); color: #241b57; text-shadow: none; }
+.badge.mono { font-weight: 900; font-size: 17px; letter-spacing: 0; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============================ HOME ============================ -->
+  <section id="screen-home" class="screen active">
+    <div class="card home-hero">
+      <div>
+        <div class="eyebrow"><span class="dot-live"></span><span id="home-live-label">Offline ready · content agent active</span></div>
+        <h1 class="hero-title">WORLD PRODUCT<br>WORD HUNT</h1>
+        <p class="hero-sub" id="home-tagline">Hunt the correct spelling of real products from every corner of the world — phones, cars, shoes, snacks, consoles and more. Swipe letters in any direction and build your collection.</p>
+        <div class="btn-row">
+          <button class="btn btn-primary btn-lg" id="btn-quickplay"><span data-icon="play"></span> <span data-i18n="play">Play</span></button>
+          <button class="btn btn-lg" data-go="modes" data-i18n="chooseMode">Choose mode</button>
+          <button class="btn btn-lg" data-go="settings" aria-label="Settings"><span data-icon="settings"></span></button>
+        </div>
+        <div class="stat-grid" style="margin-top:18px">
+          <div class="stat"><div class="stat-label" data-i18n="level">Level</div><div class="stat-value" id="stat-level">1</div></div>
+          <div class="stat"><div class="stat-label" data-i18n="coins">Coins</div><div class="stat-value" id="stat-coins">0</div></div>
+          <div class="stat"><div class="stat-label" data-i18n="streak">Streak</div><div class="stat-value"><span id="stat-streak">0</span> <small data-i18n="days">days</small></div></div>
+          <div class="stat"><div class="stat-label" data-i18n="wordsFound">Words found</div><div class="stat-value" id="stat-words">0</div></div>
+        </div>
+      </div>
+      <div style="display:grid;gap:12px">
+        <div class="card" style="padding:16px">
+          <div class="stat-label" data-i18n="dailyChallenge">Daily challenge</div>
+          <div class="stat-value" id="daily-title" style="font-size:18px">Today's puzzle</div>
+          <p class="small muted" id="daily-meta" style="margin:8px 0 12px">Same puzzle for everyone today · double coins</p>
+          <button class="btn btn-primary btn-wide" data-mode="daily" data-i18n="playDaily">Play daily challenge</button>
+        </div>
+        <div class="card" style="padding:16px">
+          <div class="stat-label" data-i18n="catalogue">Catalogue</div>
+          <div class="stat-value" style="font-size:18px"><span id="cat-count">0</span> <small data-i18n="products">products</small></div>
+          <p class="small muted" id="cat-meta" style="margin:8px 0 0">—</p>
+          <div class="btn-row" style="margin-top:12px">
+            <button class="btn btn-sm" data-go="leaderboard"><span data-icon="trophy"></span> <span data-i18n="leaderboard">Leaderboard</span></button>
+            <button class="btn btn-sm" data-go="achievements"><span data-icon="medal"></span> <span data-i18n="achievements">Achievements</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title" data-i18n="modes">Game modes</div>
+    <div class="mode-grid" id="mode-grid"></div>
+
+    <div class="btn-row" style="margin-top:18px">
+      <button class="btn" data-go="howto"><span data-icon="book"></span> <span data-i18n="howToPlay">How to play</span></button>
+      <button class="btn" data-go="credits"><span data-icon="copy"></span> <span data-i18n="credits">Credits</span></button>
+      <button class="btn" data-go="settings"><span data-icon="settings"></span> <span data-i18n="settings">Settings</span></button>
+    </div>
+    <p class="footer-note" id="home-footer"></p>
+  </section>
+
+  <!-- ============================ MODES ============================ -->
+  <section id="screen-modes" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Back"><span data-icon="back"></span></button>
+      <div><div class="brand-title" data-i18n="modes">Game modes</div><div class="brand-sub" data-i18n="pickDifficulty">Pick your challenge</div></div>
+      <div class="spacer"></div>
+      <span class="chip"><span class="k" data-i18n="coins">Coins</span><span id="modes-coins">0</span></span>
+    </div>
+    <div class="mode-grid" id="mode-grid-full"></div>
+    <p class="footer-note" data-i18n="modeNote">Every mode draws from the same expanding catalogue. Difficulty changes grid size, word count, timer and allowed directions.</p>
+  </section>
+
+  <!-- ============================ GAME ============================ -->
+  <section id="screen-game" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Home"><span data-icon="back"></span></button>
+      <div><div class="brand-title" id="g-mode">Easy</div><div class="brand-sub" id="g-level">Level 1</div></div>
+      <div class="spacer"></div>
+      <span class="chip"><span class="k" data-i18n="score">Score</span><span id="g-score">0</span></span>
+      <span class="chip" id="g-timer-chip"><span class="k" data-i18n="time">Time</span><span id="g-timer">03:00</span></span>
+      <span class="chip"><span class="k" data-i18n="coins">Coins</span><span id="g-coins">0</span></span>
+      <button class="btn btn-icon btn-primary" id="btn-pause" aria-label="Pause"><span data-icon="pause"></span></button>
+    </div>
+
+    <div class="progress-shell" style="margin-bottom:12px"><div class="progress-fill" id="g-progress"></div></div>
+
+    <div class="game-wrap">
+      <div class="side" style="display:grid;gap:12px">
+        <div class="card board-card">
+          <div class="board-head">
+            <span class="title" data-i18n="letterGrid">Letter grid</span>
+            <div class="spacer"></div>
+            <span class="chip"><span class="k" data-i18n="remaining">Remaining</span><span id="g-remaining">0</span></span>
+            <button class="btn btn-sm" id="btn-hint"><span data-icon="hint"></span> <span data-i18n="hint">Hint</span> <span class="muted" id="hint-cost">25</span></button>
+          </div>
+          <div class="grid-shell"><div class="grid" id="grid" role="grid" aria-label="Letter grid"></div></div>
+          <div class="btn-row" style="margin-top:12px">
+            <button class="btn btn-primary" id="btn-play" data-i18n="play">Play</button>
+            <button class="btn" id="btn-pause-2"><span data-icon="pause"></span> <span data-i18n="pause">Pause</span></button>
+            <button class="btn btn-ghost" id="btn-restart"><span data-icon="restart"></span> <span data-i18n="restart">Restart</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid;gap:12px">
+        <div class="card product-card">
+          <div class="product-visual" id="p-visual">
+            <div class="product-glyph" id="p-glyph"></div>
+            <div class="veil">
+              <div>
+                <div class="p-name" id="p-name">—</div>
+                <div class="p-brand" id="p-brand">—</div>
+              </div>
+              <div class="tag accent" id="p-len">0</div>
+            </div>
+          </div>
+          <div class="product-body">
+            <div class="tag-row" id="p-tags"></div>
+            <p class="product-desc" id="p-desc">Find the product name hidden in the grid to reveal its card.</p>
+            <div class="attrib" id="p-attrib"></div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:14px">
+          <div class="board-head"><span class="title" data-i18n="findThese">Find these products</span></div>
+          <div class="word-list" id="word-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SETTINGS ============================ -->
+  <section id="screen-settings" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Back"><span data-icon="back"></span></button>
+      <div><div class="brand-title" data-i18n="settings">Settings</div><div class="brand-sub" data-i18n="settingsSub">Sound, look, language, data</div></div>
+    </div>
+    <div class="two-col">
+      <div class="card" style="padding:16px">
+        <div class="section-title" style="margin-top:0" data-i18n="audio">Audio & feedback</div>
+        <div class="settings-list">
+          <div class="setting-row"><div class="grow"><div class="label" data-i18n="sound">Sound effects</div><div class="hint" data-i18n="soundHint">Correct, wrong and win sounds</div></div><button class="switch" data-toggle="sound" aria-label="Sound"></button></div>
+          <div class="setting-row"><div class="grow"><div class="label" data-i18n="music">Background music</div><div class="hint" data-i18n="musicHint">Gentle generated loop</div></div><button class="switch" data-toggle="music" aria-label="Music"></button></div>
+          <div class="setting-row"><div class="grow"><div class="label" data-i18n="vibration">Vibration</div><div class="hint" data-i18n="vibrationHint">Haptic feedback on mobile</div></div><button class="switch" data-toggle="vibration" aria-label="Vibration"></button></div>
+        </div>
+        <div class="section-title" data-i18n="appearance">Appearance</div>
+        <div class="setting-row"><div class="grow"><div class="label" data-i18n="theme">Theme</div><div class="hint" data-i18n="themeHint">Dark is easier at night</div></div>
+          <div class="seg" id="seg-theme"><button data-theme-set="dark">Dark</button><button data-theme-set="light">Light</button></div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:16px">
+        <div class="section-title" style="margin-top:0" data-i18n="language">Language</div>
+        <div class="settings-list"><div class="setting-row"><div class="grow"><div class="label" data-i18n="language">Language</div><div class="hint" data-i18n="languageHint">Interface language</div></div>
+          <select id="sel-lang" style="padding:10px 12px;border-radius:12px;background:var(--panel-2);color:var(--text);border:1px solid var(--stroke-strong);font-weight:800"></select>
+        </div></div>
+        <div class="section-title" data-i18n="difficulty">Difficulty</div>
+        <div class="setting-row"><div class="grow"><div class="label" data-i18n="difficulty">Preferred difficulty</div><div class="hint" data-i18n="difficultyHint">Used by quick play</div></div>
+          <select id="sel-difficulty" style="padding:10px 12px;border-radius:12px;background:var(--panel-2);color:var(--text);border:1px solid var(--stroke-strong);font-weight:800"></select>
+        </div>
+        <div class="section-title" data-i18n="more">More</div>
+        <div class="settings-list">
+          <button class="btn btn-wide" data-go="howto"><span data-icon="book"></span> <span data-i18n="howToPlay">How to play</span></button>
+          <button class="btn btn-wide" data-go="credits"><span data-icon="copy"></span> <span data-i18n="credits">Credits</span></button>
+          <button class="btn btn-wide" id="btn-refresh"><span data-icon="refresh"></span> <span data-i18n="refresh">Refresh catalogue</span></button>
+          <button class="btn btn-wide" id="btn-reset"><span data-icon="trash"></span> <span data-i18n="reset">Reset progress</span></button>
+        </div>
+        <p class="small muted" id="data-note" style="margin-top:12px"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ HOW TO PLAY ============================ -->
+  <section id="screen-howto" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Back"><span data-icon="back"></span></button>
+      <div><div class="brand-title" data-i18n="howToPlay">How to play</div><div class="brand-sub" data-i18n="instructions">Instructions</div></div>
+    </div>
+    <div class="card" style="padding:20px" id="howto-body"></div>
+  </section>
+
+  <!-- ============================ CREDITS ============================ -->
+  <section id="screen-credits" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Back"><span data-icon="back"></span></button>
+      <div><div class="brand-title" data-i18n="credits">Credits</div><div class="brand-sub">WORLD PRODUCT WORD HUNT</div></div>
+    </div>
+    <div class="card" style="padding:20px" id="credits-body"></div>
+  </section>
+
+  <!-- ============================ LEADERBOARD ============================ -->
+  <section id="screen-leaderboard" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Back"><span data-icon="back"></span></button>
+      <div><div class="brand-title" data-i18n="leaderboard">Leaderboard</div><div class="brand-sub" data-i18n="leaderboardSub">Stored on this device</div></div>
+      <div class="spacer"></div>
+      <button class="btn btn-sm" id="btn-clear-board">Clear</button>
+    </div>
+    <div class="card" style="padding:16px"><div class="list" id="board-list"></div></div>
+  </section>
+
+  <!-- ============================ ACHIEVEMENTS ============================ -->
+  <section id="screen-achievements" class="screen">
+    <div class="topbar card">
+      <button class="btn btn-icon" data-go="home" aria-label="Back"><span data-icon="back"></span></button>
+      <div><div class="brand-title" data-i18n="achievements">Achievements</div><div class="brand-sub" id="ach-count">0 / 12</div></div>
+    </div>
+    <div class="card" style="padding:16px"><div class="list" id="ach-list"></div></div>
+  </section>
+</div>
+
+<!-- ============================ OVERLAYS ============================ -->
+<div class="overlay" id="ov-pause">
+  <div class="card modal center">
+    <h2 data-i18n="paused">Paused</h2>
+    <p data-i18n="pausedSub">Timer stopped. Take your time.</p>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="btn-resume" data-i18n="resume">Resume</button>
+      <button class="btn" id="btn-restart-2" data-i18n="restart">Restart</button>
+      <button class="btn" data-go="home" data-close-overlay data-i18n="mainMenu">Main menu</button>
+      <button class="btn" data-go="settings" data-close-overlay data-i18n="settings">Settings</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="ov-result">
+  <div class="card modal center">
+    <div class="stars" id="res-stars">★★★</div>
+    <h2 id="res-title">Level complete</h2>
+    <p id="res-sub">Nice hunting.</p>
+    <div class="stat-grid" style="margin-top:8px">
+      <div class="stat"><div class="stat-label" data-i18n="score">Score</div><div class="stat-value" id="res-score">0</div></div>
+      <div class="stat"><div class="stat-label" data-i18n="coins">Coins</div><div class="stat-value" id="res-coins">0</div></div>
+      <div class="stat"><div class="stat-label" data-i18n="wordsFound">Words found</div><div class="stat-value" id="res-words">0</div></div>
+      <div class="stat"><div class="stat-label" data-i18n="best">Best</div><div class="stat-value" id="res-best">0</div></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="btn-next" data-i18n="nextLevel">Next level</button>
+      <button class="btn" id="btn-again" data-i18n="playAgain">Play again</button>
+      <button class="btn" data-go="home" data-close-overlay data-i18n="mainMenu">Main menu</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="ov-daily">
+  <div class="card modal center">
+    <div id="daily-glyph" style="display:grid;place-items:center;margin-bottom:6px;color:var(--accent-3)"><span data-icon="gift"></span></div>
+    <h2 id="daily-head">Daily reward</h2>
+    <p id="daily-body">—</p>
+    <div class="btn-row"><button class="btn btn-primary" id="btn-daily-claim">Collect</button></div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toasts"></div>
+<div class="confetti hidden" id="confetti"></div>
+
+<script>
+/* ====================== CONTENT (injected at build time) ====================== */
+const CATALOG = {"version":1,"generatedAt":"2026-11-06T23:21:13.422Z","products":[{"id":"iphone15","name":"iPhone 15","brand":"Apple","category":"Smartphones","country":"United States","letters":"IPHONE15","subtitle":"2023 smartphone by Apple","wiki":{"title":"IPhone 15","url":"https://en.wikipedia.org/wiki/IPhone_15","extract":"The iPhone 15 and iPhone 15 Plus are smartphones developed and marketed by Apple. They are part of the seventeenth generation of iPhones, succeeding the iPhone 14 and iPhone 14 Plus. The devices were announced on September 12, 2023, during the Apple Event at Apple Park in Cupertino, California, alongside the higher-pri","verified":true},"image":null},{"id":"galaxys24","name":"Galaxy S24","brand":"Samsung","category":"Smartphones","country":"South Korea","letters":"GALAXYS24","subtitle":"2024 flagship smartphones by Samsung Electronics","wiki":{"title":"Samsung Galaxy S24","url":"https://en.wikipedia.org/wiki/Samsung_Galaxy_S24","extract":"The Samsung Galaxy S24 is a series of high-end Android-based smartphones manufactured, developed, produced, and marketed by Samsung Electronics as part of its flagship Galaxy S series. They collectively serve as the successors to the Galaxy S23 series. The first three smartphones were announced on January 17, 2024, at ","verified":true},"image":null},{"id":"pixel8pro","name":"Pixel 8 Pro","brand":"Google","category":"Smartphones","country":"United States","letters":"PIXEL8PRO","subtitle":"2023 Android smartphones developed by Google","wiki":{"title":"Pixel 8","url":"https://en.wikipedia.org/wiki/Pixel_8","extract":"The Pixel 8 and Pixel 8 Pro are a pair of Android-based smartphones designed, developed, and marketed by Google as part of the Google Pixel product line. They serve as the successors to the Pixel 7 and Pixel 7 Pro, respectively. Visually, the phones resemble their respective predecessors, with incremental upgrades to t","verified":true},"image":null},{"id":"oneplus12","name":"OnePlus 12","brand":"OnePlus","category":"Smartphones","country":"China","letters":"ONEPLUS12","subtitle":"Android smartphone","wiki":{"title":"OnePlus 13","url":"https://en.wikipedia.org/wiki/OnePlus_13","extract":"The OnePlus 13 is an Android-based smartphone manufactured by OnePlus. Announced on October 31, 2024, it was released in China a day later, and internationally on January 7, 2025.","verified":true},"image":null},{"id":"xiaomi14","name":"Xiaomi 14","brand":"Xiaomi","category":"Smartphones","country":"China","letters":"XIAOMI14","subtitle":"Series of HyperOS-based smartphones","wiki":{"title":"Xiaomi 14","url":"https://en.wikipedia.org/wiki/Xiaomi_14","extract":"The Xiaomi 14 is a series of Android-based smartphones manufactured by Xiaomi that succeeds the Xiaomi 13 series. The series is part of the company's flagship series. The Xiaomi 14 and 14 Pro, the first phones to feature a Qualcomm Snapdragon 8 Gen 3 System On Chip, were announced on 26 October 2023 and were released i","verified":true},"image":null},{"id":"redminote13","name":"Redmi Note 13","brand":"Xiaomi","category":"Smartphones","country":"China","letters":"REDMINOTE13","subtitle":"Android smartphone developed by Xiaomi","wiki":{"title":"Redmi Note 13","url":"https://en.wikipedia.org/wiki/Redmi_Note_13","extract":"The Redmi Note 13 is a line of Android-based smartphones developed by Xiaomi under its sub-brand Redmi, forming part of the Redmi Note series. The global lineup consists of the Redmi Note 13, Note 13 5G, Note 13 Pro, Note 13 Pro 5G, and Note 13 Pro+.","verified":true},"image":null},{"id":"realme11pro","name":"Realme 11 Pro","brand":"Realme","category":"Smartphones","country":"China","letters":"REALME11PRO","subtitle":"Chinese consumer electronics manufacturer, a subsidiary of Oppo","wiki":{"title":"Realme","url":"https://en.wikipedia.org/wiki/Realme","extract":"realme is a multinational Chinese consumer electronics manufacturer backed by Oppo based in Shenzhen, Guangdong. In 2021, realme was the sixth‑largest smartphone vendor worldwide in terms of shipments in the overall global smartphone market. In 2026, it was reintegrated into Oppo as a sub-brand.","verified":true},"image":null},{"id":"opporeno11","name":"Oppo Reno 11","brand":"Oppo","category":"Smartphones","country":"China","letters":"OPPORENO11","subtitle":"2019 Android smartphones developed by Oppo","wiki":{"title":"Oppo Reno","url":"https://en.wikipedia.org/wiki/Oppo_Reno","extract":"Oppo Reno is a line of camera-focused Android smartphones manufactured by Oppo, with Reno 10x Zoom, and Reno 5G as \"flagships\", and midrange models, the Reno Z and Reno. The Reno was launched on April 24, 2019. The Oppo Reno lineup was followed by the Reno2, which was launched in India on August 28, 2019, and the Reno ","verified":true},"image":null},{"id":"vivov30","name":"Vivo V30","brand":"Vivo","category":"Smartphones","country":"China","letters":"VIVOV30","wiki":null,"image":null},{"id":"nokia3310","name":"Nokia 3310","brand":"Nokia","category":"Smartphones","country":"Finland","letters":"NOKIA3310","subtitle":"GSM mobile phone by Nokia","wiki":{"title":"Nokia 3310","url":"https://en.wikipedia.org/wiki/Nokia_3310","extract":"The Nokia 3310 is a discontinued GSM mobile phone by Nokia. It was announced on the 1st of September 2000, and released in the fourth quarter of the year, replacing the popular Nokia 3210. It is one of the most successful phones ever made, with 126 million units sold worldwide, and being one of Nokia's most iconic devi","verified":true},"image":null},{"id":"motog84","name":"Moto G84","brand":"Motorola","category":"Smartphones","country":"United States","letters":"MOTOG84","subtitle":"Trademark owned by Motorola Trademark Holdings, LLC","wiki":{"title":"Motorola Moto","url":"https://en.wikipedia.org/wiki/Motorola_Moto","extract":"Motorola Moto is a range of Android mobile devices manufactured by Motorola Mobility, a subsidiary of Lenovo since 2014. This article lists the various Moto device series, as well as the discontinued series.","verified":true},"image":null},{"id":"honormagic6","name":"Honor Magic 6","brand":"Honor","category":"Smartphones","country":"China","letters":"HONORMAGIC6","subtitle":"2024 flagship smartphone from Honor","wiki":{"title":"Honor Magic 6 Pro","url":"https://en.wikipedia.org/wiki/Honor_Magic_6_Pro","extract":"The Honor Magic 6 Pro is an Android-based smartphone developed and manufactured by Honor. It was announced on January 11, 2024, and released on January 18, 2024. It is part of the Magic Series and follows the Honor Magic 5 Pro.","verified":true},"image":null},{"id":"nothingphone2","name":"Nothing Phone 2","brand":"Nothing","category":"Smartphones","country":"United Kingdom","letters":"NOTHINGPHONE2","subtitle":"2023 Android smartphone produced by Nothing","wiki":{"title":"Nothing Phone 2","url":"https://en.wikipedia.org/wiki/Nothing_Phone_2","extract":"The Nothing Phone (2) is a smartphone by Nothing. The phone was announced on 11 July 2023.","verified":true},"image":null},{"id":"xperia1","name":"Xperia 1","brand":"Sony","category":"Smartphones","country":"Japan","letters":"XPERIA1","subtitle":"2019 Android smartphone","wiki":{"title":"Sony Xperia 1","url":"https://en.wikipedia.org/wiki/Sony_Xperia_1","extract":"The Sony Xperia 1 is an Android smartphone made by Sony. Part of Sony's flagship Xperia series, the device was announced to the public at a press conference held at the annual 2019 Mobile World Congress event on February 25, 2019. It's the world's first smartphone with an ultrawide 21:9 aspect ratio 4K HDR OLED display","verified":true},"image":null},{"id":"huaweip60","name":"Huawei P60","brand":"Huawei","category":"Smartphones","country":"China","letters":"HUAWEIP60","wiki":null,"image":null},{"id":"pocox6","name":"Poco X6","brand":"Poco","category":"Smartphones","country":"China","letters":"POCOX6","wiki":null,"image":null},{"id":"infinixnote40","name":"Infinix Note 40","brand":"Infinix","category":"Smartphones","country":"Hong Kong","letters":"INFINIXNOTE40","wiki":null,"image":null},{"id":"tecnocamon20","name":"Tecno Camon 20","brand":"Tecno","category":"Smartphones","country":"China","letters":"TECNOCAMON20","subtitle":"Android-based Chinese smartphones","wiki":{"title":"Tecno Camon 20","url":"https://en.wikipedia.org/wiki/Tecno_Camon_20","extract":"Tecno Camon 20, Tecno Camon 20 Pro, Tecno Camon 20 Pro 5G and Tecno Camon 20 Premier 5G are Android-based smartphones manufactured, released and marketed by Tecno Mobile as part of Tecno Camon 20 series. The devices were unveiled during an event held on 9 May 2023 as successors to Tecno Camon 19 series.","verified":true},"image":{"local":"assets/img/tecnocamon20.jpg","source":"Wikimedia Commons","file":"Camon 20 Premier 5G.png","licence":"CC BY 3.0","licenceUrl":"https://creativecommons.org/licenses/by/3.0","author":"TECHNICAL GURUJI 8.0","page":"https://commons.wikimedia.org/wiki/File:Camon_20_Premier_5G.png","bytes":53886}},{"id":"lavaagni2","name":"Lava Agni 2","brand":"Lava","category":"Smartphones","country":"India","letters":"LAVAAGNI2","wiki":null,"image":null},{"id":"zenfone10","name":"Zenfone 10","brand":"Asus","category":"Smartphones","country":"Taiwan","letters":"ZENFONE10","wiki":null,"image":null},{"id":"blackberrybold","name":"BlackBerry Bold","brand":"BlackBerry","category":"Smartphones","country":"Canada","letters":"BLACKBERRYBOLD","wiki":null,"image":null},{"id":"lgvelvet","name":"LG Velvet","brand":"LG","category":"Smartphones","country":"South Korea","letters":"LGVELVET","subtitle":"2020 Android phablet manufactured by LG Electronics","wiki":{"title":"LG Velvet","url":"https://en.wikipedia.org/wiki/LG_Velvet","extract":"The LG Velvet is an Android phablet smartphone manufactured by LG Electronics, announced in May 2020 as a rebrand for the LG G series. The device shares some of its hardware with the flagship V60 ThinQ, with the same display, but a smaller battery and different cameras. On April 5, 2021, LG announced it would be shutti","verified":true},"image":null},{"id":"micromaxcanvas","name":"Micromax Canvas","brand":"Micromax","category":"Smartphones","country":"India","letters":"MICROMAXCANVAS","wiki":{"title":"Micromax Informatics","url":"https://en.wikipedia.org/wiki/Micromax_Informatics","extract":"","verified":false},"image":null},{"id":"macbookair","name":"MacBook Air","brand":"Apple","category":"Laptops","country":"United States","letters":"MACBOOKAIR","wiki":null,"image":null},{"id":"macbookpro","name":"MacBook Pro","brand":"Apple","category":"Laptops","country":"United States","letters":"MACBOOKPRO","wiki":null,"image":null},{"id":"thinkpadx1","name":"ThinkPad X1","brand":"Lenovo","category":"Laptops","country":"China","letters":"THINKPADX1","wiki":null,"image":null},{"id":"dellxps13","name":"Dell XPS 13","brand":"Dell","category":"Laptops","country":"United States","letters":"DELLXPS13","wiki":null,"image":null},{"id":"hpspectre","name":"HP Spectre","brand":"HP","category":"Laptops","country":"United States","letters":"HPSPECTRE","wiki":null,"image":null},{"id":"asuszenbook","name":"Asus Zenbook","brand":"Asus","category":"Laptops","country":"Taiwan","letters":"ASUSZENBOOK","wiki":{"title":"Asus ZenFone","url":"https://en.wikipedia.org/wiki/Asus_ZenFone","extract":"","verified":false},"image":null},{"id":"aceraspire","name":"Acer Aspire","brand":"Acer","category":"Laptops","country":"Taiwan","letters":"ACERASPIRE","wiki":null,"image":null},{"id":"ideapadslim","name":"IdeaPad Slim","brand":"Lenovo","category":"Laptops","country":"China","letters":"IDEAPADSLIM","wiki":null,"image":null},{"id":"surfacelaptop","name":"Surface Laptop","brand":"Microsoft","category":"Laptops","country":"United States","letters":"SURFACELAPTOP","wiki":null,"image":null},{"id":"razerblade","name":"Razer Blade","brand":"Razer","category":"Laptops","country":"Singapore","letters":"RAZERBLADE","wiki":null,"image":null},{"id":"alienwarem15","name":"Alienware M15","brand":"Dell","category":"Laptops","country":"United States","letters":"ALIENWAREM15","wiki":null,"image":null},{"id":"msikatana","name":"MSI Katana","brand":"MSI","category":"Laptops","country":"Taiwan","letters":"MSIKATANA","wiki":{"title":"List of laptop brands and manufacturers","url":"https://en.wikipedia.org/wiki/List_of_laptop_brands_and_manufacturers","extract":"This is a list of laptop brands and manufacturers.","verified":true},"image":null},{"id":"chromebookflip","name":"Chromebook Flip","brand":"Asus","category":"Laptops","country":"Taiwan","letters":"CHROMEBOOKFLIP","subtitle":"Laptop or tablet computer running ChromeOS","wiki":{"title":"Chromebook","url":"https://en.wikipedia.org/wiki/Chromebook","extract":"Chromebook is a line of laptop computers that run ChromeOS and Googlebook OS, two proprietary operating systems developed by Google.","verified":true},"image":null},{"id":"galaxybook","name":"Galaxy Book","brand":"Samsung","category":"Laptops","country":"South Korea","letters":"GALAXYBOOK","wiki":null,"image":null},{"id":"legion5","name":"Legion 5","brand":"Lenovo","category":"Laptops","country":"China","letters":"LEGION5","wiki":null,"image":null},{"id":"swiftgo","name":"Swift Go","brand":"Acer","category":"Laptops","country":"Taiwan","letters":"SWIFTGO","wiki":null,"image":null},{"id":"corolla","name":"Corolla","brand":"Toyota","category":"Cars","country":"Japan","letters":"COROLLA","wiki":null,"image":null},{"id":"civic","name":"Civic","brand":"Honda","category":"Cars","country":"Japan","letters":"CIVIC","wiki":null,"image":null},{"id":"mustang","name":"Mustang","brand":"Ford","category":"Cars","country":"United States","letters":"MUSTANG","wiki":null,"image":null},{"id":"model3","name":"Model 3","brand":"Tesla","category":"Cars","country":"United States","letters":"MODEL3","wiki":null,"image":null},{"id":"modely","name":"Model Y","brand":"Tesla","category":"Cars","country":"United States","letters":"MODELY","wiki":null,"image":null},{"id":"bmwm3","name":"BMW M3","brand":"BMW","category":"Cars","country":"Germany","letters":"BMWM3","wiki":null,"image":null},{"id":"mercedescclass","name":"Mercedes C Class","brand":"Mercedes Benz","category":"Cars","country":"Germany","letters":"MERCEDESCCLASS","wiki":null,"image":null},{"id":"audia4","name":"Audi A4","brand":"Audi","category":"Cars","country":"Germany","letters":"AUDIA4","wiki":null,"image":null},{"id":"volkswagengolf","name":"Volkswagen Golf","brand":"Volkswagen","category":"Cars","country":"Germany","letters":"VOLKSWAGENGOLF","wiki":null,"image":null},{"id":"hyundaicreta","name":"Hyundai Creta","brand":"Hyundai","category":"Cars","country":"South Korea","letters":"HYUNDAICRETA","wiki":null,"image":null},{"id":"marutiswift","name":"Maruti Swift","brand":"Maruti Suzuki","category":"Cars","country":"India","letters":"MARUTISWIFT","wiki":null,"image":null},{"id":"tatanexon","name":"Tata Nexon","brand":"Tata Motors","category":"Cars","country":"India","letters":"TATANEXON","wiki":null,"image":null},{"id":"mahindraxuv700","name":"Mahindra XUV700","brand":"Mahindra","category":"Cars","country":"India","letters":"MAHINDRAXUV700","wiki":null,"image":null},{"id":"kiaseltos","name":"Kia Seltos","brand":"Kia","category":"Cars","country":"South Korea","letters":"KIASELTOS","wiki":null,"image":null},{"id":"renaultkwid","name":"Renault Kwid","brand":"Renault","category":"Cars","country":"France","letters":"RENAULTKWID","wiki":null,"image":null},{"id":"skodaoctavia","name":"Skoda Octavia","brand":"Skoda","category":"Cars","country":"Czechia","letters":"SKODAOCTAVIA","wiki":null,"image":null},{"id":"nissanleaf","name":"Nissan Leaf","brand":"Nissan","category":"Cars","country":"Japan","letters":"NISSANLEAF","wiki":null,"image":null},{"id":"jeepwrangler","name":"Jeep Wrangler","brand":"Jeep","category":"Cars","country":"United States","letters":"JEEPWRANGLER","wiki":null,"image":null},{"id":"volvoxc90","name":"Volvo XC90","brand":"Volvo","category":"Cars","country":"Sweden","letters":"VOLVOXC90","wiki":null,"image":null},{"id":"porsche911","name":"Porsche 911","brand":"Porsche","category":"Cars","country":"Germany","letters":"PORSCHE911","subtitle":"Fifth generation of the Porsche 911 sports car","wiki":{"title":"Porsche 911 (996)","url":"https://en.wikipedia.org/wiki/Porsche_911_(996)","extract":"The Porsche 996 is the fifth generation of the 911 model sports car manufactured by the German automaker Porsche from 1997 until 2006. It was replaced by the 997 in 2004, but the high performance Turbo S, GT2 and GT3 variants remained in production until 2006. The 996 had little in common with its predecessor, with the","verified":true},"image":null},{"id":"ferrarif40","name":"Ferrari F40","brand":"Ferrari","category":"Cars","country":"Italy","letters":"FERRARIF40","subtitle":"Italian flagship sports car produced from 1987–1996","wiki":{"title":"Ferrari F40","url":"https://en.wikipedia.org/wiki/Ferrari_F40","extract":"The Ferrari F40 is a mid-engine, rear-wheel drive sports car engineered by Nicola Materazzi with styling by Pininfarina. It was built from 1987 until 1993, with the LM, Competizione, and GTE race car versions continuing production from 1994 to 1996 respectively. As the successor to the 288 GTO, it was designed to celeb","verified":true},"image":null},{"id":"suzukijimny","name":"Suzuki Jimny","brand":"Suzuki","category":"Cars","country":"Japan","letters":"SUZUKIJIMNY","subtitle":"Mini SUV","wiki":{"title":"Suzuki Jimny","url":"https://en.wikipedia.org/wiki/Suzuki_Jimny","extract":"The Suzuki Jimny  is a series of four-wheel drive off-road mini SUVs manufactured and marketed by Japanese automaker Suzuki since 1970.","verified":true},"image":null},{"id":"mghector","name":"MG Hector","brand":"MG","category":"Cars","country":"United Kingdom","letters":"MGHECTOR","subtitle":"British Car brand owned by SAIC Motor","wiki":{"title":"MG Motor","url":"https://en.wikipedia.org/wiki/MG_Motor","extract":"MG Motor is a British automotive manufacturer owned by SAIC Motor, a Chinese state-owned carmaker based in Shanghai. It's the continuation of the MG marque, founded in Oxford in 1924. SAIC Motor gained control of the marque in December 2007 by acquiring Nanjing Automobile Corporation (NAC), which had bought the brand f","verified":true},"image":null},{"id":"bydatto3","name":"BYD Atto 3","brand":"BYD","category":"Cars","country":"China","letters":"BYDATTO3","subtitle":"Battery electric compact crossover SUV","wiki":{"title":"BYD Atto 3","url":"https://en.wikipedia.org/wiki/BYD_Atto_3","extract":"The BYD Atto 3, also marketed as BYD Yuan Plus in China and several Latin American countries, is a battery electric compact SUV (C-segment) manufactured by BYD Auto. Part of the BYD Yuan series that is named after the Yuan dynasty, the Yuan Plus was released in mainland China in February 2022. For many overseas markets","verified":true},"image":null},{"id":"peugeot208","name":"Peugeot 208","brand":"Peugeot","category":"Cars","country":"France","letters":"PEUGEOT208","subtitle":"Supermini car produced by Peugeot (2006–2015)","wiki":{"title":"Peugeot 207","url":"https://en.wikipedia.org/wiki/Peugeot_207","extract":"The Peugeot 207 is a supermini car (B) that was designed and produced by the French automaker Peugeot from 2006 to 2014. It was presented at the Geneva Motor Show in 2006, and entered production in April 2006, as the successor to the Peugeot 206. It shares the same platform with the Citroën C3.","verified":true},"image":null},{"id":"fiatpanda","name":"Fiat Panda","brand":"Fiat","category":"Cars","country":"Italy","letters":"FIATPANDA","wiki":null,"image":null},{"id":"minicooper","name":"Mini Cooper","brand":"Mini","category":"Cars","country":"United Kingdom","letters":"MINICOOPER","wiki":null,"image":null},{"id":"datsungo","name":"Datsun Go","brand":"Datsun","category":"Cars","country":"Japan","letters":"DATSUNGO","subtitle":"City car/mini MPV produced by Nissan","wiki":{"title":"Datsun Go","url":"https://en.wikipedia.org/wiki/Datsun_Go","extract":"The Datsun Go/Go+ is a city car and mini MPV with \"5+2\" seating capacity that was produced by the Japanese automaker Nissan under the Datsun brand between 2014 and 2022. Named after the \"Dat-Go\", Datsun's first car launched in the early 20th century, the Go was available in developing markets such as India, South Afric","verified":true},"image":null},{"id":"bajajpulsar","name":"Bajaj Pulsar","brand":"Bajaj","category":"Bikes","country":"India","letters":"BAJAJPULSAR","subtitle":"Range of motorcycles manufactured by Bajaj Auto","wiki":{"title":"Bajaj Pulsar","url":"https://en.wikipedia.org/wiki/Bajaj_Pulsar","extract":"The Bajaj Pulsar is a range of motorcycles manufactured by Bajaj Auto in India. It was developed by the product engineering division of Bajaj Auto in association with Tokyo R&D, and later with motorcycle designer Glynn Kerr.","verified":true},"image":null},{"id":"herosplendor","name":"Hero Splendor","brand":"Hero","category":"Bikes","country":"India","letters":"HEROSPLENDOR","subtitle":"Motorcycle Manufactured by Hero Honda","wiki":{"title":"Splendor (motorcycle)","url":"https://en.wikipedia.org/wiki/Splendor_(motorcycle)","extract":"The Hero Splendor is an entry-level motorcycle manufactured in India by Hero MotoCorp. It has an electronic ignition and a tubular double cradle type frame with a 97.2 cc (5.93 cu in) engine. The engine is based on the Honda Cub C100EX with a similar bore and stroke of 50 mm × 49.5 mm. As of 2009, Splendor models were ","verified":true},"image":null},{"id":"tvsapache","name":"TVS Apache","brand":"TVS","category":"Bikes","country":"India","letters":"TVSAPACHE","subtitle":"Sports bike","wiki":{"title":"TVS Apache RR 310","url":"https://en.wikipedia.org/wiki/TVS_Apache_RR_310","extract":"The TVS Apache Race Replica 310 is a sport bike made by the TVS Motor Company in collaboration with BMW Motorrad that was launched in India on December 6, 2017. It uses a 312.2cc single-cylinder, four-stroke, SI, liquid-cooled, DOHC reverse inclined engine. BMW Motorrad released a rebadged version of the TVS Apache RR ","verified":true},"image":null},{"id":"hondaactiva","name":"Honda Activa","brand":"Honda","category":"Bikes","country":"Japan","letters":"HONDAACTIVA","wiki":{"title":"Honda Activa","url":"https://en.wikipedia.org/wiki/Honda_Activa","extract":"","verified":false},"image":null},{"id":"yamahafz","name":"Yamaha FZ","brand":"Yamaha","category":"Bikes","country":"Japan","letters":"YAMAHAFZ","wiki":{"title":"Yamaha Motor Company","url":"https://en.wikipedia.org/wiki/Yamaha_Motor_Company","extract":"","verified":false},"image":null},{"id":"ktmduke","name":"KTM Duke","brand":"KTM","category":"Bikes","country":"Austria","letters":"KTMDUKE","subtitle":"Austrian motorcycle and sports car manufacturer","wiki":{"title":"KTM","url":"https://en.wikipedia.org/wiki/KTM","extract":"KTM AG is an Austrian motorcycle, bicycle and motorsports brand. It traces its foundation to 1934, as Kronreif & Trunkenpolz Mattighofen. Today, Bajaj Mobility AG operates as the manufacturer of KTM-branded motorcycles, and KTM Fahrrad GmbH operates as the manufacturer of KTM-branded bicycles.","verified":true},"image":null},{"id":"suzukigixxer","name":"Suzuki Gixxer","brand":"Suzuki","category":"Bikes","country":"Japan","letters":"SUZUKIGIXXER","subtitle":"Type of motorcycle","wiki":{"title":"Suzuki Gixxer","url":"https://en.wikipedia.org/wiki/Suzuki_Gixxer","extract":"The Suzuki Gixxer FI 150 is a 154.9 cc (9.45 cu in) naked motorcycle from Suzuki. The bike was launched in September 2014. The name derives from a nickname used in Britain and elsewhere for the GSX-R.","verified":true},"image":null},{"id":"jawa42","name":"Jawa 42","brand":"Jawa","category":"Bikes","country":"Czechia","letters":"JAWA42","subtitle":"Indian motorcycle company (1960–1996)","wiki":{"title":"Ideal Jawa","url":"https://en.wikipedia.org/wiki/Ideal_Jawa","extract":"Ideal Jawa (India) Ltd was an Indian motorcycle company based in Mysore, which sold licensed Jawa motorcycles beginning in 1960 under the brand name Jawa and from 1973 as Yezdi. Jawa motorcycles were introduced in India in 1960 and they have a cult following to this present day. Production was carried out directly in I","verified":true},"image":null},{"id":"harleydavidson","name":"Harley Davidson","brand":"Harley Davidson","category":"Bikes","country":"United States","letters":"HARLEYDAVIDSON","subtitle":"American businessman and co-founder of the Harley-Davidson Motor Company","wiki":{"title":"William S. Harley","url":"https://en.wikipedia.org/wiki/William_S._Harley","extract":"William Sylvester Harley was an American mechanical engineer and businessman. He was one of the four co-founders of the Harley-Davidson Motor Company.","verified":true},"image":null},{"id":"ducatimonster","name":"Ducati Monster","brand":"Ducati","category":"Bikes","country":"Italy","letters":"DUCATIMONSTER","wiki":{"title":"Ducati Monster","url":"https://en.wikipedia.org/wiki/Ducati_Monster","extract":"","verified":false},"image":null},{"id":"kawasakininja","name":"Kawasaki Ninja","brand":"Kawasaki","category":"Bikes","country":"Japan","letters":"KAWASAKININJA","wiki":{"title":"Kawasaki Ninja ZX-6R","url":"https://en.wikipedia.org/wiki/Kawasaki_Ninja_ZX-6R","extract":"","verified":false},"image":null},{"id":"vespaprimavera","name":"Vespa Primavera","brand":"Vespa","category":"Bikes","country":"Italy","letters":"VESPAPRIMAVERA","subtitle":"Italian scooter","wiki":{"title":"Vespa","url":"https://en.wikipedia.org/wiki/Vespa","extract":"Vespa is an Italian brand of scooters and mopeds manufactured by Piaggio. The Vespa has evolved from a single model motor scooter manufactured in 1946 by Piaggio & Co. S.p.A. of Pontedera, Italy, to a full line of scooters and one of seven companies today owned by Piaggio.","verified":true},"image":null},{"id":"olas1","name":"Ola S1","brand":"Ola Electric","category":"Bikes","country":"India","letters":"OLAS1","subtitle":"Indian electric scooter manufacturer","wiki":{"title":"Ola Electric","url":"https://en.wikipedia.org/wiki/Ola_Electric","extract":"Ola Electric Mobility Limited is an Indian electric vehicle manufacturer headquartered in Bengaluru. Founded in 2017 by Bhavish Aggarwal, the company designs and manufactures electric two-wheelers, including the Ola S1 in three variants named Ola S1 Air, Ola S1X and S1 Pro. It has its manufacturing facility located in ","verified":true},"image":null},{"id":"ather450x","name":"Ather 450X","brand":"Ather","category":"Bikes","country":"India","letters":"ATHER450X","subtitle":"Indian electric scooter","wiki":{"title":"Ather 450","url":"https://en.wikipedia.org/wiki/Ather_450","extract":"The Ather 450X is an electric scooter manufactured by Ather Energy in India. It was launched in Bengaluru in September 2018. It is powered by a 5.4 kW Brushless DC electric motor, and a 3.7 kWh lithium-ion battery pack. The scooter can accelerate 0–40 km/h (0–25 mph) in 3.3 seconds. It has a top speed of 90 km/h (56 mp","verified":true},"image":null},{"id":"bsagoldstar","name":"BSA Gold Star","brand":"BSA","category":"Bikes","country":"United Kingdom","letters":"BSAGOLDSTAR","subtitle":"Former British motorcycle marque","wiki":{"title":"BSA motorcycles","url":"https://en.wikipedia.org/wiki/BSA_motorcycles","extract":"BSA motorcycles were made by the Birmingham Small Arms Company Limited (BSA), which was a major British industrial combine, a group of businesses manufacturing military and sporting firearms; bicycles; motorcycles; cars; buses and bodies; steel; iron castings; hand, power, and machine tools; coal cleaning and handling ","verified":true},"image":null},{"id":"levis501","name":"Levis 501","brand":"Levi Strauss","category":"Clothing","country":"United States","letters":"LEVIS501","wiki":null,"image":null},{"id":"chucktaylor","name":"Chuck Taylor","brand":"Converse","category":"Clothing","country":"United States","letters":"CHUCKTAYLOR","wiki":null,"image":null},{"id":"stansmith","name":"Stan Smith","brand":"Adidas","category":"Clothing","country":"Germany","letters":"STANSMITH","wiki":null,"image":null},{"id":"tommyhilfiger","name":"Tommy Hilfiger","brand":"Tommy Hilfiger","category":"Clothing","country":"United States","letters":"TOMMYHILFIGER","wiki":null,"image":null},{"id":"calvinklein","name":"Calvin Klein","brand":"Calvin Klein","category":"Clothing","country":"United States","letters":"CALVINKLEIN","wiki":null,"image":null},{"id":"burberrytrench","name":"Burberry Trench","brand":"Burberry","category":"Clothing","country":"United Kingdom","letters":"BURBERRYTRENCH","wiki":null,"image":null},{"id":"raybanaviator","name":"Ray Ban Aviator","brand":"Ray Ban","category":"Clothing","country":"Italy","letters":"RAYBANAVIATOR","wiki":null,"image":null},{"id":"havaianas","name":"Havaianas","brand":"Havaianas","category":"Clothing","country":"Brazil","letters":"HAVAIANAS","wiki":null,"image":null},{"id":"crocsclassic","name":"Crocs Classic","brand":"Crocs","category":"Clothing","country":"United States","letters":"CROCSCLASSIC","wiki":null,"image":null},{"id":"docmartens","name":"Doc Martens","brand":"Dr Martens","category":"Clothing","country":"United Kingdom","letters":"DOCMARTENS","wiki":null,"image":null},{"id":"vansoldskool","name":"Vans Old Skool","brand":"Vans","category":"Clothing","country":"United States","letters":"VANSOLDSKOOL","wiki":null,"image":null},{"id":"uniqloheattech","name":"Uniqlo Heattech","brand":"Uniqlo","category":"Clothing","country":"Japan","letters":"UNIQLOHEATTECH","wiki":null,"image":null},{"id":"nikeairmax","name":"Nike Air Max","brand":"Nike","category":"Shoes","country":"United States","letters":"NIKEAIRMAX","wiki":null,"image":null},{"id":"jordan1retro","name":"Jordan 1 Retro","brand":"Nike","category":"Shoes","country":"United States","letters":"JORDAN1RETRO","wiki":null,"image":null},{"id":"yeezyboost","name":"Yeezy Boost","brand":"Adidas","category":"Shoes","country":"Germany","letters":"YEEZYBOOST","wiki":null,"image":null},{"id":"skechersgowalk","name":"Skechers Go Walk","brand":"Skechers","category":"Shoes","country":"United States","letters":"SKECHERSGOWALK","wiki":null,"image":null},{"id":"filadisruptor","name":"Fila Disruptor","brand":"Fila","category":"Shoes","country":"South Korea","letters":"FILADISRUPTOR","wiki":null,"image":null},{"id":"brooksghost","name":"Brooks Ghost","brand":"Brooks","category":"Shoes","country":"United States","letters":"BROOKSGHOST","wiki":null,"image":null},{"id":"hokaclifton","name":"Hoka Clifton","brand":"Hoka","category":"Shoes","country":"France","letters":"HOKACLIFTON","wiki":null,"image":null},{"id":"oncloud","name":"On Cloud","brand":"On Running","category":"Shoes","country":"Switzerland","letters":"ONCLOUD","wiki":null,"image":null},{"id":"sauconyride","name":"Saucony Ride","brand":"Saucony","category":"Shoes","country":"United States","letters":"SAUCONYRIDE","wiki":null,"image":null},{"id":"mizunowave","name":"Mizuno Wave","brand":"Mizuno","category":"Shoes","country":"Japan","letters":"MIZUNOWAVE","wiki":null,"image":null},{"id":"woodlandboots","name":"Woodland Boots","brand":"Woodland","category":"Shoes","country":"India","letters":"WOODLANDBOOTS","wiki":null,"image":null},{"id":"newbalance574","name":"New Balance 574","brand":"New Balance","category":"Shoes","country":"United States","letters":"NEWBALANCE574","wiki":null,"image":null},{"id":"asicsgelkayano","name":"Asics Gel Kayano","brand":"Asics","category":"Shoes","country":"Japan","letters":"ASICSGELKAYANO","wiki":null,"image":null},{"id":"pumasuede","name":"Puma Suede","brand":"Puma","category":"Shoes","country":"Germany","letters":"PUMASUEDE","wiki":null,"image":null},{"id":"reebokclassic","name":"Reebok Classic","brand":"Reebok","category":"Shoes","country":"United States","letters":"REEBOKCLASSIC","wiki":null,"image":null},{"id":"casiogshock","name":"Casio G Shock","brand":"Casio","category":"Watches","country":"Japan","letters":"CASIOGSHOCK","wiki":null,"image":null},{"id":"seikoprospex","name":"Seiko Prospex","brand":"Seiko","category":"Watches","country":"Japan","letters":"SEIKOPROSPEX","wiki":null,"image":null},{"id":"fossilgen5","name":"Fossil Gen 5","brand":"Fossil","category":"Watches","country":"United States","letters":"FOSSILGEN5","wiki":null,"image":null},{"id":"applewatch","name":"Apple Watch","brand":"Apple","category":"Watches","country":"United States","letters":"APPLEWATCH","wiki":null,"image":null},{"id":"fitbitcharge","name":"Fitbit Charge","brand":"Fitbit","category":"Watches","country":"United States","letters":"FITBITCHARGE","wiki":null,"image":null},{"id":"titanraga","name":"Titan Raga","brand":"Titan","category":"Watches","country":"India","letters":"TITANRAGA","wiki":null,"image":null},{"id":"fastrackreflex","name":"Fastrack Reflex","brand":"Fastrack","category":"Watches","country":"India","letters":"FASTRACKREFLEX","wiki":null,"image":null},{"id":"tissotprx","name":"Tissot PRX","brand":"Tissot","category":"Watches","country":"Switzerland","letters":"TISSOTPRX","wiki":null,"image":null},{"id":"sonywalkman","name":"Sony Walkman","brand":"Sony","category":"Electronics","country":"Japan","letters":"SONYWALKMAN","wiki":null,"image":null},{"id":"jblflip6","name":"JBL Flip 6","brand":"JBL","category":"Electronics","country":"United States","letters":"JBLFLIP6","wiki":null,"image":null},{"id":"ankerpowercore","name":"Anker PowerCore","brand":"Anker","category":"Electronics","country":"China","letters":"ANKERPOWERCORE","wiki":null,"image":null},{"id":"lgoled","name":"LG OLED","brand":"LG","category":"Electronics","country":"South Korea","letters":"LGOLED","wiki":null,"image":null},{"id":"sonybravia","name":"Sony Bravia","brand":"Sony","category":"Electronics","country":"Japan","letters":"SONYBRAVIA","wiki":null,"image":null},{"id":"mitv","name":"Mi TV","brand":"Xiaomi","category":"Electronics","country":"China","letters":"MITV","wiki":null,"image":null},{"id":"tclqled","name":"TCL QLED","brand":"TCL","category":"Electronics","country":"China","letters":"TCLQLED","wiki":null,"image":null},{"id":"firetvstick","name":"Fire TV Stick","brand":"Amazon","category":"Electronics","country":"United States","letters":"FIRETVSTICK","wiki":null,"image":null},{"id":"chromecast","name":"Chromecast","brand":"Google","category":"Electronics","country":"United States","letters":"CHROMECAST","wiki":null,"image":null},{"id":"echodot","name":"Echo Dot","brand":"Amazon","category":"Electronics","country":"United States","letters":"ECHODOT","wiki":null,"image":null},{"id":"nestmini","name":"Nest Mini","brand":"Google","category":"Electronics","country":"United States","letters":"NESTMINI","wiki":null,"image":null},{"id":"ringdoorbell","name":"Ring Doorbell","brand":"Ring","category":"Electronics","country":"United States","letters":"RINGDOORBELL","wiki":null,"image":null},{"id":"goprohero","name":"GoPro Hero","brand":"GoPro","category":"Electronics","country":"United States","letters":"GOPROHERO","wiki":null,"image":null},{"id":"djimavic","name":"DJI Mavic","brand":"DJI","category":"Electronics","country":"China","letters":"DJIMAVIC","wiki":null,"image":null},{"id":"ipadpro","name":"iPad Pro","brand":"Apple","category":"Electronics","country":"United States","letters":"IPADPRO","wiki":null,"image":null},{"id":"galaxytab","name":"Galaxy Tab","brand":"Samsung","category":"Electronics","country":"South Korea","letters":"GALAXYTAB","wiki":null,"image":null},{"id":"lakmeeyeconic","name":"Lakme Eyeconic","brand":"Lakme","category":"Cosmetics","country":"India","letters":"LAKMEEYECONIC","wiki":null,"image":null},{"id":"niveacreme","name":"Nivea Creme","brand":"Nivea","category":"Cosmetics","country":"Germany","letters":"NIVEACREME","wiki":null,"image":null},{"id":"pondscoldcream","name":"Ponds Cold Cream","brand":"Ponds","category":"Cosmetics","country":"United States","letters":"PONDSCOLDCREAM","wiki":null,"image":null},{"id":"macrubywoo","name":"MAC Ruby Woo","brand":"MAC","category":"Cosmetics","country":"Canada","letters":"MACRUBYWOO","wiki":null,"image":null},{"id":"fentybeauty","name":"Fenty Beauty","brand":"Fenty","category":"Cosmetics","country":"United States","letters":"FENTYBEAUTY","wiki":null,"image":null},{"id":"olayregenerist","name":"Olay Regenerist","brand":"Olay","category":"Cosmetics","country":"United States","letters":"OLAYREGENERIST","wiki":null,"image":null},{"id":"doveshampoo","name":"Dove Shampoo","brand":"Dove","category":"Cosmetics","country":"United Kingdom","letters":"DOVESHAMPOO","wiki":null,"image":null},{"id":"panteneprov","name":"Pantene Pro V","brand":"Pantene","category":"Cosmetics","country":"Switzerland","letters":"PANTENEPROV","wiki":null,"image":null},{"id":"colgatetotal","name":"Colgate Total","brand":"Colgate","category":"Cosmetics","country":"United States","letters":"COLGATETOTAL","wiki":null,"image":null},{"id":"sensodynefresh","name":"Sensodyne Fresh","brand":"Sensodyne","category":"Cosmetics","country":"United Kingdom","letters":"SENSODYNEFRESH","wiki":null,"image":null},{"id":"oralbbrush","name":"Oral B Brush","brand":"Oral B","category":"Cosmetics","country":"United States","letters":"ORALBBRUSH","wiki":null,"image":null},{"id":"gillettefusion","name":"Gillette Fusion","brand":"Gillette","category":"Cosmetics","country":"United States","letters":"GILLETTEFUSION","wiki":null,"image":null},{"id":"mamaearthubtan","name":"Mamaearth Ubtan","brand":"Mamaearth","category":"Beauty","country":"India","letters":"MAMAEARTHUBTAN","wiki":null,"image":null},{"id":"kamaayurveda","name":"Kama Ayurveda","brand":"Kama Ayurveda","category":"Beauty","country":"India","letters":"KAMAAYURVEDA","wiki":null,"image":null},{"id":"kiehlscream","name":"Kiehls Cream","brand":"Kiehls","category":"Beauty","country":"United States","letters":"KIEHLSCREAM","wiki":null,"image":null},{"id":"laneigelipmask","name":"Laneige Lip Mask","brand":"Laneige","category":"Beauty","country":"South Korea","letters":"LANEIGELIPMASK","wiki":null,"image":null},{"id":"plumvitaminc","name":"Plum Vitamin C","brand":"Plum","category":"Beauty","country":"India","letters":"PLUMVITAMINC","wiki":null,"image":null},{"id":"sugarlipstick","name":"Sugar Lipstick","brand":"Sugar","category":"Beauty","country":"India","letters":"SUGARLIPSTICK","wiki":null,"image":null},{"id":"magginoodles","name":"Maggi Noodles","brand":"Nestle","category":"Food","country":"Switzerland","letters":"MAGGINOODLES","wiki":null,"image":null},{"id":"kitkat","name":"KitKat","brand":"Nestle","category":"Food","country":"United Kingdom","letters":"KITKAT","wiki":null,"image":null},{"id":"dairymilk","name":"Dairy Milk","brand":"Cadbury","category":"Food","country":"United Kingdom","letters":"DAIRYMILK","wiki":null,"image":null},{"id":"ferrerorocher","name":"Ferrero Rocher","brand":"Ferrero","category":"Food","country":"Italy","letters":"FERREROROCHER","wiki":null,"image":null},{"id":"nutella","name":"Nutella","brand":"Ferrero","category":"Food","country":"Italy","letters":"NUTELLA","wiki":null,"image":null},{"id":"oreo","name":"Oreo","brand":"Mondelez","category":"Food","country":"United States","letters":"OREO","wiki":null,"image":null},{"id":"pringles","name":"Pringles","brand":"Kellanova","category":"Food","country":"United States","letters":"PRINGLES","wiki":null,"image":null},{"id":"doritos","name":"Doritos","brand":"PepsiCo","category":"Food","country":"United States","letters":"DORITOS","wiki":null,"image":null},{"id":"laysclassic","name":"Lays Classic","brand":"PepsiCo","category":"Food","country":"United States","letters":"LAYSCLASSIC","wiki":null,"image":null},{"id":"haldirambhujia","name":"Haldiram Bhujia","brand":"Haldiram","category":"Food","country":"India","letters":"HALDIRAMBHUJIA","wiki":null,"image":null},{"id":"parleg","name":"Parle G","brand":"Parle","category":"Food","country":"India","letters":"PARLEG","wiki":null,"image":null},{"id":"bourbonbiscuit","name":"Bourbon Biscuit","brand":"Britannia","category":"Food","country":"India","letters":"BOURBONBISCUIT","wiki":null,"image":null},{"id":"amulbutter","name":"Amul Butter","brand":"Amul","category":"Food","country":"India","letters":"AMULBUTTER","wiki":null,"image":null},{"id":"cadburygems","name":"Cadbury Gems","brand":"Cadbury","category":"Food","country":"India","letters":"CADBURYGEMS","wiki":null,"image":null},{"id":"snickers","name":"Snickers","brand":"Mars","category":"Food","country":"United States","letters":"SNICKERS","wiki":null,"image":null},{"id":"marsbar","name":"Mars Bar","brand":"Mars","category":"Food","country":"United Kingdom","letters":"MARSBAR","wiki":null,"image":null},{"id":"toblerone","name":"Toblerone","brand":"Mondelez","category":"Food","country":"Switzerland","letters":"TOBLERONE","wiki":null,"image":null},{"id":"lindtlindor","name":"Lindt Lindor","brand":"Lindt","category":"Food","country":"Switzerland","letters":"LINDTLINDOR","wiki":null,"image":null},{"id":"haagendazs","name":"Haagen Dazs","brand":"General Mills","category":"Food","country":"United States","letters":"HAAGENDAZS","wiki":null,"image":null},{"id":"cornflakes","name":"Corn Flakes","brand":"Kelloggs","category":"Food","country":"United States","letters":"CORNFLAKES","wiki":null,"image":null},{"id":"quakeroats","name":"Quaker Oats","brand":"PepsiCo","category":"Food","country":"United States","letters":"QUAKEROATS","wiki":null,"image":null},{"id":"hideandseek","name":"Hide and Seek","brand":"Parle","category":"Food","country":"India","letters":"HIDEANDSEEK","wiki":null,"image":null},{"id":"kurkure","name":"Kurkure","brand":"PepsiCo","category":"Food","country":"India","letters":"KURKURE","wiki":null,"image":null},{"id":"bingomadangles","name":"Bingo Mad Angles","brand":"ITC","category":"Food","country":"India","letters":"BINGOMADANGLES","wiki":null,"image":null},{"id":"tooyumm","name":"Too Yumm","brand":"RP Sanjiv Goenka","category":"Food","country":"India","letters":"TOOYUMM","wiki":null,"image":null},{"id":"cocacola","name":"Coca Cola","brand":"Coca Cola","category":"Drinks","country":"United States","letters":"COCACOLA","wiki":null,"image":null},{"id":"pepsicola","name":"Pepsi Cola","brand":"PepsiCo","category":"Drinks","country":"United States","letters":"PEPSICOLA","wiki":null,"image":null},{"id":"sprite","name":"Sprite","brand":"Coca Cola","category":"Drinks","country":"United States","letters":"SPRITE","wiki":null,"image":null},{"id":"fantaorange","name":"Fanta Orange","brand":"Coca Cola","category":"Drinks","country":"Germany","letters":"FANTAORANGE","wiki":null,"image":null},{"id":"thumsup","name":"Thums Up","brand":"Coca Cola","category":"Drinks","country":"India","letters":"THUMSUP","wiki":null,"image":null},{"id":"limca","name":"Limca","brand":"Coca Cola","category":"Drinks","country":"India","letters":"LIMCA","wiki":null,"image":null},{"id":"mountaindew","name":"Mountain Dew","brand":"PepsiCo","category":"Drinks","country":"United States","letters":"MOUNTAINDEW","wiki":null,"image":null},{"id":"redbull","name":"Red Bull","brand":"Red Bull","category":"Drinks","country":"Austria","letters":"REDBULL","wiki":null,"image":null},{"id":"monsterenergy","name":"Monster Energy","brand":"Monster","category":"Drinks","country":"United States","letters":"MONSTERENERGY","wiki":null,"image":null},{"id":"starbuckslatte","name":"Starbucks Latte","brand":"Starbucks","category":"Drinks","country":"United States","letters":"STARBUCKSLATTE","wiki":null,"image":null},{"id":"nescafeclassic","name":"Nescafe Classic","brand":"Nestle","category":"Drinks","country":"Switzerland","letters":"NESCAFECLASSIC","wiki":null,"image":null},{"id":"brucoffee","name":"Bru Coffee","brand":"Hindustan Unilever","category":"Drinks","country":"India","letters":"BRUCOFFEE","wiki":null,"image":null},{"id":"liptontea","name":"Lipton Tea","brand":"Lipton","category":"Drinks","country":"United Kingdom","letters":"LIPTONTEA","wiki":null,"image":null},{"id":"tetleygreentea","name":"Tetley Green Tea","brand":"Tata Consumer","category":"Drinks","country":"India","letters":"TETLEYGREENTEA","wiki":null,"image":null},{"id":"realjuice","name":"Real Juice","brand":"Dabur","category":"Drinks","country":"India","letters":"REALJUICE","wiki":null,"image":null},{"id":"frooti","name":"Frooti","brand":"Parle Agro","category":"Drinks","country":"India","letters":"FROOTI","wiki":null,"image":null},{"id":"slicemango","name":"Slice Mango","brand":"PepsiCo","category":"Drinks","country":"India","letters":"SLICEMANGO","wiki":null,"image":null},{"id":"stingenergy","name":"Sting Energy","brand":"PepsiCo","category":"Drinks","country":"India","letters":"STINGENERGY","wiki":null,"image":null},{"id":"bisleriwater","name":"Bisleri Water","brand":"Bisleri","category":"Drinks","country":"India","letters":"BISLERIWATER","wiki":null,"image":null},{"id":"gatorade","name":"Gatorade","brand":"PepsiCo","category":"Drinks","country":"United States","letters":"GATORADE","wiki":null,"image":null},{"id":"coronaextra","name":"Corona Extra","brand":"Grupo Modelo","category":"Drinks","country":"Mexico","letters":"CORONAEXTRA","wiki":null,"image":null},{"id":"heineken","name":"Heineken","brand":"Heineken","category":"Drinks","country":"Netherlands","letters":"HEINEKEN","wiki":null,"image":null},{"id":"guinnessstout","name":"Guinness Stout","brand":"Diageo","category":"Drinks","country":"Ireland","letters":"GUINNESSSTOUT","wiki":null,"image":null},{"id":"jackdaniels","name":"Jack Daniels","brand":"Brown Forman","category":"Drinks","country":"United States","letters":"JACKDANIELS","wiki":null,"image":null},{"id":"johnniewalker","name":"Johnnie Walker","brand":"Diageo","category":"Drinks","country":"United Kingdom","letters":"JOHNNIEWALKER","wiki":null,"image":null},{"id":"absolutvodka","name":"Absolut Vodka","brand":"Pernod Ricard","category":"Drinks","country":"Sweden","letters":"ABSOLUTVODKA","wiki":null,"image":null},{"id":"bacardirum","name":"Bacardi Rum","brand":"Bacardi","category":"Drinks","country":"Cuba","letters":"BACARDIRUM","wiki":null,"image":null},{"id":"legocity","name":"Lego City","brand":"Lego","category":"Toys","country":"Denmark","letters":"LEGOCITY","wiki":null,"image":null},{"id":"hotwheels","name":"Hot Wheels","brand":"Mattel","category":"Toys","country":"United States","letters":"HOTWHEELS","wiki":null,"image":null},{"id":"rubikscube","name":"Rubiks Cube","brand":"Rubiks","category":"Toys","country":"Hungary","letters":"RUBIKSCUBE","wiki":null,"image":null},{"id":"monopolyboard","name":"Monopoly Board","brand":"Hasbro","category":"Toys","country":"United States","letters":"MONOPOLYBOARD","wiki":null,"image":null},{"id":"scrabble","name":"Scrabble","brand":"Hasbro","category":"Toys","country":"United States","letters":"SCRABBLE","wiki":null,"image":null},{"id":"jenga","name":"Jenga","brand":"Hasbro","category":"Toys","country":"United Kingdom","letters":"JENGA","wiki":null,"image":null},{"id":"unocard","name":"Uno Card","brand":"Mattel","category":"Toys","country":"United States","letters":"UNOCARD","wiki":null,"image":null},{"id":"nerfblaster","name":"Nerf Blaster","brand":"Hasbro","category":"Toys","country":"United States","letters":"NERFBLASTER","wiki":null,"image":null},{"id":"playdoh","name":"Play Doh","brand":"Hasbro","category":"Toys","country":"United States","letters":"PLAYDOH","wiki":null,"image":null},{"id":"beybladeburst","name":"Beyblade Burst","brand":"Takara Tomy","category":"Toys","country":"Japan","letters":"BEYBLADEBURST","wiki":null,"image":null},{"id":"catanboard","name":"Catan Board","brand":"Kosmos","category":"Toys","country":"Germany","letters":"CATANBOARD","wiki":null,"image":null},{"id":"furby","name":"Furby","brand":"Hasbro","category":"Toys","country":"United States","letters":"FURBY","wiki":null,"image":null},{"id":"tamagotchi","name":"Tamagotchi","brand":"Bandai","category":"Toys","country":"Japan","letters":"TAMAGOTCHI","wiki":null,"image":null},{"id":"slinky","name":"Slinky","brand":"Slinky","category":"Toys","country":"United States","letters":"SLINKY","wiki":null,"image":null},{"id":"ikeabilly","name":"Ikea Billy","brand":"Ikea","category":"Furniture","country":"Sweden","letters":"IKEABILLY","wiki":null,"image":null},{"id":"ikeapoang","name":"Ikea Poang","brand":"Ikea","category":"Furniture","country":"Sweden","letters":"IKEAPOANG","wiki":null,"image":null},{"id":"godrejinterio","name":"Godrej Interio","brand":"Godrej","category":"Furniture","country":"India","letters":"GODREJINTERIO","wiki":null,"image":null},{"id":"nilkamalchair","name":"Nilkamal Chair","brand":"Nilkamal","category":"Furniture","country":"India","letters":"NILKAMALCHAIR","wiki":null,"image":null},{"id":"kurlonmattress","name":"Kurlon Mattress","brand":"Kurlon","category":"Furniture","country":"India","letters":"KURLONMATTRESS","wiki":null,"image":null},{"id":"eameslounge","name":"Eames Lounge","brand":"Herman Miller","category":"Furniture","country":"United States","letters":"EAMESLOUNGE","wiki":null,"image":null},{"id":"dysonvacuum","name":"Dyson Vacuum","brand":"Dyson","category":"Appliances","country":"United Kingdom","letters":"DYSONVACUUM","wiki":null,"image":null},{"id":"lgrefrigerator","name":"LG Refrigerator","brand":"LG","category":"Appliances","country":"South Korea","letters":"LGREFRIGERATOR","wiki":null,"image":null},{"id":"ifbwashing","name":"IFB Washing","brand":"IFB","category":"Appliances","country":"India","letters":"IFBWASHING","wiki":null,"image":null},{"id":"haierac","name":"Haier AC","brand":"Haier","category":"Appliances","country":"China","letters":"HAIERAC","wiki":null,"image":null},{"id":"voltasac","name":"Voltas AC","brand":"Voltas","category":"Appliances","country":"India","letters":"VOLTASAC","wiki":null,"image":null},{"id":"daikininverter","name":"Daikin Inverter","brand":"Daikin","category":"Appliances","country":"Japan","letters":"DAIKININVERTER","wiki":null,"image":null},{"id":"bluestarac","name":"Blue Star AC","brand":"Blue Star","category":"Appliances","country":"India","letters":"BLUESTARAC","wiki":null,"image":null},{"id":"kentro","name":"Kent RO","brand":"Kent","category":"Appliances","country":"India","letters":"KENTRO","wiki":null,"image":null},{"id":"aquaguard","name":"Aquaguard","brand":"Eureka Forbes","category":"Appliances","country":"India","letters":"AQUAGUARD","wiki":null,"image":null},{"id":"bajajmixer","name":"Bajaj Mixer","brand":"Bajaj","category":"Appliances","country":"India","letters":"BAJAJMIXER","wiki":null,"image":null},{"id":"preethimixer","name":"Preethi Mixer","brand":"Preethi","category":"Appliances","country":"India","letters":"PREETHIMIXER","wiki":null,"image":null},{"id":"havellsfan","name":"Havells Fan","brand":"Havells","category":"Appliances","country":"India","letters":"HAVELLSFAN","wiki":null,"image":null},{"id":"orientfan","name":"Orient Fan","brand":"Orient","category":"Appliances","country":"India","letters":"ORIENTFAN","wiki":null,"image":null},{"id":"prestigecooker","name":"Prestige Cooker","brand":"Prestige","category":"Appliances","country":"India","letters":"PRESTIGECOOKER","wiki":null,"image":null},{"id":"hawkinscooker","name":"Hawkins Cooker","brand":"Hawkins","category":"Appliances","country":"India","letters":"HAWKINSCOOKER","wiki":null,"image":null},{"id":"borosilglass","name":"Borosil Glass","brand":"Borosil","category":"Appliances","country":"India","letters":"BOROSILGLASS","wiki":null,"image":null},{"id":"symphonycooler","name":"Symphony Cooler","brand":"Symphony","category":"Appliances","country":"India","letters":"SYMPHONYCOOLER","wiki":null,"image":null},{"id":"roombai3","name":"Roomba i3","brand":"iRobot","category":"Appliances","country":"United States","letters":"ROOMBAI3","wiki":null,"image":null},{"id":"instantpot","name":"Instant Pot","brand":"Instant Brands","category":"Appliances","country":"Canada","letters":"INSTANTPOT","wiki":null,"image":null},{"id":"keurigkmini","name":"Keurig K Mini","brand":"Keurig","category":"Appliances","country":"United States","letters":"KEURIGKMINI","wiki":null,"image":null},{"id":"tefalpan","name":"Tefal Pan","brand":"Tefal","category":"Appliances","country":"France","letters":"TEFALPAN","wiki":null,"image":null},{"id":"nikemercurial","name":"Nike Mercurial","brand":"Nike","category":"Sports","country":"United States","letters":"NIKEMERCURIAL","wiki":null,"image":null},{"id":"adidaspredator","name":"Adidas Predator","brand":"Adidas","category":"Sports","country":"Germany","letters":"ADIDASPREDATOR","wiki":null,"image":null},{"id":"sgbat","name":"SG Bat","brand":"SG","category":"Sports","country":"India","letters":"SGBAT","wiki":null,"image":null},{"id":"mrfbat","name":"MRF Bat","brand":"MRF","category":"Sports","country":"India","letters":"MRFBAT","wiki":null,"image":null},{"id":"kookaburrabat","name":"Kookaburra Bat","brand":"Kookaburra","category":"Sports","country":"Australia","letters":"KOOKABURRABAT","wiki":null,"image":null},{"id":"spaldingball","name":"Spalding Ball","brand":"Spalding","category":"Sports","country":"United States","letters":"SPALDINGBALL","wiki":null,"image":null},{"id":"wilsonprostaff","name":"Wilson Pro Staff","brand":"Wilson","category":"Sports","country":"United States","letters":"WILSONPROSTAFF","wiki":null,"image":null},{"id":"yonexbadminton","name":"Yonex Badminton","brand":"Yonex","category":"Sports","country":"Japan","letters":"YONEXBADMINTON","wiki":null,"image":null},{"id":"liningracket","name":"Li Ning Racket","brand":"Li Ning","category":"Sports","country":"China","letters":"LININGRACKET","wiki":null,"image":null},{"id":"coscoball","name":"Cosco Ball","brand":"Cosco","category":"Sports","country":"India","letters":"COSCOBALL","wiki":null,"image":null},{"id":"niviafootball","name":"Nivia Football","brand":"Nivia","category":"Sports","country":"India","letters":"NIVIAFOOTBALL","wiki":null,"image":null},{"id":"speedoswim","name":"Speedo Swim","brand":"Speedo","category":"Sports","country":"Australia","letters":"SPEEDOSWIM","wiki":null,"image":null},{"id":"trekbicycle","name":"Trek Bicycle","brand":"Trek","category":"Sports","country":"United States","letters":"TREKBICYCLE","wiki":null,"image":null},{"id":"giantbicycle","name":"Giant Bicycle","brand":"Giant","category":"Sports","country":"Taiwan","letters":"GIANTBICYCLE","wiki":null,"image":null},{"id":"herculescycle","name":"Hercules Cycle","brand":"Hercules","category":"Sports","country":"India","letters":"HERCULESCYCLE","wiki":null,"image":null},{"id":"btwincycle","name":"Btwin Cycle","brand":"Decathlon","category":"Sports","country":"France","letters":"BTWINCYCLE","wiki":null,"image":null},{"id":"yorkdumbbell","name":"York Dumbbell","brand":"York","category":"Sports","country":"United States","letters":"YORKDUMBBELL","wiki":null,"image":null},{"id":"playstation5","name":"PlayStation 5","brand":"Sony","category":"Gaming","country":"Japan","letters":"PLAYSTATION5","wiki":null,"image":null},{"id":"xboxseriesx","name":"Xbox Series X","brand":"Microsoft","category":"Gaming","country":"United States","letters":"XBOXSERIESX","wiki":null,"image":null},{"id":"nintendoswitch","name":"Nintendo Switch","brand":"Nintendo","category":"Gaming","country":"Japan","letters":"NINTENDOSWITCH","wiki":null,"image":null},{"id":"steamdeck","name":"Steam Deck","brand":"Valve","category":"Gaming","country":"United States","letters":"STEAMDECK","wiki":null,"image":null},{"id":"oculusquest","name":"Oculus Quest","brand":"Meta","category":"Gaming","country":"United States","letters":"OCULUSQUEST","wiki":null,"image":null},{"id":"logitechg502","name":"Logitech G502","brand":"Logitech","category":"Gaming","country":"Switzerland","letters":"LOGITECHG502","wiki":null,"image":null},{"id":"hyperxcloud","name":"HyperX Cloud","brand":"HyperX","category":"Gaming","country":"United States","letters":"HYPERXCLOUD","wiki":null,"image":null},{"id":"corsairk70","name":"Corsair K70","brand":"Corsair","category":"Gaming","country":"United States","letters":"CORSAIRK70","wiki":null,"image":null},{"id":"minecraft","name":"Minecraft","brand":"Mojang","category":"Gaming","country":"Sweden","letters":"MINECRAFT","wiki":null,"image":null},{"id":"fortnite","name":"Fortnite","brand":"Epic Games","category":"Gaming","country":"United States","letters":"FORTNITE","wiki":null,"image":null},{"id":"amongus","name":"Among Us","brand":"Innersloth","category":"Gaming","country":"United States","letters":"AMONGUS","wiki":null,"image":null},{"id":"candycrush","name":"Candy Crush","brand":"King","category":"Gaming","country":"Sweden","letters":"CANDYCRUSH","wiki":null,"image":null},{"id":"freefire","name":"Free Fire","brand":"Garena","category":"Gaming","country":"Singapore","letters":"FREEFIRE","wiki":null,"image":null},{"id":"clashofclans","name":"Clash of Clans","brand":"Supercell","category":"Gaming","country":"Finland","letters":"CLASHOFCLANS","wiki":null,"image":null},{"id":"godofwar","name":"God of War","brand":"Santa Monica Studio","category":"Gaming","country":"United States","letters":"GODOFWAR","wiki":null,"image":null},{"id":"eldenring","name":"Elden Ring","brand":"FromSoftware","category":"Gaming","country":"Japan","letters":"ELDENRING","wiki":null,"image":null},{"id":"callofduty","name":"Call of Duty","brand":"Activision","category":"Gaming","country":"United States","letters":"CALLOFDUTY","wiki":null,"image":null},{"id":"valorant","name":"Valorant","brand":"Riot Games","category":"Gaming","country":"United States","letters":"VALORANT","wiki":null,"image":null},{"id":"subwaysurfers","name":"Subway Surfers","brand":"Kiloo","category":"Gaming","country":"Denmark","letters":"SUBWAYSURFERS","wiki":null,"image":null},{"id":"templerun","name":"Temple Run","brand":"Imangi Studios","category":"Gaming","country":"United States","letters":"TEMPLERUN","wiki":null,"image":null},{"id":"mariokart","name":"Mario Kart","brand":"Nintendo","category":"Gaming","country":"Japan","letters":"MARIOKART","wiki":null,"image":null}]};
+const CREDITS_DATA = {"images":[{"id":"tecnocamon20","product":"Tecno Camon 20","file":"Camon 20 Premier 5G.png","licence":"CC BY 3.0","licenceUrl":"https://creativecommons.org/licenses/by/3.0","author":"TECHNICAL GURUJI 8.0","page":"https://commons.wikimedia.org/wiki/File:Camon_20_Premier_5G.png","local":"assets/img/tecnocamon20.jpg"}]};
+const BUILD = {"version":"1.0.0","built":"2026-11-06","products":282,"categories":17,"verified":35,"images":1};
+</script>
+<script>/* ============================================================================
+   WORLD PRODUCT WORD HUNT — engine
+   Pure vanilla JS, no dependencies, works offline from file:// or a WebView.
+   ============================================================================ */
+'use strict';
+
+/* ------------------------------- i18n ------------------------------------ */
+const I18N = {
+  en: {
+    play: 'Play', chooseMode: 'Choose mode', level: 'Level', coins: 'Coins', streak: 'Streak', days: 'days',
+    wordsFound: 'Words found', dailyChallenge: 'Daily challenge', playDaily: 'Play daily challenge',
+    catalogue: 'Catalogue', products: 'products', leaderboard: 'Leaderboard', achievements: 'Achievements',
+    modes: 'Game modes', howToPlay: 'How to play', credits: 'Credits', settings: 'Settings',
+    pickDifficulty: 'Pick your challenge', score: 'Score', time: 'Time', letterGrid: 'Letter grid',
+    remaining: 'Remaining', hint: 'Hint', pause: 'Pause', restart: 'Restart', findThese: 'Find these products',
+    settingsSub: 'Sound, look, language, data', audio: 'Audio & feedback', sound: 'Sound effects',
+    soundHint: 'Correct, wrong and win sounds', music: 'Background music', musicHint: 'Gentle generated loop',
+    vibration: 'Vibration', vibrationHint: 'Haptic feedback on mobile', appearance: 'Appearance', theme: 'Theme',
+    themeHint: 'Dark is easier at night', language: 'Language', languageHint: 'Interface language',
+    difficulty: 'Difficulty', difficultyHint: 'Used by quick play', more: 'More', refresh: 'Refresh catalogue',
+    reset: 'Reset progress', instructions: 'Instructions', paused: 'Paused', pausedSub: 'Timer stopped. Take your time.',
+    resume: 'Resume', mainMenu: 'Main menu', best: 'Best', nextLevel: 'Next level', playAgain: 'Play again',
+    leaderboardSub: 'Stored on this device', easy: 'Easy', medium: 'Medium', hard: 'Hard', expert: 'Expert',
+    unlimited: 'Unlimited', daily: 'Daily challenge', quickPlay: 'Quick play', words: 'words',
+    modeNote: 'Every mode draws from the same expanding catalogue. Difficulty changes the grid size, word count, timer and allowed directions (H = horizontal, V = vertical, D = diagonal, rev = backwards).',
+  },
+  hi: {
+    play: 'खेलें', chooseMode: 'मोड चुनें', level: 'स्तर', coins: 'सिक्के', streak: 'स्ट्रीक', days: 'दिन',
+    wordsFound: 'मिले शब्द', dailyChallenge: 'दैनिक चुनौती', playDaily: 'दैनिक चुनौती खेलें',
+    catalogue: 'उत्पाद सूची', products: 'उत्पाद', leaderboard: 'लीडरबोर्ड', achievements: 'उपलब्धियाँ',
+    modes: 'गेम मोड', howToPlay: 'कैसे खेलें', credits: 'श्रेय', settings: 'सेटिंग्स',
+    pickDifficulty: 'अपनी चुनौती चुनें', score: 'अंक', time: 'समय', letterGrid: 'अक्षर जाल',
+    remaining: 'शेष', hint: 'संकेत', pause: 'रोकें', restart: 'फिर शुरू', findThese: 'ये उत्पाद खोजें',
+    settingsSub: 'ध्वनि, रूप, भाषा, डेटा', audio: 'ध्वनि और प्रतिक्रिया', sound: 'ध्वनि प्रभाव',
+    soundHint: 'सही, गलत और जीत की आवाज़', music: 'पृष्ठभूमि संगीत', musicHint: 'हल्का स्वर-लूप',
+    vibration: 'कंपन', vibrationHint: 'मोबाइल पर हल्का कंपन', appearance: 'रूप', theme: 'थीम',
+    themeHint: 'रात में डार्क आसान है', language: 'भाषा', languageHint: 'इंटरफ़ेस भाषा',
+    difficulty: 'कठिनाई', difficultyHint: 'क्विक प्ले में उपयोग', more: 'अधिक', refresh: 'सूची ताज़ा करें',
+    reset: 'प्रगति मिटाएँ', instructions: 'निर्देश', paused: 'रुका हुआ', pausedSub: 'समय रुका है। आराम से खेलें।',
+    resume: 'जारी रखें', mainMenu: 'मुख्य मेनू', best: 'सर्वश्रेष्ठ', nextLevel: 'अगला स्तर', playAgain: 'फिर खेलें',
+    leaderboardSub: 'इस डिवाइस पर सहेजा गया', easy: 'आसान', medium: 'मध्यम', hard: 'कठिन', expert: 'विशेषज्ञ',
+    unlimited: 'असीमित', daily: 'दैनिक चुनौती', quickPlay: 'तुरंत खेलें', words: 'शब्द',
+    modeNote: 'सभी मोड एक ही बढ़ती उत्पाद सूची से बनते हैं। कठिनाई जाल का आकार, शब्दों की संख्या, समय और दिशाएँ बदलती है (H = क्षैतिज, V = लंबवत, D = तिरछा, rev = उल्टा)।',
+  },
+  es: {
+    play: 'Jugar', chooseMode: 'Elegir modo', level: 'Nivel', coins: 'Monedas', streak: 'Racha', days: 'días',
+    wordsFound: 'Palabras encontradas', dailyChallenge: 'Desafío diario', playDaily: 'Jugar el desafío diario',
+    catalogue: 'Catálogo', products: 'productos', leaderboard: 'Clasificación', achievements: 'Logros',
+    modes: 'Modos de juego', howToPlay: 'Cómo jugar', credits: 'Créditos', settings: 'Ajustes',
+    pickDifficulty: 'Elige tu reto', score: 'Puntuación', time: 'Tiempo', letterGrid: 'Cuadrícula',
+    remaining: 'Restantes', hint: 'Pista', pause: 'Pausa', restart: 'Reiniciar', findThese: 'Encuentra estos productos',
+    settingsSub: 'Sonido, aspecto, idioma, datos', audio: 'Audio y respuesta', sound: 'Efectos de sonido',
+    soundHint: 'Sonidos de acierto, error y victoria', music: 'Música de fondo', musicHint: 'Bucle suave generado',
+    vibration: 'Vibración', vibrationHint: 'Respuesta háptica en móvil', appearance: 'Aspecto', theme: 'Tema',
+    themeHint: 'El oscuro es mejor de noche', language: 'Idioma', languageHint: 'Idioma de la interfaz',
+    difficulty: 'Dificultad', difficultyHint: 'Se usa en partida rápida', more: 'Más', refresh: 'Actualizar catálogo',
+    reset: 'Borrar progreso', instructions: 'Instrucciones', paused: 'En pausa', pausedSub: 'Tiempo detenido. Sin prisa.',
+    resume: 'Continuar', mainMenu: 'Menú principal', best: 'Mejor', nextLevel: 'Siguiente nivel', playAgain: 'Jugar otra vez',
+    leaderboardSub: 'Guardado en este dispositivo', easy: 'Fácil', medium: 'Medio', hard: 'Difícil', expert: 'Experto',
+    unlimited: 'Ilimitado', daily: 'Desafío diario', quickPlay: 'Partida rápida', words: 'palabras',
+    modeNote: 'Todos los modos usan el mismo catálogo en crecimiento. La dificultad cambia el tamaño de la cuadrícula, las palabras, el tiempo y las direcciones (H = horizontal, V = vertical, D = diagonal, rev = al revés).',
+  },
+  fr: {
+    play: 'Jouer', chooseMode: 'Choisir un mode', level: 'Niveau', coins: 'Pièces', streak: 'Série', days: 'jours',
+    wordsFound: 'Mots trouvés', dailyChallenge: 'Défi du jour', playDaily: 'Jouer le défi du jour',
+    catalogue: 'Catalogue', products: 'produits', leaderboard: 'Classement', achievements: 'Succès',
+    modes: 'Modes de jeu', howToPlay: 'Comment jouer', credits: 'Crédits', settings: 'Réglages',
+    pickDifficulty: 'Choisissez votre défi', score: 'Score', time: 'Temps', letterGrid: 'Grille de lettres',
+    remaining: 'Restants', hint: 'Indice', pause: 'Pause', restart: 'Recommencer', findThese: 'Trouvez ces produits',
+    settingsSub: 'Son, apparence, langue, données', audio: 'Son et retours', sound: 'Effets sonores',
+    soundHint: 'Sons de réussite, erreur et victoire', music: 'Musique de fond', musicHint: 'Boucle douce générée',
+    vibration: 'Vibration', vibrationHint: 'Retour haptique sur mobile', appearance: 'Apparence', theme: 'Thème',
+    themeHint: "Le sombre est plus reposant la nuit", language: 'Langue', languageHint: "Langue de l'interface",
+    difficulty: 'Difficulté', difficultyHint: 'Utilisée en partie rapide', more: 'Plus', refresh: 'Actualiser le catalogue',
+    reset: 'Réinitialiser la progression', instructions: 'Instructions', paused: 'En pause', pausedSub: 'Chrono arrêté. Prenez votre temps.',
+    resume: 'Reprendre', mainMenu: 'Menu principal', best: 'Meilleur', nextLevel: 'Niveau suivant', playAgain: 'Rejouer',
+    leaderboardSub: 'Enregistré sur cet appareil', easy: 'Facile', medium: 'Moyen', hard: 'Difficile', expert: 'Expert',
+    unlimited: 'Illimité', daily: 'Défi du jour', quickPlay: 'Partie rapide', words: 'mots',
+    modeNote: "Tous les modes puisent dans le même catalogue évolutif. La difficulté change la taille de la grille, le nombre de mots, le chrono et les directions (H = horizontal, V = vertical, D = diagonal, rev = à l'envers).",
+  },
+  de: {
+    play: 'Spielen', chooseMode: 'Modus wählen', level: 'Level', coins: 'Münzen', streak: 'Serie', days: 'Tage',
+    wordsFound: 'Gefundene Wörter', dailyChallenge: 'Tägliche Herausforderung', playDaily: 'Tägliche Herausforderung spielen',
+    catalogue: 'Katalog', products: 'Produkte', leaderboard: 'Rangliste', achievements: 'Erfolge',
+    modes: 'Spielmodi', howToPlay: 'Spielanleitung', credits: 'Danksagungen', settings: 'Einstellungen',
+    pickDifficulty: 'Wähle deine Herausforderung', score: 'Punkte', time: 'Zeit', letterGrid: 'Buchstabengitter',
+    remaining: 'Verbleibend', hint: 'Hinweis', pause: 'Pause', restart: 'Neustart', findThese: 'Finde diese Produkte',
+    settingsSub: 'Ton, Aussehen, Sprache, Daten', audio: 'Audio und Feedback', sound: 'Soundeffekte',
+    soundHint: 'Töne für richtig, falsch und Sieg', music: 'Hintergrundmusik', musicHint: 'Sanfte erzeugte Schleife',
+    vibration: 'Vibration', vibrationHint: 'Haptisches Feedback am Handy', appearance: 'Aussehen', theme: 'Design',
+    themeHint: 'Dunkel ist nachts angenehmer', language: 'Sprache', languageHint: 'Sprache der Oberfläche',
+    difficulty: 'Schwierigkeit', difficultyHint: 'Wird im Schnellspiel genutzt', more: 'Mehr', refresh: 'Katalog aktualisieren',
+    reset: 'Fortschritt löschen', instructions: 'Anleitung', paused: 'Pausiert', pausedSub: 'Zeit gestoppt. Lass dir Zeit.',
+    resume: 'Fortsetzen', mainMenu: 'Hauptmenü', best: 'Bestwert', nextLevel: 'Nächstes Level', playAgain: 'Nochmal spielen',
+    leaderboardSub: 'Auf diesem Gerät gespeichert', easy: 'Leicht', medium: 'Mittel', hard: 'Schwer', expert: 'Experte',
+    unlimited: 'Unbegrenzt', daily: 'Tägliche Herausforderung', quickPlay: 'Schnellspiel', words: 'Wörter',
+    modeNote: 'Alle Modi nutzen denselben wachsenden Katalog. Die Schwierigkeit ändert Gittergröße, Wortzahl, Zeit und Richtungen (H = waagerecht, V = senkrecht, D = diagonal, rev = rückwärts).'
+  }
+};
+const LANGS = [['en', 'English'], ['hi', 'हिन्दी'], ['es', 'Español'], ['fr', 'Français'], ['de', 'Deutsch']];
+
+/* ------------------------------ storage ---------------------------------- */
+const STORE_KEY = 'wpwh.state.v1';
+const DEFAULT_STATE = {
+  settings: { sound: true, music: true, vibration: true, theme: 'dark', lang: 'en', difficulty: 'easy' },
+  coins: 120, xp: 0, level: 1,
+  stats: { words: 0, games: 0, wins: 0, perfect: 0, coinsTotal: 0, countries: {}, categories: {}, fastest: 99, dailyDone: '' },
+  best: { easy: 0, medium: 0, hard: 0, expert: 0, unlimited: 0, daily: 0 },
+  board: [], ach: {}, streak: { count: 0, last: '' }, daily: { last: '', day: 0 },
+  recent: [], levels: { easy: 1, medium: 1, hard: 1, expert: 1, unlimited: 1, daily: 1 }
+};
+let S = load();
+
+function load() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return structuredClone(DEFAULT_STATE);
+    const parsed = JSON.parse(raw);
+    return deepMerge(structuredClone(DEFAULT_STATE), parsed);
+  } catch (e) { return structuredClone(DEFAULT_STATE); }
+}
+function deepMerge(base, extra) {
+  if (!extra || typeof extra !== 'object') return base;
+  for (const k of Object.keys(extra)) {
+    if (base[k] && typeof base[k] === 'object' && !Array.isArray(base[k]) && typeof extra[k] === 'object') deepMerge(base[k], extra[k]);
+    else base[k] = extra[k];
+  }
+  return base;
+}
+let saveTimer = null;
+function save(now) {
+  const write = () => { try { localStorage.setItem(STORE_KEY, JSON.stringify(S)); } catch (e) {} };
+  if (now) return write();
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(write, 250);
+}
+const t = (key) => (I18N[S.settings.lang] && I18N[S.settings.lang][key]) || I18N.en[key] || key;
+
+/* ------------------------------ helpers ---------------------------------- */
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const todayKey = () => new Date().toISOString().slice(0, 10);
+const fmtTime = (s) => {
+  s = Math.max(0, Math.ceil(s));
+  return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+};
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+const rnd = Math.random;
+
+/* --------------------------- inline SVG icons ----------------------------- */
+const SVG_ICONS = {
+  play: '<polygon points="7,4 20,12 7,20" class="fill"/>',
+  pause: '<rect x="7" y="4.5" width="3.6" height="15" rx="1.5" class="fill"/><rect x="13.4" y="4.5" width="3.6" height="15" rx="1.5" class="fill"/>',
+  settings: '<path d="M4 7h8M17 7h3M4 17h3M11 17h9"/><circle cx="14.5" cy="7" r="2.4"/><circle cx="8.5" cy="17" r="2.4"/>',
+  back: '<path d="M15 4.5 7.5 12 15 19.5"/><path d="M8 12h11"/>',
+  hint: '<path d="M9.5 18h5M10.5 21h3"/><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/>',
+  restart: '<path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20.5 4v4.8h-4.8"/>',
+  refresh: '<path d="M4.2 12a7.8 7.8 0 0 1 13.3-5.5"/><path d="M19.8 12a7.8 7.8 0 0 1-13.3 5.5"/><path d="M18 2.8v4.4h-4.4"/><path d="M6 21.2v-4.4h4.4"/>',
+  trash: '<path d="M4 7h16"/><path d="M9.5 7V4.2h5V7"/><path d="M6.5 7 7.6 20.5h8.8L17.5 7"/>',
+  trophy: '<path d="M8 4h8v5.5a4 4 0 0 1-8 0z"/><path d="M8 5.2H5v1.9a3 3 0 0 0 3 3"/><path d="M16 5.2h3v1.9a3 3 0 0 1-3 3"/><path d="M12 13.5V17"/><path d="M8.8 21h6.4"/>',
+  medal: '<circle cx="12" cy="15" r="4.6"/><path d="M8.6 4.5 12 10l3.4-5.5"/>',
+  book: '<path d="M5 4.2h9a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M8 4.2v16"/>',
+  copy: '<circle cx="12" cy="12" r="8.6"/><path d="M14.8 9.6a3.4 3.4 0 1 0 0 4.8"/>',
+  globe: '<circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c3 3.4 3 13.8 0 17.2M12 3.4c-3 3.4-3 13.8 0 17.2"/>',
+  lock: '<rect x="5" y="10.8" width="14" height="9.4" rx="2.2"/><path d="M8.6 10.8V8a3.4 3.4 0 0 1 6.8 0v2.8"/>',
+  check: '<path d="M5 12.8 9.4 17.4 19 6.8"/>',
+  star: '<polygon points="12,3.4 14.7,9 20.7,9.8 16.3,14 17.4,20 12,17.1 6.6,20 7.7,14 3.3,9.8 9.3,9" class="fill"/>',
+  gift: '<rect x="3.4" y="9" width="17.2" height="11.4" rx="2.2"/><path d="M3.4 13.2h17.2"/><path d="M12 9v11.4"/><path d="M12 9C10 9 7.8 8.2 7.8 6.4A2.4 2.4 0 0 1 12.3 5c.4 1 .4 2.4-.3 4z"/><path d="M12 9c2 0 4.2-.8 4.2-2.6A2.4 2.4 0 0 0 11.7 5c-.4 1-.4 2.4.3 4z"/>',
+  coin: '<circle cx="12" cy="12" r="8.4"/><path d="M14.7 9.8a3.1 3.1 0 0 0-4.9.6c-.6 1.2.4 2 1.9 2.4 1.5.4 2.5 1 1.9 2.2a3.1 3.1 0 0 1-4.9.6"/>',
+  chevron: '<path d="M9 5l7 7-7 7"/>'
+};
+const ico = (name, cls = '') => `<svg class="ico ${cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${SVG_ICONS[name] || ''}</svg>`;
+function hydrateIcons(root) {
+  (root || document).querySelectorAll('[data-icon]').forEach((el) => {
+    if (el.dataset.done) return;
+    el.innerHTML = ico(el.dataset.icon);
+    el.dataset.done = '1';
+    el.style.display = 'inline-flex';
+    el.style.alignItems = 'center';
+  });
+}
+
+
+/* ------------------------------- audio ----------------------------------- */
+const Sound = {
+  ctx: null, musicTimer: null, step: 0,
+  ensure() {
+    if (!this.ctx) {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return null;
+      try { this.ctx = new AC(); } catch (e) { return null; }
+    }
+    if (this.ctx.state === 'suspended') this.ctx.resume();
+    return this.ctx;
+  },
+  tone(freq, dur, type = 'sine', vol = 0.14, delay = 0, glide = 0) {
+    if (!S.settings.sound) return;
+    const ctx = this.ensure(); if (!ctx) return;
+    const t0 = ctx.currentTime + delay;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, t0);
+    if (glide) osc.frequency.exponentialRampToValueAtTime(Math.max(40, freq + glide), t0 + dur);
+    gain.gain.setValueAtTime(0.0001, t0);
+    gain.gain.exponentialRampToValueAtTime(vol, t0 + 0.012);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(t0); osc.stop(t0 + dur + 0.02);
+  },
+  click() { this.tone(520, 0.05, 'triangle', 0.07); },
+  pick() { this.tone(660, 0.04, 'sine', 0.05); },
+  correct() { [523, 659, 784, 1046].forEach((f, i) => this.tone(f, 0.16, 'triangle', 0.13, i * 0.055)); },
+  wrong() { this.tone(180, 0.18, 'sawtooth', 0.1, 0, -70); },
+  coin() { this.tone(1046, 0.08, 'square', 0.08); this.tone(1568, 0.1, 'square', 0.06, 0.07); },
+  win() { [523, 659, 784, 1046, 1318].forEach((f, i) => this.tone(f, 0.3, 'triangle', 0.12, i * 0.11)); },
+  lose() { [392, 330, 262].forEach((f, i) => this.tone(f, 0.3, 'sine', 0.1, i * 0.14)); },
+  startMusic() {
+    if (!S.settings.music || this.musicTimer) return;
+    const ctx = this.ensure(); if (!ctx) return;
+    const scale = [220, 261.6, 293.7, 329.6, 392, 440, 523.3];
+    this.musicTimer = setInterval(() => {
+      if (!S.settings.music || !G.running || G.paused) return;
+      const c = this.ensure(); if (!c) return;
+      const n = scale[(this.step * 3 + 2) % scale.length];
+      const t0 = c.currentTime;
+      const osc = c.createOscillator(), g = c.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = n;
+      g.gain.setValueAtTime(0.0001, t0);
+      g.gain.exponentialRampToValueAtTime(0.035, t0 + 0.25);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + 1.5);
+      osc.connect(g).connect(c.destination);
+      osc.start(t0); osc.stop(t0 + 1.6);
+      if (this.step % 4 === 0) this.tone(scale[(this.step) % 3] / 2, 1.2, 'sine', 0.02);
+      this.step++;
+    }, 900);
+  },
+  stopMusic() { if (this.musicTimer) { clearInterval(this.musicTimer); this.musicTimer = null; } }
+};
+function vibrate(pattern) {
+  if (!S.settings.vibration) return;
+  if (navigator.vibrate) { try { navigator.vibrate(pattern); } catch (e) {} }
+}
+
+/* ------------------------------ catalogue -------------------------------- */
+const CATEGORY_STYLE = {
+  Smartphones: { glyph: '📱', tint: '#6d5cff' }, Laptops: { glyph: '💻', tint: '#4f8dff' },
+  Cars: { glyph: '🚗', tint: '#ff6b6b' }, Bikes: { glyph: '🏍️', tint: '#ff9f43' },
+  Clothing: { glyph: '👕', tint: '#ff4d9d' }, Shoes: { glyph: '👟', tint: '#2ee6a8' },
+  Watches: { glyph: '⌚', tint: '#c084fc' }, Electronics: { glyph: '🔌', tint: '#38bdf8' },
+  Cosmetics: { glyph: '💄', tint: '#fb7185' }, Beauty: { glyph: '🧴', tint: '#f472b6' },
+  Food: { glyph: '🍫', tint: '#f59e0b' }, Drinks: { glyph: '🥤', tint: '#22d3ee' },
+  Toys: { glyph: '🧸', tint: '#a78bfa' }, Furniture: { glyph: '🛋️', tint: '#94a3b8' },
+  Appliances: { glyph: '🧺', tint: '#60a5fa' }, Sports: { glyph: '🏏', tint: '#34d399' },
+  Gaming: { glyph: '🎮', tint: '#818cf8' }
+};
+const catStyle = (c) => CATEGORY_STYLE[c] || { glyph: '🎁', tint: '#7c5cff' };
+
+const PRODUCTS = (CATALOG.products || []).filter((p) => p.letters && p.letters.length >= 4 && p.letters.length <= 14);
+const BY_ID = new Map(PRODUCTS.map((p) => [p.id, p]));
+const COUNTRIES = Array.from(new Set(PRODUCTS.map((p) => p.country))).sort();
+const CATEGORIES = Array.from(new Set(PRODUCTS.map((p) => p.category))).sort();
+
+/* -------------------------------- modes ---------------------------------- */
+const MODES = {
+  easy:      { size: 8,  words: 3, time: 180, dirs: [[0, 1], [1, 0], [1, 1]], tint: 'rgba(46,230,168,.5)', label: 'easy' },
+  medium:    { size: 10, words: 4, time: 200, dirs: [[0, 1], [1, 0], [1, 1], [0, -1]], tint: 'rgba(56,189,248,.5)', label: 'medium' },
+  hard:      { size: 12, words: 5, time: 240, dirs: [[0, 1], [1, 0], [1, 1], [0, -1], [-1, 0], [-1, -1]], tint: 'rgba(255,193,77,.5)', label: 'hard' },
+  expert:    { size: 14, words: 6, time: 300, dirs: [[0, 1], [1, 0], [1, 1], [0, -1], [-1, 0], [-1, -1], [1, -1], [-1, 1]], tint: 'rgba(255,77,157,.5)', label: 'expert' },
+  unlimited: { size: 12, words: 5, time: 0,   dirs: [[0, 1], [1, 0], [1, 1], [0, -1], [-1, 0], [-1, -1], [1, -1], [-1, 1]], tint: 'rgba(167,139,250,.5)', label: 'unlimited' },
+  daily:     { size: 10, words: 4, time: 240, dirs: [[0, 1], [1, 0], [1, 1], [0, -1], [-1, 0], [-1, -1], [1, -1], [-1, 1]], tint: 'rgba(255,193,77,.5)', label: 'daily' }
+};
+const MODE_ORDER = ['easy', 'medium', 'hard', 'expert', 'unlimited', 'daily'];
+
+/* --------------------------- puzzle generation --------------------------- */
+function pickWords(cfg, rng, need) {
+  const maxLen = Math.min(cfg.size, 12);
+  const pool = PRODUCTS.filter((p) => p.letters.length >= 4 && p.letters.length <= maxLen);
+  const recent = new Set(S.recent);
+  const fresh = pool.filter((p) => !recent.has(p.id));
+  const source = fresh.length >= need * 3 ? fresh : pool;
+  const picked = [];
+  const usedLetters = new Set();
+  let guard = 0;
+  while (picked.length < need && guard++ < need * 400) {
+    const p = source[Math.floor(rng() * source.length)];
+    if (!p) break;
+    if (usedLetters.has(p.letters)) continue;
+    // avoid two words that are substrings of each other (confusing overlaps)
+    if (picked.some((q) => q.letters.includes(p.letters) || p.letters.includes(q.letters))) continue;
+    usedLetters.add(p.letters);
+    picked.push(p);
+  }
+  return picked.sort((a, b) => b.letters.length - a.letters.length);
+}
+
+function placeWords(words, size, dirs, rng) {
+  const grid = Array.from({ length: size }, () => Array(size).fill(''));
+  const placed = [];
+  for (const word of words) {
+    const L = word.letters.length;
+    let best = null;
+    for (let attempt = 0; attempt < 600; attempt++) {
+      const dir = dirs[Math.floor(rng() * dirs.length)];
+      const [dr, dc] = dir;
+      const rMin = dr < 0 ? L - 1 : 0, rMax = dr > 0 ? size - L : size - 1;
+      const cMin = dc < 0 ? L - 1 : 0, cMax = dc > 0 ? size - L : size - 1;
+      if (rMax < rMin || cMax < cMin) continue;
+      const r0 = rMin + Math.floor(rng() * (rMax - rMin + 1));
+      const c0 = cMin + Math.floor(rng() * (cMax - cMin + 1));
+      let ok = true, overlap = 0;
+      const cells = [];
+      for (let i = 0; i < L; i++) {
+        const r = r0 + dr * i, c = c0 + dc * i;
+        if (r < 0 || c < 0 || r >= size || c >= size) { ok = false; break; }
+        const cur = grid[r][c];
+        if (cur && cur !== word.letters[i]) { ok = false; break; }
+        if (cur === word.letters[i]) overlap++;
+        cells.push([r, c]);
+      }
+      if (!ok) continue;
+      if (!best || overlap > best.overlap) best = { r0, c0, dr, dc, cells, overlap };
+      if (overlap > 0) break;
+    }
+    if (!best) continue;
+    best.cells.forEach(([r, c], i) => { grid[r][c] = word.letters[i]; });
+    placed.push({ product: word, cells: best.cells, dir: [best.dr, best.dc], start: [best.r0, best.c0] });
+  }
+  // fill the gaps
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const vowelBias = ['A', 'E', 'I', 'O', 'U', 'A', 'E', 'I', 'O', 'U', 'R', 'S', 'T', 'N', 'L'];
+  for (let r = 0; r < size; r++) {
+    for (let c = 0; c < size; c++) {
+      if (!grid[r][c]) grid[r][c] = rng() < 0.42 ? vowelBias[Math.floor(rng() * vowelBias.length)] : letters[Math.floor(rng() * 26)];
+    }
+  }
+  return { grid, placed };
+}
+
+function buildPuzzle(mode) {
+  const cfg = MODES[mode];
+  let seedRng = mode === 'daily' ? mulberry32(Number(todayKey().replace(/-/g, '')) % 2147483647) : rnd;
+  let fallback = null;
+  for (let attempt = 0; attempt < 60; attempt++) {
+    const words = pickWords(cfg, seedRng, cfg.words);
+    if (words.length < 2) continue;
+    const { grid, placed } = placeWords(words, cfg.size, cfg.dirs, seedRng);
+    if (placed.length === words.length) return { grid, placed, size: cfg.size };
+    if (!fallback || placed.length > fallback.placed.length) fallback = { grid, placed, size: cfg.size };
+    if (placed.length >= Math.min(3, cfg.words)) { fallback = fallback || { grid, placed, size: cfg.size }; }
+  }
+  return fallback;
+}
+
+/* ------------------------------ live extras ------------------------------ */
+let LIVE = [];
+try { LIVE = JSON.parse(localStorage.getItem('wpwh.live') || '[]'); } catch (e) { LIVE = []; }
+const productsAll = () => (LIVE.length ? PRODUCTS.concat(LIVE.filter((p) => !BY_ID.has(p.id))) : PRODUCTS);
+
+/* ------------------------------- game state ------------------------------ */
+const G = {
+  mode: null, cfg: null, size: 0, grid: [], placements: [], found: new Set(),
+  total: 0, score: 0, coinsEarned: 0, words: 0, running: false, paused: false, ready: false,
+  remaining: 0, timer: null, wrong: 0, lastFoundAt: 0, chain: 0, level: 1,
+  sel: { anchor: null, path: [] }, dragging: false, daily: false, roundStart: 0, batch: 1
+};
+
+/* ------------------------------ DOM helpers ------------------------------ */
+function toast(msg, kind = '') {
+  const wrap = $('#toasts');
+  const el = document.createElement('div');
+  el.className = 'toast ' + kind;
+  el.textContent = msg;
+  wrap.appendChild(el);
+  setTimeout(() => { el.style.transition = 'opacity .3s, transform .3s'; el.style.opacity = '0'; el.style.transform = 'translateY(-8px)'; }, 2000);
+  setTimeout(() => el.remove(), 2400);
+}
+function showScreen(name) {
+  $$('.screen').forEach((s) => s.classList.toggle('active', s.id === 'screen-' + name));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function openOverlay(id) { $('#' + id).classList.add('open'); }
+function closeOverlay(id) { $('#' + id).classList.remove('open'); }
+function confetti() {
+  const box = $('#confetti');
+  box.classList.remove('hidden');
+  box.innerHTML = '';
+  const colors = ['#7c5cff', '#ff4d9d', '#ffc14d', '#2ee6a8', '#38bdf8', '#fff'];
+  for (let i = 0; i < 70; i++) {
+    const p = document.createElement('i');
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.background = colors[i % colors.length];
+    p.style.animationDuration = (1.6 + Math.random() * 1.6) + 's';
+    p.style.animationDelay = (Math.random() * 0.5) + 's';
+    p.style.transform = `rotate(${Math.random() * 360}deg)`;
+    box.appendChild(p);
+  }
+  setTimeout(() => { box.classList.add('hidden'); box.innerHTML = ''; }, 3600);
+}
+
+/* -------------------------------- HUD ------------------------------------ */
+function updateHUD() {
+  $('#g-score').textContent = G.score;
+  $('#g-coins').textContent = S.coins;
+  $('#g-remaining').textContent = Math.max(0, G.total - G.found.size);
+  $('#g-timer').textContent = fmtTime(G.remaining);
+  const pct = G.total ? (G.found.size / G.total) * 100 : 0;
+  $('#g-progress').style.width = pct + '%';
+  $('#g-timer-chip').classList.toggle('warn', G.cfg && G.cfg.time > 0 && G.remaining <= 20 && G.running);
+  const m = MODES[G.mode] || MODES.easy;
+  $('#g-mode').textContent = t(m.label);
+  $('#g-level').textContent = t('level') + ' ' + G.level + (G.mode === 'unlimited' ? ' · ×' + G.batch : '');
+  $$('#word-list .word-chip').forEach((chip) => {
+    chip.classList.toggle('done', G.found.has(chip.dataset.id));
+  });
+  $('#btn-play').innerHTML = ico('play', 'fill') + ' ' + t('play');
+  $('#btn-play').disabled = G.running;
+}
+
+function renderWordList() {
+  const box = $('#word-list');
+  box.innerHTML = '';
+  G.placements.forEach((pl) => {
+    const chip = document.createElement('button');
+    chip.className = 'word-chip' + (G.found.has(pl.product.id) ? ' done' : '');
+    chip.dataset.id = pl.product.id;
+    chip.innerHTML = `<span>${pl.product.name}</span><span class="len">${pl.product.letters.length}</span>`;
+    chip.addEventListener('click', () => { Sound.click(); renderProduct(pl.product); });
+    box.appendChild(chip);
+  });
+}
+
+function renderProduct(p, isNew) {
+  const vis = $('#p-visual');
+  const glyphEl = $('#p-glyph');
+  const img = p.image && p.image.local ? p.image.local : null;
+  const st = catStyle(p.category);
+  vis.querySelectorAll('img').forEach((n) => n.remove());
+  glyphEl.style.fontSize = '';
+  glyphEl.style.width = ''; glyphEl.style.height = '';
+  glyphEl.innerHTML = '';
+  if (img) {
+    const el = document.createElement('img');
+    el.src = img; el.alt = p.name; el.loading = 'lazy';
+    el.onerror = () => { el.remove(); glyphEl.classList.remove('hidden'); };
+    vis.insertBefore(el, vis.firstChild);
+    glyphEl.classList.add('hidden');
+  } else {
+    glyphEl.classList.remove('hidden');
+    glyphEl.className = 'mono-glyph';
+    glyphEl.textContent = (p.brand || p.name || '?').trim().charAt(0).toUpperCase();
+    vis.style.background = `radial-gradient(120% 120% at 20% 10%, ${st.tint}66, transparent 60%), linear-gradient(140deg, ${st.tint}33, #0b1030 70%)`;
+  }
+  $('#p-name').textContent = p.name;
+  $('#p-brand').textContent = p.brand;
+  $('#p-len').textContent = p.letters.length + ' ' + (p.letters.length === 1 ? 'letter' : 'letters');
+  $('#p-tags').innerHTML =
+    `<span class="tag accent">${p.category}</span>` +
+    `<span class="tag">${p.country}</span>` +
+    `<span class="tag">${p.brand}</span>`;
+  $('#p-desc').textContent = p.wiki && p.wiki.extract
+    ? p.wiki.extract
+    : `${p.name} by ${p.brand} — a product in the ${p.category} category, from ${p.country}.`;
+  const w = p.wiki;
+  $('#p-attrib').innerHTML = [
+    w && w.url ? `Source: <a href="${w.url}" target="_blank" rel="noopener">Wikipedia — ${escapeHtml(w.title)}</a>` : '',
+    p.image && p.image.local ? `Image: Wikimedia Commons, ${escapeHtml(p.image.licence)} — ${escapeHtml(p.image.author)}` : ''
+  ].filter(Boolean).join(' · ') || 'No external source attached to this entry.';
+  if (isNew) { vis.style.animation = 'none'; void vis.offsetWidth; vis.style.animation = 'fade .45s ease both'; }
+}
+function escapeHtml(s) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+
+function renderTeaser() {
+  const st = { glyph: '🌍', tint: '#7c5cff' };
+  $('#p-visual').querySelectorAll('img').forEach((n) => n.remove());
+  $('#p-glyph').classList.remove('hidden');
+  $('#p-glyph').className = 'product-glyph';
+  $('#p-glyph').innerHTML = ico('globe');
+  $('#p-glyph').style.fontSize = '0';
+  $('#p-glyph').querySelector('svg').style.width = '56px';
+  $('#p-glyph').querySelector('svg').style.height = '56px';
+  $('#p-glyph').querySelector('svg').style.strokeWidth = '1.3';
+  $('#p-visual').style.background = 'linear-gradient(140deg,#2a1f63,#46246b 45%,#7a2352)';
+  $('#p-name').textContent = 'World catalogue';
+  $('#p-brand').textContent = PRODUCTS.length + ' products · ' + COUNTRIES.length + ' countries';
+  $('#p-len').textContent = '🌐';
+  $('#p-tags').innerHTML = `<span class="tag accent">${CATEGORIES.length} categories</span><span class="tag">offline</span>`;
+  $('#p-desc').textContent = 'Find a product name in the grid to reveal its card, brand, country and source.';
+  $('#p-attrib').textContent = 'Product data verified against Wikipedia by the content agent.';
+}
+
+/* ------------------------------- grid UI --------------------------------- */
+function renderGrid() {
+  const grid = $('#grid');
+  grid.style.gridTemplateColumns = `repeat(${G.size}, minmax(0, 1fr))`;
+  grid.innerHTML = '';
+  const frag = document.createDocumentFragment();
+  for (let r = 0; r < G.size; r++) {
+    for (let c = 0; c < G.size; c++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      cell.dataset.idx = String(r * G.size + c);
+      cell.setAttribute('role', 'gridcell');
+      cell.textContent = G.grid[r][c];
+      frag.appendChild(cell);
+    }
+  }
+  grid.appendChild(frag);
+  fitCellFont();
+}
+function fitCellFont() {
+  const grid = $('#grid');
+  const w = grid.clientWidth || 360;
+  const size = Math.max(6, Math.floor(w / G.size) * 0.52);
+  grid.style.setProperty('--cell-font', size.toFixed(1) + 'px');
+  grid.querySelectorAll('.cell').forEach((c) => { c.style.borderRadius = Math.max(7, Math.min(14, w / G.size * 0.18)) + 'px'; });
+}
+window.addEventListener('resize', () => { if (G.size) fitCellFont(); });
+
+function paintSelection() {
+  const cells = $('#grid').children;
+  for (let i = 0; i < cells.length; i++) cells[i].classList.remove('sel');
+  G.sel.path.forEach((idx) => { const el = cells[idx]; if (el) el.classList.add('sel'); });
+}
+function paintFound() {
+  const cells = $('#grid').children;
+  const foundCells = new Set();
+  G.placements.forEach((pl) => { if (G.found.has(pl.product.id)) pl.cells.forEach(([r, c]) => foundCells.add(r * G.size + c)); });
+  for (let i = 0; i < cells.length; i++) cells[i].classList.toggle('found', foundCells.has(i));
+}
+
+function pathBetween(a, b) {
+  if (a === null || b === null) return null;
+  const size = G.size;
+  const r0 = Math.floor(a / size), c0 = a % size, r1 = Math.floor(b / size), c1 = b % size;
+  const dr = Math.sign(r1 - r0), dc = Math.sign(c1 - c0);
+  const dist = Math.max(Math.abs(r1 - r0), Math.abs(c1 - c0));
+  if (dist === 0) return [a];
+  if (!(dr === 0 || dc === 0 || Math.abs(r1 - r0) === Math.abs(c1 - c0))) return null;
+  const out = [];
+  for (let i = 0; i <= dist; i++) out.push((r0 + dr * i) * size + (c0 + dc * i));
+  return out;
+}
+function idxFromPoint(x, y) {
+  const el = document.elementFromPoint(x, y);
+  if (!el || !el.classList || !el.classList.contains('cell')) return null;
+  return Number(el.dataset.idx);
+}
+
+/* ------------------------------ gameplay --------------------------------- */
+function ensureRunning() {
+  if (G.ready && !G.running) startClock();
+}
+function startClock() {
+  if (G.running) return;
+  G.ready = false; G.running = true; G.paused = false;
+  clearInterval(G.timer);
+  G.timer = setInterval(tick, 200);
+  Sound.startMusic();
+  updateHUD();
+}
+function tick() {
+  if (!G.running || G.paused) return;
+  if (G.cfg.time > 0) {
+    G.remaining -= 0.2;
+    if (G.remaining <= 0) { G.remaining = 0; updateHUD(); endGame(false); return; }
+  } else {
+    G.remaining += 0.2;
+  }
+  updateHUD();
+}
+function pauseGame() {
+  if (!G.running || G.paused) return;
+  G.paused = true;
+  Sound.click();
+  openOverlay('ov-pause');
+}
+function resumeGame() {
+  if (!G.paused) return;
+  G.paused = false;
+  closeOverlay('ov-pause');
+  Sound.click();
+}
+
+function startGame(mode, opts = {}) {
+  const cfg = MODES[mode];
+  if (!cfg) return;
+  const puzzle = buildPuzzle(mode);
+  if (!puzzle || !puzzle.placed.length) { toast('Catalogue too small — run the content agent.', 'bad'); return; }
+
+  G.mode = mode; G.cfg = cfg; G.size = puzzle.size; G.grid = puzzle.grid;
+  G.placements = puzzle.placed; G.found = new Set(); G.total = puzzle.placed.length;
+  G.score = 0; G.coinsEarned = 0; G.words = 0; G.wrong = 0; G.chain = 0;
+  G.remaining = cfg.time > 0 ? cfg.time : 0;
+  G.running = false; G.paused = false; G.ready = true;
+  G.sel = { anchor: null, path: [] };
+  G.level = S.levels[mode] || 1;
+  G.daily = mode === 'daily';
+  G.roundStart = Date.now(); G.batch = 1;
+  clearInterval(G.timer); G.timer = null;
+  closeOverlay('ov-pause'); closeOverlay('ov-result');
+
+  S.stats.games++;
+  renderGrid(); renderWordList(); renderTeaser(); updateHUD();
+  $('#g-coins').textContent = S.coins;
+  showScreen('game');
+  fitCellFont();
+  setTimeout(fitCellFont, 60);
+  G.placements.forEach((pl) => { if (!S.recent.includes(pl.product.id)) S.recent.push(pl.product.id); });
+  S.recent = S.recent.slice(-160);
+  save();
+  toast(G.cfg.time ? t('play') + ' · ' + fmtTime(G.cfg.time) : t('unlimited'), 'good');
+}
+
+function evaluateSelection() {
+  const path = G.sel.path;
+  if (path.length < 2) return false;
+  const letters = path.map((idx) => G.grid[Math.floor(idx / G.size)][idx % G.size]).join('');
+  const reversed = letters.split('').reverse().join('');
+  const hit = G.placements.find((pl) => !G.found.has(pl.product.id) &&
+    (pl.product.letters === letters || pl.product.letters === reversed));
+  if (hit) { wordFound(hit); return true; }
+  G.wrong++;
+  Sound.wrong();
+  vibrate([12, 40, 12]);
+  G.chain = 0;
+  return false;
+}
+
+function wordFound(pl) {
+  const p = pl.product;
+  G.found.add(p.id);
+  G.words++;
+  const now = Date.now();
+  const gap = (now - G.lastFoundAt) / 1000;
+  G.chain = gap < 8 ? G.chain + 1 : 1;
+  G.lastFoundAt = now;
+  const base = p.letters.length * 10;
+  const mult = 1 + (G.chain - 1) * 0.25;
+  const bonus = G.cfg.time > 0 ? Math.round(G.remaining / 6) : 0;
+  const pts = Math.round(base * mult + bonus);
+  G.score += pts;
+  const coins = (p.letters.length >= 8 ? 8 : 5) * (G.daily ? 2 : 1);
+  G.coinsEarned += coins;
+
+  S.stats.words++;
+  S.stats.countries[p.country] = (S.stats.countries[p.country] || 0) + 1;
+  S.stats.categories[p.category] = (S.stats.categories[p.category] || 0) + 1;
+  const took = (now - (G.roundStart || now)) / 1000;
+  if (G.words === 1 && took < S.stats.fastest) S.stats.fastest = Math.round(took * 10) / 10;
+
+  Sound.correct(); Sound.coin();
+  vibrate([18, 30, 18]);
+  paintFound();
+  renderProduct(p, true);
+  renderWordList();
+  updateHUD();
+  toast(`+${pts}  ${p.name}`, 'good');
+  const vis = $('#p-visual');
+  vis.classList.add('pop');
+  setTimeout(() => vis.classList.remove('pop'), 500);
+  if (G.found.size >= G.total) setTimeout(levelComplete, 520);
+  checkAchievements();
+  save();
+}
+
+function levelComplete() {
+  const timeBonus = G.cfg.time > 0 ? Math.round(G.remaining * 3) : 0;
+  const perfect = G.wrong === 0;
+  const coins = (perfect ? 60 : 35) * (G.daily ? 2 : 1);
+  G.score += timeBonus;
+  G.coinsEarned += coins;
+  if (perfect) S.stats.perfect++;
+  S.stats.wins++;
+  if (G.daily) S.stats.dailyDone = todayKey();
+  S.xp += Math.round(G.score / 8) + 40;
+  const newLevel = 1 + Math.floor(S.xp / 900);
+  if (newLevel > S.level) { S.level = newLevel; toast(t('level') + ' ' + S.level, 'good'); }
+  S.coins += G.coinsEarned;
+  S.stats.coinsTotal += G.coinsEarned;
+  S.levels[G.mode] = G.level + 1;
+  S.best[G.mode] = Math.max(S.best[G.mode] || 0, G.score);
+  pushBoard(G.score, G.mode, G.words);
+  checkAchievements();
+  save(true);
+
+  if (G.mode === 'unlimited') {
+    Sound.win();
+    G.batch++;
+    const puzzle = buildPuzzle('unlimited');
+    G.grid = puzzle.grid; G.size = puzzle.size; G.placements = puzzle.placed; G.found = new Set();
+    G.total = puzzle.placed.length; G.wrong = 0; G.chain = 0; G.level++;
+    renderGrid(); renderWordList(); paintFound(); updateHUD();
+    toast(t('unlimited') + ' · ×' + G.batch, 'good');
+    return;
+  }
+  stopClock();
+  Sound.win();
+  confetti();
+  showResult(true, timeBonus, coins);
+}
+
+function endGame(won) {
+  stopClock();
+  if (!won) {
+    Sound.lose();
+    vibrate([40, 60, 40]);
+    S.coins += G.coinsEarned;
+    S.stats.coinsTotal += G.coinsEarned;
+    S.best[G.mode] = Math.max(S.best[G.mode] || 0, G.score);
+    pushBoard(G.score, G.mode, G.words);
+    checkAchievements();
+    save(true);
+    showResult(false, 0, 0);
+  }
+}
+function stopClock() {
+  clearInterval(G.timer); G.timer = null;
+  G.running = false; G.ready = false;
+  Sound.stopMusic();
+}
+
+function showResult(won, timeBonus, coins) {
+  const stars = won ? (G.wrong === 0 ? 3 : G.wrong <= 2 ? 2 : 1) : 0;
+  $('#res-stars').textContent = won ? '★'.repeat(stars) + '☆'.repeat(3 - stars) : '☆☆☆';
+  $('#res-title').textContent = won ? (stars === 3 ? 'Flawless hunt!' : 'Level complete') : "Time's up!";
+  $('#res-sub').textContent = won
+    ? `+${timeBonus} time bonus · ${coins} bonus coins · ${G.found.size}/${G.total} ${t('words')}`
+    : `You found ${G.found.size} of ${G.total} ${t('words')}. Try again — the grid is always new.`;
+  $('#res-score').textContent = G.score;
+  $('#res-coins').textContent = G.coinsEarned;
+  $('#res-words').textContent = G.found.size;
+  $('#res-best').textContent = S.best[G.mode] || 0;
+  $('#btn-next').classList.toggle('hidden', !won || G.mode === 'unlimited');
+  openOverlay('ov-result');
+}
+
+function useHint() {
+  const cost = 25;
+  if (S.coins < cost) { toast('Need ' + cost + ' coins', 'bad'); return; }
+  const left = G.placements.filter((pl) => !G.found.has(pl.product.id));
+  if (!left.length) return;
+  const pl = left[Math.floor(Math.random() * left.length)];
+  S.coins -= cost; save();
+  const [r, c] = pl.cells[0];
+  const idx = r * G.size + c;
+  const el = $('#grid').children[idx];
+  if (el) { el.classList.add('hint'); setTimeout(() => el.classList.remove('hint'), 2400); }
+  toast(`${pl.product.name} starts with "${pl.product.letters[0]}" — row ${r + 1}, col ${c + 1}`, '');
+  Sound.click(); updateHUD();
+}
+
+/* ------------------------------- pointer --------------------------------- */
+function bindGrid() {
+  const grid = $('#grid');
+  grid.addEventListener('pointerdown', (e) => {
+    if (!G.size) return;
+    if (G.paused || $('.overlay.open')) return;
+    const idx = idxFromPoint(e.clientX, e.clientY);
+    if (idx === null) return;
+    e.preventDefault();
+    ensureRunning();
+    if (G.sel.anchor !== null && G.sel.path.length === 1 && idx !== G.sel.anchor) {
+      const path = pathBetween(G.sel.anchor, idx);
+      if (path) { G.sel.path = path; paintSelection(); evaluateSelection(); G.sel = { anchor: null, path: [] }; paintSelection(); return; }
+    }
+    G.sel = { anchor: idx, path: [idx] };
+    G.dragging = true;
+    paintSelection();
+    Sound.pick();
+  });
+  window.addEventListener('pointermove', (e) => {
+    if (!G.dragging || G.sel.anchor === null) return;
+    const idx = idxFromPoint(e.clientX, e.clientY);
+    if (idx === null || idx === G.sel.path[G.sel.path.length - 1]) return;
+    const path = pathBetween(G.sel.anchor, idx);
+    if (path && path.length > 1) { G.sel.path = path; paintSelection(); }
+  });
+  window.addEventListener('pointerup', () => {
+    if (!G.dragging) return;
+    G.dragging = false;
+    if (G.sel.path.length > 1) {
+      evaluateSelection();
+      G.sel = { anchor: null, path: [] };
+      paintSelection();
+    }
+  });
+  window.addEventListener('pointercancel', () => { G.dragging = false; G.sel = { anchor: null, path: [] }; paintSelection(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { if ($('#ov-pause').classList.contains('open')) resumeGame(); else pauseGame(); }
+  });
+}
+
+/* ----------------------------- achievements ------------------------------ */
+const ACHIEVEMENTS = [
+  { id: 'first',  g: '🎯', name: 'First Find',        desc: 'Find your first product',                test: (s) => s.stats.words >= 1 },
+  { id: 'hunter', g: '🔍', name: 'Word Hunter',       desc: 'Find 25 products',                       test: (s) => s.stats.words >= 25 },
+  { id: 'master', g: '🧠', name: 'Word Master',       desc: 'Find 100 products',                      test: (s) => s.stats.words >= 100 },
+  { id: 'perfect',g: '💎', name: 'Perfect Round',     desc: 'Clear a level with no wrong selections',  test: (s) => s.stats.perfect >= 1 },
+  { id: 'globe',  g: '🌍', name: 'Global Shopper',    desc: 'Find products from 5 countries',          test: (s) => Object.keys(s.stats.countries).length >= 5 },
+  { id: 'cats',   g: '🗂️', name: 'Category Explorer', desc: 'Find products from 8 categories',         test: (s) => Object.keys(s.stats.categories).length >= 8 },
+  { id: 'streak', g: '🔥', name: 'Streak Starter',    desc: '3-day login streak',                      test: (s) => s.streak.count >= 3 },
+  { id: 'coins',  g: '🪙', name: 'Coin Collector',    desc: 'Earn 500 coins in total',                 test: (s) => s.stats.coinsTotal >= 500 },
+  { id: 'speed',  g: '⚡', name: 'Speed Seeker',      desc: 'Find a product in under 2.5 seconds',     test: (s) => s.stats.fastest <= 2.5 },
+  { id: 'expert', g: '🏅', name: 'Expert Finisher',   desc: 'Complete an Expert level',                test: (s) => (s.best.expert || 0) > 0 },
+  { id: 'daily',  g: '📅', name: 'Daily Champion',    desc: 'Finish a daily challenge',                test: (s) => !!s.stats.dailyDone },
+  { id: 'lvl10',  g: '👑', name: 'Level 10',          desc: 'Reach player level 10',                   test: (s) => s.level >= 10 }
+];
+function checkAchievements() {
+  let unlocked = 0;
+  ACHIEVEMENTS.forEach((a) => {
+    if (!S.ach[a.id] && a.test(S)) {
+      S.ach[a.id] = Date.now();
+      toast(a.name + ' — ' + a.desc, 'good');
+      Sound.coin();
+      S.coins += 50;
+    }
+    if (S.ach[a.id]) unlocked++;
+  });
+  return unlocked;
+}
+function renderAchievements() {
+  const box = $('#ach-list');
+  box.innerHTML = '';
+  let n = 0;
+  ACHIEVEMENTS.forEach((a) => {
+    const got = !!S.ach[a.id];
+    if (got) n++;
+    const row = document.createElement('div');
+    row.className = 'list-row';
+    row.innerHTML = `<div class="badge mono ${got ? '' : 'locked'}" style="${got ? 'background:linear-gradient(140deg,rgba(124,92,255,.55),rgba(255,77,157,.45));color:#fff' : ''}">${got ? a.name.charAt(0) : ico('lock')}</div>
+      <div class="grow"><div class="name">${a.name}</div><div class="sub">${a.desc}</div></div>
+      <div class="val">${got ? '✓' : ''}</div>`;
+    box.appendChild(row);
+  });
+  $('#ach-count').textContent = n + ' / ' + ACHIEVEMENTS.length;
+}
+
+/* ------------------------------ leaderboard ------------------------------ */
+function pushBoard(score, mode, words) {
+  if (!score) return;
+  S.board.push({ score, mode, words, date: todayKey() });
+  S.board.sort((a, b) => b.score - a.score);
+  S.board = S.board.slice(0, 12);
+}
+function renderBoard() {
+  const box = $('#board-list');
+  box.innerHTML = '';
+  if (!S.board.length) {
+    box.innerHTML = '<p class="muted center small" style="padding:18px">No scores yet — finish a level to enter the board.</p>';
+    return;
+  }
+  S.board.forEach((row, i) => {
+    const el = document.createElement('div');
+    el.className = 'list-row';
+    el.innerHTML = `<div class="rank">#${i + 1}</div>
+      <div class="badge mono" style="${i < 3 ? 'background:linear-gradient(140deg,rgba(255,193,77,.55),rgba(255,77,157,.35));color:#fff' : ''}">${i < 3 ? ico('star', 'fill') : '#' + (i + 1)}</div>
+      <div class="grow"><div class="name">${row.score} pts</div><div class="sub">${t(row.mode)} · ${row.words} ${t('words')} · ${row.date}</div></div>
+      <div class="val">${S.best[row.mode] === row.score ? '★' : ''}</div>`;
+    box.appendChild(el);
+  });
+}
+
+/* ------------------------------ daily login ------------------------------ */
+const DAILY_REWARDS = [20, 30, 40, 50, 60, 80, 150];
+function maybeDailyReward() {
+  if (S.daily.last === todayKey()) return;
+  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  const nextCount = S.streak.last === yesterday || S.streak.last === todayKey() ? S.streak.count + 1 : 1;
+  const day = ((nextCount - 1) % DAILY_REWARDS.length) + 1;
+  const reward = DAILY_REWARDS[day - 1];
+  $('#daily-glyph').innerHTML = `<span style="display:inline-block;width:46px;height:46px">${ico('gift')}</span>`;
+  const gi = $('#daily-glyph svg'); if (gi) { gi.style.width = '46px'; gi.style.height = '46px'; }
+  $('#daily-head').textContent = 'Daily reward — day ' + day;
+  $('#daily-body').textContent = `Collect ${reward} coins and keep your streak alive. Streak: ${nextCount} day(s).`;
+  $('#btn-daily-claim').onclick = () => {
+    S.coins += reward;
+    S.stats.coinsTotal += reward;
+    S.streak.count = nextCount;
+    S.streak.last = todayKey();
+    S.daily.last = todayKey();
+    S.daily.day = day;
+    save(true);
+    Sound.coin();
+    closeOverlay('ov-daily');
+    renderHome();
+    checkAchievements();
+    toast('+' + reward + ' coins', 'good');
+  };
+  openOverlay('ov-daily');
+}
+
+/* -------------------------------- screens -------------------------------- */
+function modeCardHTML(mode) {
+  const m = MODES[mode];
+  const best = S.best[mode] || 0;
+  const time = m.time ? fmtTime(m.time) : '∞';
+  const dirs = m.dirs.length === 3 ? 'H · V · D' : m.dirs.length >= 8 ? 'H · V · D · rev' : 'H · V · D · rev';
+  return `<button class="mode-card" data-mode="${mode}" style="--tint:${m.tint}">
+    <div class="mode-name">${modeBars(mode)} ${t(m.label)}</div>
+    <div class="mode-meta">${m.size}×${m.size} · ${m.words} ${t('words')} · ${time}</div>
+    <div class="mode-meta" style="opacity:.75">${dirs}</div>
+    <div class="mode-best">★ ${t('best')}: ${best}</div>
+  </button>`;
+}
+const MODE_LEVEL = { easy: 1, medium: 2, hard: 3, expert: 5, unlimited: 4, daily: 3 };
+const modeBars = (m) => {
+  const n = MODE_LEVEL[m] || 1;
+  let out = '<span class="dbar">';
+  for (let i = 1; i <= 5; i++) out += `<i class="${i <= n ? 'on' : ''}"></i>`;
+  return out + '</span>';
+};
+
+function renderModeCards() {
+  $('#mode-grid').innerHTML = MODE_ORDER.map(modeCardHTML).join('');
+  $('#mode-grid-full').innerHTML = MODE_ORDER.map(modeCardHTML).join('');
+  $$('[data-mode]').forEach((btn) => btn.addEventListener('click', () => {
+    Sound.click();
+    startGame(btn.dataset.mode);
+  }));
+}
+
+function renderHome() {
+  $('#stat-level').textContent = S.level;
+  $('#stat-coins').textContent = S.coins;
+  $('#stat-streak').textContent = S.streak.count;
+  $('#stat-words').textContent = S.stats.words;
+  $('#modes-coins').textContent = S.coins;
+  $('#g-coins').textContent = S.coins;
+  $('#cat-count').textContent = productsAll().length;
+  $('#cat-meta').textContent = `${CATEGORIES.length} categories · ${COUNTRIES.length} countries · ${productsAll().filter((p) => p.wiki && p.wiki.verified).length} Wikipedia-verified`;
+  const d = new Date();
+  $('#daily-title').textContent = d.toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'short' });
+  $('#daily-meta').textContent = S.stats.dailyDone === todayKey() ? '✓ Completed today — play again for practice' : 'Same puzzle for everyone today · double coins';
+  $('#home-footer').innerHTML = `WORLD PRODUCT WORD HUNT · v${BUILD.version} · ${BUILD.products} products bundled<br>Works fully offline. Product names verified against Wikipedia by the content agent.`;
+}
+
+function renderHowTo() {
+  $('#howto-body').innerHTML = `
+    <div class="settings-list">
+      <div class="setting-row"><div class="badge">1</div><div class="grow"><div class="label">Pick a mode</div><div class="hint">Easy to Expert change the grid size, word count, timer and allowed directions. Unlimited never ends. Daily challenge is the same puzzle for everyone today.</div></div></div>
+      <div class="setting-row"><div class="badge">2</div><div class="grow"><div class="label">Read the product list</div><div class="hint">The products you must find are listed under the grid. Their names are real product names from around the world.</div></div></div>
+      <div class="setting-row"><div class="badge">3</div><div class="grow"><div class="label">Swipe to select letters</div><div class="hint">Press on a letter and drag across the word — horizontally, vertically or diagonally, forwards or backwards. You can also tap the first letter, then tap the last one.</div></div></div>
+      <div class="setting-row"><div class="badge">4</div><div class="grow"><div class="label">Score & coins</div><div class="hint">Each found product scores 10 points per letter, plus a time bonus and a chain multiplier for quick finds. Coins buy hints (25 each).</div></div></div>
+      <div class="setting-row"><div class="badge">5</div><div class="grow"><div class="label">Progress</div><div class="hint">Finishing a level earns coins, XP, a leaderboard entry and progress toward achievements. Everything is stored on your device.</div></div></div>
+    </div>
+    <div class="btn-row" style="margin-top:18px">
+      <button class="btn btn-primary" data-mode="easy">${ico('play', 'fill')} ${t('play')}</button>
+      <button class="btn" data-go="home">${t('mainMenu')}</button>
+    </div>`;
+  $$('#howto-body [data-mode]').forEach((b) => b.addEventListener('click', () => startGame(b.dataset.mode)));
+}
+
+function renderCredits() {
+  const verified = productsAll().filter((p) => p.wiki && p.wiki.verified).length;
+  const images = (CREDITS_DATA.images || []).length;
+  const rows = [
+    ['Game', 'WORLD PRODUCT WORD HUNT'],
+    ['Concept', 'AI-powered worldwide product-name word search — find the correct spelling of real products from every country and category.'],
+    ['Development', 'Built by the repository author as an offline-first HTML/JS game (no frameworks, no CDN, no tracking). Android package wraps the same build in a WebView.'],
+    ['AI agent credits', 'Content manager: tools/refresh-catalog.mjs, which searches Wikipedia for each product name, stores the canonical article title and summary, and asks the Wikimedia Commons API for a licence-checked image.'],
+    ['Wikipedia', `Product names, spellings and short descriptions are checked against the English Wikipedia API. ${verified} of ${productsAll().length} bundled entries carry a verified Wikipedia source.`],
+    ['Wikimedia Commons', `Images are only used when the Commons licence metadata allows reuse (CC0, public domain, CC BY, CC BY-SA). ${images} image(s) bundled, each with author and licence recorded in data/credits.json.`],
+    ['Attribution', 'Where an image is shown, the author, licence and Commons file page appear on the product card and in data/credits.json. Product names and brand names are trademarks of their owners and are used here only to identify the products in a word puzzle.'],
+    ['Affiliation', 'This game is not affiliated with, endorsed by, or sponsored by Wikipedia, the Wikimedia Foundation, or any brand named in the catalogue.'],
+    ['Data sources', 'en.wikipedia.org API · commons.wikimedia.org API · bundled catalogue data/catalog.json'],
+    ['Version', `v${BUILD.version} · built ${BUILD.built} · ${BUILD.products} products · ${BUILD.categories} categories`]
+  ];
+  $('#credits-body').innerHTML = rows.map(([k, v]) => `
+    <div class="setting-row" style="margin-bottom:8px;align-items:flex-start">
+      <div class="grow"><div class="label">${k}</div><div class="hint" style="font-size:12.5px;line-height:1.6">${escapeHtml(v)}</div></div>
+    </div>`).join('') + `
+    <p class="small muted" style="margin-top:14px">Text on Wikipedia is available under CC BY-SA 4.0. Each Commons image keeps its own licence, listed in data/credits.json.</p>`;
+}
+
+/* ------------------------------- settings -------------------------------- */
+function applySettings() {
+  document.documentElement.setAttribute('data-theme', S.settings.theme);
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', S.settings.theme === 'light' ? '#eef1fb' : '#070b1c');
+  $$('[data-toggle]').forEach((el) => el.classList.toggle('on', !!S.settings[el.dataset.toggle]));
+  $$('#seg-theme button').forEach((b) => b.classList.toggle('on', b.dataset.themeSet === S.settings.theme));
+  const langSel = $('#sel-lang');
+  if (langSel) langSel.value = S.settings.lang;
+  const diffSel = $('#sel-difficulty');
+  if (diffSel) diffSel.value = S.settings.difficulty;
+  if (!S.settings.music) Sound.stopMusic();
+}
+function renderSettings() {
+  $('#sel-lang').innerHTML = LANGS.map(([c, n]) => `<option value="${c}">${n}</option>`).join('');
+  $('#sel-difficulty').innerHTML = MODE_ORDER.slice(0, 5).map((m) => `<option value="${m}">${t(MODES[m].label)}</option>`).join('');
+  const verified = productsAll().filter((p) => p.wiki && p.wiki.verified).length;
+  $('#data-note').textContent = `${productsAll().length} products · ${verified} verified on Wikipedia · ${(CREDITS_DATA.images || []).length} licensed images · cache v${BUILD.version}`;
+  applySettings();
+}
+function applyI18n() {
+  $$('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+  document.documentElement.lang = S.settings.lang;
+  renderModeCards();
+  renderSettings();
+  renderHome();
+  renderAchievements();
+  renderBoard();
+  renderHowTo();
+  renderCredits();
+  hydrateIcons();
+  if (G.placements.length) { renderWordList(); updateHUD(); }
+}
+
+async function refreshCatalogue() {
+  toast('Contacting content agent…');
+  try {
+    const res = await fetch('catalog.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    const list = (data.products || []).filter((p) => p && p.id && p.letters);
+    const known = new Set(PRODUCTS.map((p) => p.id));
+    const fresh = list.filter((p) => !known.has(p.id));
+    if (!fresh.length) { toast('Catalogue already up to date', 'good'); return; }
+    LIVE = LIVE.concat(fresh).slice(-500);
+    try { localStorage.setItem('wpwh.live', JSON.stringify(LIVE)); } catch (e) {}
+    renderHome(); renderSettings(); hydrateIcons();
+    toast('+' + fresh.length + ' new products added', 'good');
+  } catch (e) {
+    toast('Offline — using the bundled catalogue', 'bad');
+  }
+}
+
+/* --------------------------------- init ---------------------------------- */
+function bindEvents() {
+  document.addEventListener('click', (e) => {
+    const nav = e.target.closest('[data-go]');
+    if (nav) {
+      Sound.click();
+      if (nav.hasAttribute('data-close-overlay')) {
+        $$('.overlay.open').forEach((o) => o.classList.remove('open'));
+        if (G.running && !G.paused) pauseGame();
+      }
+      const target = nav.dataset.go;
+      if (target === 'home' && G.running) pauseGame();
+      showScreen(target);
+      if (target === 'achievements') renderAchievements();
+      if (target === 'leaderboard') renderBoard();
+      if (target === 'credits') renderCredits();
+      if (target === 'settings') renderSettings();
+      if (target === 'howto') renderHowTo();
+      if (target === 'modes') renderModeCards();
+      return;
+    }
+    const modeBtn = e.target.closest('[data-mode]');
+    if (modeBtn) { Sound.click(); startGame(modeBtn.dataset.mode); return; }
+    const toggle = e.target.closest('[data-toggle]');
+    if (toggle) {
+      const key = toggle.dataset.toggle;
+      S.settings[key] = !S.settings[key];
+      toggle.classList.toggle('on', S.settings[key]);
+      save();
+      Sound.click();
+      if (key === 'music') { if (S.settings.music) { Sound.ensure(); Sound.startMusic(); } else Sound.stopMusic(); }
+      return;
+    }
+    const themeBtn = e.target.closest('[data-theme-set]');
+    if (themeBtn) {
+      S.settings.theme = themeBtn.dataset.themeSet;
+      save(); applySettings(); Sound.click();
+    }
+  });
+
+  $('#btn-quickplay').addEventListener('click', () => { Sound.ensure(); startGame(S.settings.difficulty || 'easy'); });
+  $('#btn-play').addEventListener('click', () => { Sound.ensure(); startClock(); });
+  $('#btn-pause').addEventListener('click', pauseGame);
+  $('#btn-pause-2').addEventListener('click', pauseGame);
+  $('#btn-resume').addEventListener('click', resumeGame);
+  $('#btn-restart').addEventListener('click', () => { if (G.mode) startGame(G.mode); });
+  $('#btn-restart-2').addEventListener('click', () => { closeOverlay('ov-pause'); if (G.mode) startGame(G.mode); });
+  $('#btn-hint').addEventListener('click', useHint);
+  $('#btn-next').addEventListener('click', () => { closeOverlay('ov-result'); if (G.mode) startGame(G.mode); });
+  $('#btn-again').addEventListener('click', () => { closeOverlay('ov-result'); if (G.mode) startGame(G.mode); });
+  $('#btn-refresh').addEventListener('click', refreshCatalogue);
+  $('#btn-clear-board').addEventListener('click', () => { S.board = []; save(true); renderBoard(); toast('Leaderboard cleared'); });
+  $('#btn-reset').addEventListener('click', () => {
+    if (!confirm('Reset all progress, coins, achievements and high scores on this device?')) return;
+    localStorage.removeItem(STORE_KEY);
+    localStorage.removeItem('wpwh.live');
+    S = structuredClone(DEFAULT_STATE);
+    save(true); applyI18n(); applySettings(); renderHome();
+    toast('Progress reset');
+  });
+  $('#sel-lang').addEventListener('change', (e) => { S.settings.lang = e.target.value; save(); applyI18n(); });
+  $('#sel-difficulty').addEventListener('change', (e) => { S.settings.difficulty = e.target.value; save(); });
+  bindGrid();
+}
+
+function init() {
+  hydrateIcons();
+  renderSettings();
+  applyI18n();
+  bindEvents();
+  maybeDailyReward();
+  checkAchievements();
+  save();
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+}
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
