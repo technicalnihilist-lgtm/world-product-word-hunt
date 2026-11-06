@@ -1,0 +1,6 @@
+node_modules/
+data/agent-cache/
+*.log
+hs_err_pid*.log
+.DS_Store
+dist/
