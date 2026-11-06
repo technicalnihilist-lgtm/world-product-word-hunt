@@ -11,6 +11,8 @@ permissions:
 jobs:
   apk:
     runs-on: ubuntu-latest
+    env:
+      HAS_KEYSTORE: ${{ secrets.KEYSTORE_B64 != '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -34,9 +36,25 @@ jobs:
       - name: Build web bundle
         run: node tools/build.mjs
 
-      - name: Build signed debug APK
+      # Signing identity: a store listing must keep ONE key forever, so the
+      # release keystore is provided as repository secrets (base64 of the file).
+      # Without them a throwaway key is used and the release step is skipped —
+      # that way a tag can never silently publish a differently-signed APK.
+      - name: Build APK
+        env:
+          KEYSTORE_B64: ${{ secrets.KEYSTORE_B64 }}
+          KEYSTORE_PASS: ${{ secrets.KEYSTORE_PASS }}
         run: |
           chmod +x tools/build-apk.sh
+          if [ -n "${KEYSTORE_B64:-}" ]; then
+            echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/release.keystore"
+            export KEYSTORE="$RUNNER_TEMP/release.keystore"
+            export KS_PASS="$KEYSTORE_PASS"
+            export KEY_ALIAS="wpwh"
+            echo "signing with the release key"
+          else
+            echo "::warning::KEYSTORE_B64 secret not set — APK signed with a throwaway key, release attach skipped"
+          fi
           BUILD_TOOLS="$RUNNER_TEMP/android-14" ANDROID_JAR="$PWD/android.jar" bash tools/build-apk.sh
 
       - uses: actions/upload-artifact@v4
@@ -45,7 +63,7 @@ jobs:
           path: dist/world-product-word-hunt.apk
 
       - name: Attach APK to release
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') && env.HAS_KEYSTORE == 'true'
         uses: softprops/action-gh-release@v2
         with:
           files: dist/world-product-word-hunt.apk
