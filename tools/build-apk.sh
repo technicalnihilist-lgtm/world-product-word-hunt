@@ -71,11 +71,20 @@ mkdir -p "$OUT"
 "$BUILD_TOOLS/zipalign" -f -p 4 "$WORK/unsigned.apk" "$WORK/aligned.apk"
 
 echo "== 7/7 sign"
-KS="$WORK/debug.keystore"
-keytool -genkeypair -keystore "$KS" -storepass android -keypass android -alias androiddebugkey \
-  -dname "CN=World Product Word Hunt, O=Offline Games, C=IN" -keyalg RSA -keysize 2048 -validity 10000 >/dev/null 2>&1
-"$BUILD_TOOLS/apksigner" sign --ks "$KS" --ks-pass pass:android --key-pass pass:android \
-  --ks-key-alias androiddebugkey --out "$OUT/world-product-word-hunt.apk" "$WORK/aligned.apk"
+# A store submission keeps ONE signing identity for the life of the app, otherwise
+# later versions cannot install over the first one. Pass your own keystore:
+#   KEYSTORE=android/keystore/wpwh-release.keystore KS_PASS=... KEY_ALIAS=wpwh ./tools/build-apk.sh
+# With no KEYSTORE a throwaway debug key is generated (fine for local testing).
+KS="${KEYSTORE:-$WORK/debug.keystore}"
+KS_PASS="${KS_PASS:-android}"
+KEY_ALIAS="${KEY_ALIAS:-androiddebugkey}"
+if [ ! -f "$KS" ]; then
+  keytool -genkeypair -keystore "$KS" -storepass "$KS_PASS" -keypass "$KS_PASS" -alias "$KEY_ALIAS" \
+    -dname "CN=World Product Word Hunt, O=World Product Word Hunt, C=IN" \
+    -keyalg RSA -keysize 2048 -validity 10000 >/dev/null 2>&1
+fi
+"$BUILD_TOOLS/apksigner" sign --ks "$KS" --ks-pass "pass:$KS_PASS" --key-pass "pass:$KS_PASS" \
+  --ks-key-alias "$KEY_ALIAS" --out "$OUT/world-product-word-hunt.apk" "$WORK/aligned.apk"
 "$BUILD_TOOLS/apksigner" verify --print-certs "$OUT/world-product-word-hunt.apk" | head -3
 ls -la "$OUT/world-product-word-hunt.apk"
 echo "APK ready: $OUT/world-product-word-hunt.apk"
