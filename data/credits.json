@@ -1,0 +1,16 @@
+{
+ "generatedAt": "2026-11-06T23:21:13.422Z",
+ "text": "Product names verified against Wikipedia. Images from Wikimedia Commons, used under the licence stated for each file.",
+ "images": [
+  {
+   "id": "tecnocamon20",
+   "product": "Tecno Camon 20",
+   "file": "Camon 20 Premier 5G.png",
+   "licence": "CC BY 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+   "author": "TECHNICAL GURUJI 8.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Camon_20_Premier_5G.png",
+   "local": "assets/img/tecnocamon20.jpg"
+  }
+ ]
+}
