@@ -1,0 +1,51 @@
+name: Android APK
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch Android build-tools and platform jar
+        run: |
+          set -euo pipefail
+          curl -sL -o /tmp/bt.zip https://dl.google.com/android/repository/build-tools_r34-linux.zip
+          unzip -q /tmp/bt.zip -d "$RUNNER_TEMP"
+          curl -sL -o "$PWD/android.jar" https://raw.githubusercontent.com/Sable/android-platforms/master/android-34/android.jar
+          ls "$RUNNER_TEMP/android-14/aapt2"
+
+      - name: Build web bundle
+        run: node tools/build.mjs
+
+      - name: Build signed debug APK
+        run: |
+          BUILD_TOOLS="$RUNNER_TEMP/android-14" ANDROID_JAR="$PWD/android.jar" ./tools/build-apk.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: world-product-word-hunt-apk
+          path: dist/world-product-word-hunt.apk
+
+      - name: Attach APK to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/world-product-word-hunt.apk
+          generate_release_notes: true
