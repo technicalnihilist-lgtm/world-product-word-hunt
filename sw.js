@@ -1,5 +1,5 @@
 /* WORLD PRODUCT WORD HUNT — offline shell */
-const CACHE = 'wpwh-v1.0.0';
+const CACHE = 'wpwh-v1.0.1';
 const SHELL = [
   './', './index.html', './manifest.webmanifest', './catalog.json',
   './assets/icons/icon-192.png', './assets/icons/icon-512.png', './assets/icons/icon-maskable-512.png'

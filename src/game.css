@@ -75,7 +75,12 @@ a { color: #b9a7ff; }
 [data-theme="light"] a { color: #5a3ff0; }
 
 /* ---------- shell ---------- */
-.app { max-width: 1180px; margin: 0 auto; padding: 14px 14px 40px; }
+.app {
+  max-width: 1180px; margin: 0 auto;
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 14px calc(34px + env(safe-area-inset-bottom, 0px));
+}
+button, .btn, .cell, .word-chip, .mode-card { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+html { -webkit-text-size-adjust: 100%; }
 .screen { display: none; animation: fade .32s ease both; }
 .screen.active { display: block; }
 @keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
@@ -375,3 +380,97 @@ h1.hero-title {
 }
 [data-theme="light"] .mono-glyph { background: rgba(255,255,255,.65); border-color: rgba(24,30,70,.15); color: #241b57; text-shadow: none; }
 .badge.mono { font-weight: 900; font-size: 17px; letter-spacing: 0; }
+
+/* ============================================================
+   PHONE LAYOUT — mobile first: grid, then the words to find,
+   then the product card. Sticky score bar, safe areas, big taps.
+   ============================================================ */
+@media (max-width: 980px) {
+  /* flatten the right column so its cards can slot between board and product card */
+  .game-wrap > div:not(.side) { display: contents; }
+  .game-wrap > .side { order: 1; }
+  .game-wrap .word-card { order: 2; }
+  .game-wrap .product-card { order: 3; }
+}
+
+@media (max-width: 620px) {
+  .app { padding-left: 10px; padding-right: 10px; }
+
+  /* keep score / timer / pause in view while scrolling the grid */
+  .topbar {
+    position: sticky; top: 0; z-index: 25;
+    gap: 6px; padding: 8px; border-radius: 16px;
+    background: linear-gradient(180deg, rgba(20, 26, 60, .96), rgba(13, 19, 48, .92));
+    backdrop-filter: blur(14px) saturate(1.2);
+  }
+  [data-theme="light"] .topbar { background: linear-gradient(180deg, rgba(255,255,255,.97), rgba(244,246,255,.94)); }
+  .topbar .coins-chip { display: none; }
+  .topbar .chip { padding: 6px 9px; font-size: 12px; border-radius: 10px; }
+  .topbar .chip .k { font-size: 9px; }
+  .topbar .brand-title { font-size: 10px; }
+  .topbar .brand-sub { font-size: 13px; }
+  .btn-icon { width: 40px; height: 40px; min-height: 40px; border-radius: 12px; }
+
+  /* one-line action row instead of two */
+  .game-actions { flex-wrap: nowrap; gap: 8px; }
+  .game-actions .btn { flex: 1 1 0; min-width: 0; padding: 11px 8px; font-size: 13px; gap: 6px; }
+  .game-actions .btn .ico { width: 15px; height: 15px; }
+
+  /* board a little tighter so grid + word list fit on one screen */
+  .board-card { padding: 10px; }
+  .board-head { margin-bottom: 8px; gap: 6px; }
+  .board-head .title { font-size: 11px; letter-spacing: .1em; }
+  .grid { gap: 3px; }
+  .cell { border-radius: 9px; }
+
+  /* compact product card */
+  .product-visual { aspect-ratio: 2.6 / 1; }
+  .product-visual .veil { padding: 22px 12px 10px; }
+  .product-visual .veil .p-name { font-size: 15px; }
+  .mono-glyph { font-size: 26px; width: 1.55em; height: 1.55em; }
+  .product-body { padding: 10px 12px 12px; gap: 6px; }
+  .product-desc { font-size: 12px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .word-card { padding: 12px !important; }
+  .word-chip { padding: 7px 10px; font-size: 12.5px; }
+
+  /* home: keep the three hero buttons on one line, two mode cards per row */
+  .hero-actions { flex-wrap: nowrap; }
+  .hero-actions .btn-lg { padding: 14px 12px; font-size: 15px; flex: 1 1 auto; }
+  .hero-actions .btn-icon { flex: 0 0 auto; }
+  .home-hero { padding: 18px; gap: 16px; }
+  .mode-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .mode-card { padding: 13px; border-radius: 16px; }
+  .mode-name { font-size: 14.5px; gap: 6px; }
+  .mode-meta { font-size: 11.5px; margin-top: 4px; }
+  .mode-meta:nth-of-type(2) { display: none; }
+  .mode-best { font-size: 11px; margin-top: 7px; }
+  .stat-grid { gap: 8px; }
+  .stat { padding: 11px 12px; border-radius: 14px; }
+  .stat-value { font-size: 19px; }
+  .section-title { margin: 16px 0 8px; }
+  .toast { font-size: 12.5px; padding: 9px 14px; }
+}
+
+@media (max-width: 380px) {
+  .mode-grid { grid-template-columns: 1fr; }
+  .topbar .chip .k { display: none; }
+}
+
+/* very small phones (320px class): squeeze the board a little more */
+@media (max-width: 345px) {
+  .board-head .title { display: none; }
+  .board-card { padding: 8px; }
+  .grid { gap: 2px; }
+  .cell { border-radius: 8px; }
+  .game-actions .btn { padding: 9px 6px; font-size: 12px; }
+  .word-chip { padding: 6px 9px; font-size: 12px; }
+  .chip { padding: 5px 8px; font-size: 11.5px; }
+}
+
+@media (max-width: 620px) {
+  /* while the clock runs, Pause is the action that matters — drop the dead Play */
+  #screen-game .game-actions #btn-play[disabled] { display: none; }
+  .home-links { flex-wrap: nowrap; gap: 8px; }
+  .home-links .btn { flex: 1 1 0; min-width: 0; padding: 11px 6px; font-size: 12.5px; gap: 6px; }
+  .home-links .btn .ico { width: 15px; height: 15px; }
+}

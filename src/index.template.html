@@ -23,7 +23,7 @@
         <div class="eyebrow"><span class="dot-live"></span><span id="home-live-label">Offline ready · content agent active</span></div>
         <h1 class="hero-title">WORLD PRODUCT<br>WORD HUNT</h1>
         <p class="hero-sub" id="home-tagline">Hunt the correct spelling of real products from every corner of the world — phones, cars, shoes, snacks, consoles and more. Swipe letters in any direction and build your collection.</p>
-        <div class="btn-row">
+        <div class="btn-row hero-actions">
           <button class="btn btn-primary btn-lg" id="btn-quickplay"><span data-icon="play"></span> <span data-i18n="play">Play</span></button>
           <button class="btn btn-lg" data-go="modes" data-i18n="chooseMode">Choose mode</button>
           <button class="btn btn-lg" data-go="settings" aria-label="Settings"><span data-icon="settings"></span></button>
@@ -57,7 +57,7 @@
     <div class="section-title" data-i18n="modes">Game modes</div>
     <div class="mode-grid" id="mode-grid"></div>
 
-    <div class="btn-row" style="margin-top:18px">
+    <div class="btn-row home-links" style="margin-top:18px">
       <button class="btn" data-go="howto"><span data-icon="book"></span> <span data-i18n="howToPlay">How to play</span></button>
       <button class="btn" data-go="credits"><span data-icon="copy"></span> <span data-i18n="credits">Credits</span></button>
       <button class="btn" data-go="settings"><span data-icon="settings"></span> <span data-i18n="settings">Settings</span></button>
@@ -85,7 +85,7 @@
       <div class="spacer"></div>
       <span class="chip"><span class="k" data-i18n="score">Score</span><span id="g-score">0</span></span>
       <span class="chip" id="g-timer-chip"><span class="k" data-i18n="time">Time</span><span id="g-timer">03:00</span></span>
-      <span class="chip"><span class="k" data-i18n="coins">Coins</span><span id="g-coins">0</span></span>
+      <span class="chip coins-chip"><span class="k" data-i18n="coins">Coins</span><span id="g-coins">0</span></span>
       <button class="btn btn-icon btn-primary" id="btn-pause" aria-label="Pause"><span data-icon="pause"></span></button>
     </div>
 
@@ -101,7 +101,7 @@
             <button class="btn btn-sm" id="btn-hint"><span data-icon="hint"></span> <span data-i18n="hint">Hint</span> <span class="muted" id="hint-cost">25</span></button>
           </div>
           <div class="grid-shell"><div class="grid" id="grid" role="grid" aria-label="Letter grid"></div></div>
-          <div class="btn-row" style="margin-top:12px">
+          <div class="btn-row game-actions" style="margin-top:12px">
             <button class="btn btn-primary" id="btn-play" data-i18n="play">Play</button>
             <button class="btn" id="btn-pause-2"><span data-icon="pause"></span> <span data-i18n="pause">Pause</span></button>
             <button class="btn btn-ghost" id="btn-restart"><span data-icon="restart"></span> <span data-i18n="restart">Restart</span></button>
@@ -128,7 +128,7 @@
           </div>
         </div>
 
-        <div class="card" style="padding:14px">
+        <div class="card word-card" style="padding:14px">
           <div class="board-head"><span class="title" data-i18n="findThese">Find these products</span></div>
           <div class="word-list" id="word-list"></div>
         </div>

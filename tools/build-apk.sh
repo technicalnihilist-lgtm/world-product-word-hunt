@@ -42,7 +42,8 @@ echo "== 3/7 link resources + assets"
   --java "$WORK/gen" \
   -A "$WORK/assets" \
   --min-sdk-version 24 --target-sdk-version 34 \
-  --version-code 1 --version-name "$(node -p "require('$ROOT/package.json').version")" \
+  --version-code "$(node -p "require('$ROOT/package.json').androidVersionCode")" \
+  --version-name "$(node -p "require('$ROOT/package.json').version")" \
   --auto-add-overlay
 
 echo "== 4/7 compile java"

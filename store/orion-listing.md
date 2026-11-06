@@ -9,8 +9,10 @@ community store that reads a GitHub repo).
 |---|---|
 | Repo URL | `https://github.com/technicalnihilist-lgtm/world-product-word-hunt` |
 
-Releases live in that repo; the latest release (`v1.0.0`) carries exactly one
-APK, so Orion's automatic "first APK in the release" picker finds it.
+Releases live in that repo; the latest release (`v1.0.1`) carries exactly one
+APK, so Orion's automatic "first APK in the release" picker finds it. v1.0.1 is
+the mobile-first build; it is signed with the same key as v1.0.0, so it installs
+as an update.
 
 ## 2 · Details
 
@@ -58,24 +60,27 @@ https://raw.githubusercontent.com/technicalnihilist-lgtm/world-product-word-hunt
 |---|---|
 | Package name | `com.worldproduct.wordhunt` |
 | Release keyword | leave **Auto** (first APK in the release) |
-| versionName / versionCode | `1.0.0` / `1` |
+| versionName / versionCode | `1.0.1` / `2` |
 | minSdk / targetSdk | 24 (Android 7.0) / 34 |
 | Signing cert SHA-256 | `fdc216f2751af8caa197855c2df0ab8cf2ce598526287ae7b10f0cc66fc7842b` |
-| APK SHA-256 | `a8d1a0acac63ac2b39f57e8f9ad264a11ef7964193c0390e22c45dfaef6b22f8` |
+| APK SHA-256 | `cb9add262b4cfe4f909da17d1a1c3c997e284acb5561f78a658bc299300496a5` |
 | Permissions | `android.permission.VIBRATE` only — no `INTERNET` |
 
 ## 5 · Screenshots (direct image links)
 
 ```
+https://raw.githubusercontent.com/technicalnihilist-lgtm/world-product-word-hunt/main/screenshots/14-mobile-game.jpg
+https://raw.githubusercontent.com/technicalnihilist-lgtm/world-product-word-hunt/main/screenshots/13-mobile-home.jpg
+https://raw.githubusercontent.com/technicalnihilist-lgtm/world-product-word-hunt/main/screenshots/17-mobile-expert.jpg
 https://raw.githubusercontent.com/technicalnihilist-lgtm/world-product-word-hunt/main/screenshots/01-home.jpg
 https://raw.githubusercontent.com/technicalnihilist-lgtm/world-product-word-hunt/main/screenshots/04-game-expert.jpg
-https://raw.githubusercontent.com/technicalnihilist-lgtm/world-product-word-hunt/main/screenshots/02-modes.jpg
-https://raw.githubusercontent.com/technicalnihilist-lgtm/world-product-word-hunt/main/screenshots/13-mobile-home.jpg
-https://raw.githubusercontent.com/technicalnihilist-lgtm/world-product-word-hunt/main/screenshots/14-mobile-game.jpg
 ```
 
+Phone-first set (the store is browsed on phones): `14-mobile-game`,
+`13-mobile-home`, `17-mobile-expert`, `20-mobile-scrolled`, `15-mobile-modes`.
+
 Extras if the form wants more:
-`screenshots/03-game-easy.jpg`, `screenshots/05-pause.jpg`,
+`screenshots/02-modes.jpg`, `screenshots/03-game-easy.jpg`, `screenshots/05-pause.jpg`,
 `screenshots/06-win.jpg`, `screenshots/07-settings-dark.jpg`,
 `screenshots/08-settings-light-hindi.jpg`, `screenshots/09-credits.jpg`,
 `screenshots/10-achievements.jpg`, `screenshots/11-leaderboard.jpg`,

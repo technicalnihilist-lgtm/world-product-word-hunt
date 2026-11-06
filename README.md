@@ -10,7 +10,7 @@ Find the correct spelling of a real product name in a letter grid: horizontally,
 
 <p align="center">
   <a href="../../releases/latest"><img alt="Download APK" src="https://img.shields.io/badge/Android-APK%20download-3DDC84?style=for-the-badge&logo=android&logoColor=white"></a>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-7C5CFF?style=for-the-badge">
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.1-7C5CFF?style=for-the-badge">
   <img alt="Offline" src="https://img.shields.io/badge/works-offline-2EE6A8?style=for-the-badge">
   <img alt="No tracking" src="https://img.shields.io/badge/tracking-none-FF4D9D?style=for-the-badge">
 </p>
@@ -69,6 +69,10 @@ working with the network off.
 |---|---|---|
 | ![How to play](screenshots/12-howto.jpg) | ![Mobile home](screenshots/13-mobile-home.jpg) | ![Mobile game](screenshots/14-mobile-game.jpg) |
 
+| Mobile — Expert (14×14) | Mobile — scrolled, sticky score bar | Mobile — modes |
+|---|---|---|
+| ![Mobile expert](screenshots/17-mobile-expert.jpg) | ![Mobile scrolled](screenshots/20-mobile-scrolled.jpg) | ![Mobile modes](screenshots/15-mobile-modes.jpg) |
+
 ---
 
 ## How to play
@@ -85,6 +89,17 @@ working with the network off.
 5. **Coins** buy hints (25 each, reveals a starting letter and coordinates).
    Finishing a level earns coins, XP, stars, a leaderboard entry and progress
    toward 12 achievements.
+
+### On a phone
+
+The phone layout is the primary one, not a shrunken desktop: the letter grid
+fills the width, **the list of products to find sits directly under it**, and the
+product card comes after — so you never scroll past a card to see what you are
+hunting. Score, timer and pause stay pinned in a sticky bar while you scroll,
+the top bar drops to a single row, the six mode cards go two-up, and the action
+row collapses to Pause + Restart while the clock runs. Layout is verified from
+320 px to 430 px wide (no horizontal scroll at any of them) and honours
+notch/safe-area insets.
 
 ### Modes
 
