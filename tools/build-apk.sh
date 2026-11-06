@@ -48,8 +48,11 @@ echo "== 3/7 link resources + assets"
 echo "== 4/7 compile java"
 mkdir -p "$WORK/classes"
 find "$ROOT/android/src" "$WORK/gen" -name '*.java' > "$WORK/sources.txt"
-javac -source 8 -target 8 -encoding UTF-8 -bootclasspath "$ANDROID_JAR" -classpath "$ANDROID_JAR" \
-  -d "$WORK/classes" @"$WORK/sources.txt" 2>&1 | grep -v 'bootstrap class path' || true
+if ! javac -source 8 -target 8 -encoding UTF-8 -classpath "$ANDROID_JAR" \
+      -d "$WORK/classes" @"$WORK/sources.txt"; then
+  echo "javac failed" >&2
+  exit 1
+fi
 
 echo "== 5/7 dex"
 mkdir -p "$WORK/dex"
@@ -57,7 +60,13 @@ mkdir -p "$WORK/dex"
 
 echo "== 6/7 package"
 cp "$WORK/base.apk" "$WORK/unsigned.apk"
-(cd "$WORK/dex" && zip -q "$WORK/unsigned.apk" classes.dex)
+python3 - "$WORK/unsigned.apk" "$WORK/dex/classes.dex" <<'PYEOF'
+import sys, zipfile
+apk, dex = sys.argv[1], sys.argv[2]
+with zipfile.ZipFile(apk, 'a', zipfile.ZIP_DEFLATED) as z:
+    z.write(dex, 'classes.dex')
+print('added classes.dex')
+PYEOF
 mkdir -p "$OUT"
 "$BUILD_TOOLS/zipalign" -f -p 4 "$WORK/unsigned.apk" "$WORK/aligned.apk"
 

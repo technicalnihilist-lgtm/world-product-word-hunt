@@ -36,7 +36,8 @@ jobs:
 
       - name: Build signed debug APK
         run: |
-          BUILD_TOOLS="$RUNNER_TEMP/android-14" ANDROID_JAR="$PWD/android.jar" ./tools/build-apk.sh
+          chmod +x tools/build-apk.sh
+          BUILD_TOOLS="$RUNNER_TEMP/android-14" ANDROID_JAR="$PWD/android.jar" bash tools/build-apk.sh
 
       - uses: actions/upload-artifact@v4
         with:
