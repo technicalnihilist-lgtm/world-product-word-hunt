@@ -1,0 +1,1986 @@
+{
+  "version": 1,
+  "note": "Seed catalogue of real, publicly documented product names. Each row: [displayName, brand, category, countryOfOrigin]. Word grids use the letters/digits of displayName only.",
+  "products": [
+    [
+      "iPhone 15",
+      "Apple",
+      "Smartphones",
+      "United States"
+    ],
+    [
+      "Galaxy S24",
+      "Samsung",
+      "Smartphones",
+      "South Korea"
+    ],
+    [
+      "Pixel 8 Pro",
+      "Google",
+      "Smartphones",
+      "United States"
+    ],
+    [
+      "OnePlus 12",
+      "OnePlus",
+      "Smartphones",
+      "China"
+    ],
+    [
+      "Xiaomi 14",
+      "Xiaomi",
+      "Smartphones",
+      "China"
+    ],
+    [
+      "Redmi Note 13",
+      "Xiaomi",
+      "Smartphones",
+      "China"
+    ],
+    [
+      "Realme 11 Pro",
+      "Realme",
+      "Smartphones",
+      "China"
+    ],
+    [
+      "Oppo Reno 11",
+      "Oppo",
+      "Smartphones",
+      "China"
+    ],
+    [
+      "Vivo V30",
+      "Vivo",
+      "Smartphones",
+      "China"
+    ],
+    [
+      "Nokia 3310",
+      "Nokia",
+      "Smartphones",
+      "Finland"
+    ],
+    [
+      "Moto G84",
+      "Motorola",
+      "Smartphones",
+      "United States"
+    ],
+    [
+      "Honor Magic 6",
+      "Honor",
+      "Smartphones",
+      "China"
+    ],
+    [
+      "Nothing Phone 2",
+      "Nothing",
+      "Smartphones",
+      "United Kingdom"
+    ],
+    [
+      "Xperia 1",
+      "Sony",
+      "Smartphones",
+      "Japan"
+    ],
+    [
+      "Huawei P60",
+      "Huawei",
+      "Smartphones",
+      "China"
+    ],
+    [
+      "Poco X6",
+      "Poco",
+      "Smartphones",
+      "China"
+    ],
+    [
+      "Infinix Note 40",
+      "Infinix",
+      "Smartphones",
+      "Hong Kong"
+    ],
+    [
+      "Tecno Camon 20",
+      "Tecno",
+      "Smartphones",
+      "China"
+    ],
+    [
+      "Lava Agni 2",
+      "Lava",
+      "Smartphones",
+      "India"
+    ],
+    [
+      "Zenfone 10",
+      "Asus",
+      "Smartphones",
+      "Taiwan"
+    ],
+    [
+      "BlackBerry Bold",
+      "BlackBerry",
+      "Smartphones",
+      "Canada"
+    ],
+    [
+      "LG Velvet",
+      "LG",
+      "Smartphones",
+      "South Korea"
+    ],
+    [
+      "Micromax Canvas",
+      "Micromax",
+      "Smartphones",
+      "India"
+    ],
+    [
+      "MacBook Air",
+      "Apple",
+      "Laptops",
+      "United States"
+    ],
+    [
+      "MacBook Pro",
+      "Apple",
+      "Laptops",
+      "United States"
+    ],
+    [
+      "ThinkPad X1",
+      "Lenovo",
+      "Laptops",
+      "China"
+    ],
+    [
+      "Dell XPS 13",
+      "Dell",
+      "Laptops",
+      "United States"
+    ],
+    [
+      "HP Spectre",
+      "HP",
+      "Laptops",
+      "United States"
+    ],
+    [
+      "Asus Zenbook",
+      "Asus",
+      "Laptops",
+      "Taiwan"
+    ],
+    [
+      "Acer Aspire",
+      "Acer",
+      "Laptops",
+      "Taiwan"
+    ],
+    [
+      "IdeaPad Slim",
+      "Lenovo",
+      "Laptops",
+      "China"
+    ],
+    [
+      "Surface Laptop",
+      "Microsoft",
+      "Laptops",
+      "United States"
+    ],
+    [
+      "Razer Blade",
+      "Razer",
+      "Laptops",
+      "Singapore"
+    ],
+    [
+      "Alienware M15",
+      "Dell",
+      "Laptops",
+      "United States"
+    ],
+    [
+      "MSI Katana",
+      "MSI",
+      "Laptops",
+      "Taiwan"
+    ],
+    [
+      "Chromebook Flip",
+      "Asus",
+      "Laptops",
+      "Taiwan"
+    ],
+    [
+      "Framework Laptop",
+      "Framework",
+      "Laptops",
+      "United States"
+    ],
+    [
+      "Galaxy Book",
+      "Samsung",
+      "Laptops",
+      "South Korea"
+    ],
+    [
+      "Legion 5",
+      "Lenovo",
+      "Laptops",
+      "China"
+    ],
+    [
+      "Swift Go",
+      "Acer",
+      "Laptops",
+      "Taiwan"
+    ],
+    [
+      "Corolla",
+      "Toyota",
+      "Cars",
+      "Japan"
+    ],
+    [
+      "Civic",
+      "Honda",
+      "Cars",
+      "Japan"
+    ],
+    [
+      "Mustang",
+      "Ford",
+      "Cars",
+      "United States"
+    ],
+    [
+      "Model 3",
+      "Tesla",
+      "Cars",
+      "United States"
+    ],
+    [
+      "Model Y",
+      "Tesla",
+      "Cars",
+      "United States"
+    ],
+    [
+      "BMW M3",
+      "BMW",
+      "Cars",
+      "Germany"
+    ],
+    [
+      "Mercedes C Class",
+      "Mercedes Benz",
+      "Cars",
+      "Germany"
+    ],
+    [
+      "Audi A4",
+      "Audi",
+      "Cars",
+      "Germany"
+    ],
+    [
+      "Volkswagen Golf",
+      "Volkswagen",
+      "Cars",
+      "Germany"
+    ],
+    [
+      "Hyundai Creta",
+      "Hyundai",
+      "Cars",
+      "South Korea"
+    ],
+    [
+      "Maruti Swift",
+      "Maruti Suzuki",
+      "Cars",
+      "India"
+    ],
+    [
+      "Tata Nexon",
+      "Tata Motors",
+      "Cars",
+      "India"
+    ],
+    [
+      "Mahindra XUV700",
+      "Mahindra",
+      "Cars",
+      "India"
+    ],
+    [
+      "Kia Seltos",
+      "Kia",
+      "Cars",
+      "South Korea"
+    ],
+    [
+      "Renault Kwid",
+      "Renault",
+      "Cars",
+      "France"
+    ],
+    [
+      "Skoda Octavia",
+      "Skoda",
+      "Cars",
+      "Czechia"
+    ],
+    [
+      "Nissan Leaf",
+      "Nissan",
+      "Cars",
+      "Japan"
+    ],
+    [
+      "Chevrolet Camaro",
+      "Chevrolet",
+      "Cars",
+      "United States"
+    ],
+    [
+      "Jeep Wrangler",
+      "Jeep",
+      "Cars",
+      "United States"
+    ],
+    [
+      "Volvo XC90",
+      "Volvo",
+      "Cars",
+      "Sweden"
+    ],
+    [
+      "Porsche 911",
+      "Porsche",
+      "Cars",
+      "Germany"
+    ],
+    [
+      "Ferrari F40",
+      "Ferrari",
+      "Cars",
+      "Italy"
+    ],
+    [
+      "Lamborghini Urus",
+      "Lamborghini",
+      "Cars",
+      "Italy"
+    ],
+    [
+      "Land Rover Defender",
+      "Land Rover",
+      "Cars",
+      "United Kingdom"
+    ],
+    [
+      "Suzuki Jimny",
+      "Suzuki",
+      "Cars",
+      "Japan"
+    ],
+    [
+      "MG Hector",
+      "MG",
+      "Cars",
+      "United Kingdom"
+    ],
+    [
+      "BYD Atto 3",
+      "BYD",
+      "Cars",
+      "China"
+    ],
+    [
+      "Peugeot 208",
+      "Peugeot",
+      "Cars",
+      "France"
+    ],
+    [
+      "Fiat Panda",
+      "Fiat",
+      "Cars",
+      "Italy"
+    ],
+    [
+      "Mini Cooper",
+      "Mini",
+      "Cars",
+      "United Kingdom"
+    ],
+    [
+      "Datsun Go",
+      "Datsun",
+      "Cars",
+      "Japan"
+    ],
+    [
+      "Royal Enfield Classic",
+      "Royal Enfield",
+      "Bikes",
+      "India"
+    ],
+    [
+      "Bajaj Pulsar",
+      "Bajaj",
+      "Bikes",
+      "India"
+    ],
+    [
+      "Hero Splendor",
+      "Hero",
+      "Bikes",
+      "India"
+    ],
+    [
+      "TVS Apache",
+      "TVS",
+      "Bikes",
+      "India"
+    ],
+    [
+      "Honda Activa",
+      "Honda",
+      "Bikes",
+      "Japan"
+    ],
+    [
+      "Yamaha FZ",
+      "Yamaha",
+      "Bikes",
+      "Japan"
+    ],
+    [
+      "KTM Duke",
+      "KTM",
+      "Bikes",
+      "Austria"
+    ],
+    [
+      "Suzuki Gixxer",
+      "Suzuki",
+      "Bikes",
+      "Japan"
+    ],
+    [
+      "Jawa 42",
+      "Jawa",
+      "Bikes",
+      "Czechia"
+    ],
+    [
+      "Harley Davidson",
+      "Harley Davidson",
+      "Bikes",
+      "United States"
+    ],
+    [
+      "Ducati Monster",
+      "Ducati",
+      "Bikes",
+      "Italy"
+    ],
+    [
+      "Kawasaki Ninja",
+      "Kawasaki",
+      "Bikes",
+      "Japan"
+    ],
+    [
+      "Triumph Bonneville",
+      "Triumph",
+      "Bikes",
+      "United Kingdom"
+    ],
+    [
+      "Vespa Primavera",
+      "Vespa",
+      "Bikes",
+      "Italy"
+    ],
+    [
+      "Ola S1",
+      "Ola Electric",
+      "Bikes",
+      "India"
+    ],
+    [
+      "Ather 450X",
+      "Ather",
+      "Bikes",
+      "India"
+    ],
+    [
+      "BSA Gold Star",
+      "BSA",
+      "Bikes",
+      "United Kingdom"
+    ],
+    [
+      "Levis 501",
+      "Levi Strauss",
+      "Clothing",
+      "United States"
+    ],
+    [
+      "Chuck Taylor",
+      "Converse",
+      "Clothing",
+      "United States"
+    ],
+    [
+      "Stan Smith",
+      "Adidas",
+      "Clothing",
+      "Germany"
+    ],
+    [
+      "Polo Ralph Lauren",
+      "Ralph Lauren",
+      "Clothing",
+      "United States"
+    ],
+    [
+      "Tommy Hilfiger",
+      "Tommy Hilfiger",
+      "Clothing",
+      "United States"
+    ],
+    [
+      "Calvin Klein",
+      "Calvin Klein",
+      "Clothing",
+      "United States"
+    ],
+    [
+      "Burberry Trench",
+      "Burberry",
+      "Clothing",
+      "United Kingdom"
+    ],
+    [
+      "Ray Ban Aviator",
+      "Ray Ban",
+      "Clothing",
+      "Italy"
+    ],
+    [
+      "Havaianas",
+      "Havaianas",
+      "Clothing",
+      "Brazil"
+    ],
+    [
+      "Crocs Classic",
+      "Crocs",
+      "Clothing",
+      "United States"
+    ],
+    [
+      "Doc Martens",
+      "Dr Martens",
+      "Clothing",
+      "United Kingdom"
+    ],
+    [
+      "Vans Old Skool",
+      "Vans",
+      "Clothing",
+      "United States"
+    ],
+    [
+      "Uniqlo Heattech",
+      "Uniqlo",
+      "Clothing",
+      "Japan"
+    ],
+    [
+      "North Face Nuptse",
+      "The North Face",
+      "Clothing",
+      "United States"
+    ],
+    [
+      "Patagonia Fleece",
+      "Patagonia",
+      "Clothing",
+      "United States"
+    ],
+    [
+      "Nike Air Max",
+      "Nike",
+      "Shoes",
+      "United States"
+    ],
+    [
+      "Adidas Ultraboost",
+      "Adidas",
+      "Shoes",
+      "Germany"
+    ],
+    [
+      "Jordan 1 Retro",
+      "Nike",
+      "Shoes",
+      "United States"
+    ],
+    [
+      "Yeezy Boost",
+      "Adidas",
+      "Shoes",
+      "Germany"
+    ],
+    [
+      "Skechers Go Walk",
+      "Skechers",
+      "Shoes",
+      "United States"
+    ],
+    [
+      "Fila Disruptor",
+      "Fila",
+      "Shoes",
+      "South Korea"
+    ],
+    [
+      "Brooks Ghost",
+      "Brooks",
+      "Shoes",
+      "United States"
+    ],
+    [
+      "Hoka Clifton",
+      "Hoka",
+      "Shoes",
+      "France"
+    ],
+    [
+      "On Cloud",
+      "On Running",
+      "Shoes",
+      "Switzerland"
+    ],
+    [
+      "Saucony Ride",
+      "Saucony",
+      "Shoes",
+      "United States"
+    ],
+    [
+      "Mizuno Wave",
+      "Mizuno",
+      "Shoes",
+      "Japan"
+    ],
+    [
+      "Woodland Boots",
+      "Woodland",
+      "Shoes",
+      "India"
+    ],
+    [
+      "Birkenstock Arizona",
+      "Birkenstock",
+      "Shoes",
+      "Germany"
+    ],
+    [
+      "New Balance 574",
+      "New Balance",
+      "Shoes",
+      "United States"
+    ],
+    [
+      "Asics Gel Kayano",
+      "Asics",
+      "Shoes",
+      "Japan"
+    ],
+    [
+      "Puma Suede",
+      "Puma",
+      "Shoes",
+      "Germany"
+    ],
+    [
+      "Reebok Classic",
+      "Reebok",
+      "Shoes",
+      "United States"
+    ],
+    [
+      "Salomon Speedcross",
+      "Salomon",
+      "Shoes",
+      "France"
+    ],
+    [
+      "Rolex Submariner",
+      "Rolex",
+      "Watches",
+      "Switzerland"
+    ],
+    [
+      "Omega Speedmaster",
+      "Omega",
+      "Watches",
+      "Switzerland"
+    ],
+    [
+      "Casio G Shock",
+      "Casio",
+      "Watches",
+      "Japan"
+    ],
+    [
+      "Seiko Prospex",
+      "Seiko",
+      "Watches",
+      "Japan"
+    ],
+    [
+      "Fossil Gen 5",
+      "Fossil",
+      "Watches",
+      "United States"
+    ],
+    [
+      "Apple Watch",
+      "Apple",
+      "Watches",
+      "United States"
+    ],
+    [
+      "Fitbit Charge",
+      "Fitbit",
+      "Watches",
+      "United States"
+    ],
+    [
+      "Titan Raga",
+      "Titan",
+      "Watches",
+      "India"
+    ],
+    [
+      "Fastrack Reflex",
+      "Fastrack",
+      "Watches",
+      "India"
+    ],
+    [
+      "Tissot PRX",
+      "Tissot",
+      "Watches",
+      "Switzerland"
+    ],
+    [
+      "Tag Heuer Carrera",
+      "TAG Heuer",
+      "Watches",
+      "Switzerland"
+    ],
+    [
+      "Citizen Eco Drive",
+      "Citizen",
+      "Watches",
+      "Japan"
+    ],
+    [
+      "Sony Walkman",
+      "Sony",
+      "Electronics",
+      "Japan"
+    ],
+    [
+      "Bose QuietComfort",
+      "Bose",
+      "Electronics",
+      "United States"
+    ],
+    [
+      "JBL Flip 6",
+      "JBL",
+      "Electronics",
+      "United States"
+    ],
+    [
+      "Marshall Emberton",
+      "Marshall",
+      "Electronics",
+      "United Kingdom"
+    ],
+    [
+      "Anker PowerCore",
+      "Anker",
+      "Electronics",
+      "China"
+    ],
+    [
+      "LG OLED",
+      "LG",
+      "Electronics",
+      "South Korea"
+    ],
+    [
+      "Sony Bravia",
+      "Sony",
+      "Electronics",
+      "Japan"
+    ],
+    [
+      "Mi TV",
+      "Xiaomi",
+      "Electronics",
+      "China"
+    ],
+    [
+      "TCL QLED",
+      "TCL",
+      "Electronics",
+      "China"
+    ],
+    [
+      "Fire TV Stick",
+      "Amazon",
+      "Electronics",
+      "United States"
+    ],
+    [
+      "Chromecast",
+      "Google",
+      "Electronics",
+      "United States"
+    ],
+    [
+      "Echo Dot",
+      "Amazon",
+      "Electronics",
+      "United States"
+    ],
+    [
+      "Nest Mini",
+      "Google",
+      "Electronics",
+      "United States"
+    ],
+    [
+      "Ring Doorbell",
+      "Ring",
+      "Electronics",
+      "United States"
+    ],
+    [
+      "GoPro Hero",
+      "GoPro",
+      "Electronics",
+      "United States"
+    ],
+    [
+      "DJI Mavic",
+      "DJI",
+      "Electronics",
+      "China"
+    ],
+    [
+      "Kindle Paperwhite",
+      "Amazon",
+      "Electronics",
+      "United States"
+    ],
+    [
+      "iPad Pro",
+      "Apple",
+      "Electronics",
+      "United States"
+    ],
+    [
+      "Galaxy Tab",
+      "Samsung",
+      "Electronics",
+      "South Korea"
+    ],
+    [
+      "Lakme Eyeconic",
+      "Lakme",
+      "Cosmetics",
+      "India"
+    ],
+    [
+      "Maybelline Fit Me",
+      "Maybelline",
+      "Cosmetics",
+      "United States"
+    ],
+    [
+      "Loreal Revitalift",
+      "Loreal",
+      "Cosmetics",
+      "France"
+    ],
+    [
+      "Nivea Creme",
+      "Nivea",
+      "Cosmetics",
+      "Germany"
+    ],
+    [
+      "Ponds Cold Cream",
+      "Ponds",
+      "Cosmetics",
+      "United States"
+    ],
+    [
+      "MAC Ruby Woo",
+      "MAC",
+      "Cosmetics",
+      "Canada"
+    ],
+    [
+      "Fenty Beauty",
+      "Fenty",
+      "Cosmetics",
+      "United States"
+    ],
+    [
+      "The Ordinary Serum",
+      "The Ordinary",
+      "Cosmetics",
+      "Canada"
+    ],
+    [
+      "Olay Regenerist",
+      "Olay",
+      "Cosmetics",
+      "United States"
+    ],
+    [
+      "Garnier Micellar",
+      "Garnier",
+      "Cosmetics",
+      "France"
+    ],
+    [
+      "Dove Shampoo",
+      "Dove",
+      "Cosmetics",
+      "United Kingdom"
+    ],
+    [
+      "Head and Shoulders",
+      "Procter and Gamble",
+      "Cosmetics",
+      "United States"
+    ],
+    [
+      "Pantene Pro V",
+      "Pantene",
+      "Cosmetics",
+      "Switzerland"
+    ],
+    [
+      "Colgate Total",
+      "Colgate",
+      "Cosmetics",
+      "United States"
+    ],
+    [
+      "Sensodyne Fresh",
+      "Sensodyne",
+      "Cosmetics",
+      "United Kingdom"
+    ],
+    [
+      "Oral B Brush",
+      "Oral B",
+      "Cosmetics",
+      "United States"
+    ],
+    [
+      "Gillette Fusion",
+      "Gillette",
+      "Cosmetics",
+      "United States"
+    ],
+    [
+      "Cetaphil Cleanser",
+      "Cetaphil",
+      "Beauty",
+      "Switzerland"
+    ],
+    [
+      "CeraVe Moisturiser",
+      "CeraVe",
+      "Beauty",
+      "United States"
+    ],
+    [
+      "Minimalist Serum",
+      "Minimalist",
+      "Beauty",
+      "India"
+    ],
+    [
+      "Mamaearth Ubtan",
+      "Mamaearth",
+      "Beauty",
+      "India"
+    ],
+    [
+      "Biotique Face Pack",
+      "Biotique",
+      "Beauty",
+      "India"
+    ],
+    [
+      "Kama Ayurveda",
+      "Kama Ayurveda",
+      "Beauty",
+      "India"
+    ],
+    [
+      "Kiehls Cream",
+      "Kiehls",
+      "Beauty",
+      "United States"
+    ],
+    [
+      "Clinique Moisture Surge",
+      "Clinique",
+      "Beauty",
+      "United States"
+    ],
+    [
+      "Estee Lauder Serum",
+      "Estee Lauder",
+      "Beauty",
+      "United States"
+    ],
+    [
+      "Laneige Lip Mask",
+      "Laneige",
+      "Beauty",
+      "South Korea"
+    ],
+    [
+      "Innisfree Green Tea",
+      "Innisfree",
+      "Beauty",
+      "South Korea"
+    ],
+    [
+      "Plum Vitamin C",
+      "Plum",
+      "Beauty",
+      "India"
+    ],
+    [
+      "Sugar Lipstick",
+      "Sugar",
+      "Beauty",
+      "India"
+    ],
+    [
+      "Maggi Noodles",
+      "Nestle",
+      "Food",
+      "Switzerland"
+    ],
+    [
+      "KitKat",
+      "Nestle",
+      "Food",
+      "United Kingdom"
+    ],
+    [
+      "Dairy Milk",
+      "Cadbury",
+      "Food",
+      "United Kingdom"
+    ],
+    [
+      "Ferrero Rocher",
+      "Ferrero",
+      "Food",
+      "Italy"
+    ],
+    [
+      "Nutella",
+      "Ferrero",
+      "Food",
+      "Italy"
+    ],
+    [
+      "Oreo",
+      "Mondelez",
+      "Food",
+      "United States"
+    ],
+    [
+      "Pringles",
+      "Kellanova",
+      "Food",
+      "United States"
+    ],
+    [
+      "Doritos",
+      "PepsiCo",
+      "Food",
+      "United States"
+    ],
+    [
+      "Lays Classic",
+      "PepsiCo",
+      "Food",
+      "United States"
+    ],
+    [
+      "Haldiram Bhujia",
+      "Haldiram",
+      "Food",
+      "India"
+    ],
+    [
+      "Parle G",
+      "Parle",
+      "Food",
+      "India"
+    ],
+    [
+      "Bourbon Biscuit",
+      "Britannia",
+      "Food",
+      "India"
+    ],
+    [
+      "Amul Butter",
+      "Amul",
+      "Food",
+      "India"
+    ],
+    [
+      "Britannia Good Day",
+      "Britannia",
+      "Food",
+      "India"
+    ],
+    [
+      "Cadbury Gems",
+      "Cadbury",
+      "Food",
+      "India"
+    ],
+    [
+      "Snickers",
+      "Mars",
+      "Food",
+      "United States"
+    ],
+    [
+      "Mars Bar",
+      "Mars",
+      "Food",
+      "United Kingdom"
+    ],
+    [
+      "Toblerone",
+      "Mondelez",
+      "Food",
+      "Switzerland"
+    ],
+    [
+      "Haribo Goldbears",
+      "Haribo",
+      "Food",
+      "Germany"
+    ],
+    [
+      "Lindt Lindor",
+      "Lindt",
+      "Food",
+      "Switzerland"
+    ],
+    [
+      "Haagen Dazs",
+      "General Mills",
+      "Food",
+      "United States"
+    ],
+    [
+      "Corn Flakes",
+      "Kelloggs",
+      "Food",
+      "United States"
+    ],
+    [
+      "Quaker Oats",
+      "PepsiCo",
+      "Food",
+      "United States"
+    ],
+    [
+      "Hide and Seek",
+      "Parle",
+      "Food",
+      "India"
+    ],
+    [
+      "Kurkure",
+      "PepsiCo",
+      "Food",
+      "India"
+    ],
+    [
+      "Bingo Mad Angles",
+      "ITC",
+      "Food",
+      "India"
+    ],
+    [
+      "Too Yumm",
+      "RP Sanjiv Goenka",
+      "Food",
+      "India"
+    ],
+    [
+      "Coca Cola",
+      "Coca Cola",
+      "Drinks",
+      "United States"
+    ],
+    [
+      "Pepsi Cola",
+      "PepsiCo",
+      "Drinks",
+      "United States"
+    ],
+    [
+      "Sprite",
+      "Coca Cola",
+      "Drinks",
+      "United States"
+    ],
+    [
+      "Fanta Orange",
+      "Coca Cola",
+      "Drinks",
+      "Germany"
+    ],
+    [
+      "Thums Up",
+      "Coca Cola",
+      "Drinks",
+      "India"
+    ],
+    [
+      "Limca",
+      "Coca Cola",
+      "Drinks",
+      "India"
+    ],
+    [
+      "Mountain Dew",
+      "PepsiCo",
+      "Drinks",
+      "United States"
+    ],
+    [
+      "Red Bull",
+      "Red Bull",
+      "Drinks",
+      "Austria"
+    ],
+    [
+      "Monster Energy",
+      "Monster",
+      "Drinks",
+      "United States"
+    ],
+    [
+      "Starbucks Latte",
+      "Starbucks",
+      "Drinks",
+      "United States"
+    ],
+    [
+      "Nescafe Classic",
+      "Nestle",
+      "Drinks",
+      "Switzerland"
+    ],
+    [
+      "Bru Coffee",
+      "Hindustan Unilever",
+      "Drinks",
+      "India"
+    ],
+    [
+      "Lipton Tea",
+      "Lipton",
+      "Drinks",
+      "United Kingdom"
+    ],
+    [
+      "Tetley Green Tea",
+      "Tata Consumer",
+      "Drinks",
+      "India"
+    ],
+    [
+      "Tropicana Orange",
+      "PepsiCo",
+      "Drinks",
+      "United States"
+    ],
+    [
+      "Real Juice",
+      "Dabur",
+      "Drinks",
+      "India"
+    ],
+    [
+      "Frooti",
+      "Parle Agro",
+      "Drinks",
+      "India"
+    ],
+    [
+      "Slice Mango",
+      "PepsiCo",
+      "Drinks",
+      "India"
+    ],
+    [
+      "Sting Energy",
+      "PepsiCo",
+      "Drinks",
+      "India"
+    ],
+    [
+      "Bisleri Water",
+      "Bisleri",
+      "Drinks",
+      "India"
+    ],
+    [
+      "Gatorade",
+      "PepsiCo",
+      "Drinks",
+      "United States"
+    ],
+    [
+      "Corona Extra",
+      "Grupo Modelo",
+      "Drinks",
+      "Mexico"
+    ],
+    [
+      "Heineken",
+      "Heineken",
+      "Drinks",
+      "Netherlands"
+    ],
+    [
+      "Guinness Stout",
+      "Diageo",
+      "Drinks",
+      "Ireland"
+    ],
+    [
+      "Jack Daniels",
+      "Brown Forman",
+      "Drinks",
+      "United States"
+    ],
+    [
+      "Johnnie Walker",
+      "Diageo",
+      "Drinks",
+      "United Kingdom"
+    ],
+    [
+      "Absolut Vodka",
+      "Pernod Ricard",
+      "Drinks",
+      "Sweden"
+    ],
+    [
+      "Bacardi Rum",
+      "Bacardi",
+      "Drinks",
+      "Cuba"
+    ],
+    [
+      "Lego City",
+      "Lego",
+      "Toys",
+      "Denmark"
+    ],
+    [
+      "Barbie Dreamhouse",
+      "Mattel",
+      "Toys",
+      "United States"
+    ],
+    [
+      "Hot Wheels",
+      "Mattel",
+      "Toys",
+      "United States"
+    ],
+    [
+      "Rubiks Cube",
+      "Rubiks",
+      "Toys",
+      "Hungary"
+    ],
+    [
+      "Monopoly Board",
+      "Hasbro",
+      "Toys",
+      "United States"
+    ],
+    [
+      "Scrabble",
+      "Hasbro",
+      "Toys",
+      "United States"
+    ],
+    [
+      "Jenga",
+      "Hasbro",
+      "Toys",
+      "United Kingdom"
+    ],
+    [
+      "Uno Card",
+      "Mattel",
+      "Toys",
+      "United States"
+    ],
+    [
+      "Nerf Blaster",
+      "Hasbro",
+      "Toys",
+      "United States"
+    ],
+    [
+      "Play Doh",
+      "Hasbro",
+      "Toys",
+      "United States"
+    ],
+    [
+      "Beyblade Burst",
+      "Takara Tomy",
+      "Toys",
+      "Japan"
+    ],
+    [
+      "Catan Board",
+      "Kosmos",
+      "Toys",
+      "Germany"
+    ],
+    [
+      "Furby",
+      "Hasbro",
+      "Toys",
+      "United States"
+    ],
+    [
+      "Tamagotchi",
+      "Bandai",
+      "Toys",
+      "Japan"
+    ],
+    [
+      "Slinky",
+      "Slinky",
+      "Toys",
+      "United States"
+    ],
+    [
+      "Ikea Billy",
+      "Ikea",
+      "Furniture",
+      "Sweden"
+    ],
+    [
+      "Ikea Poang",
+      "Ikea",
+      "Furniture",
+      "Sweden"
+    ],
+    [
+      "Herman Miller Aeron",
+      "Herman Miller",
+      "Furniture",
+      "United States"
+    ],
+    [
+      "Godrej Interio",
+      "Godrej",
+      "Furniture",
+      "India"
+    ],
+    [
+      "Nilkamal Chair",
+      "Nilkamal",
+      "Furniture",
+      "India"
+    ],
+    [
+      "Sleepwell Mattress",
+      "Sleepwell",
+      "Furniture",
+      "India"
+    ],
+    [
+      "Kurlon Mattress",
+      "Kurlon",
+      "Furniture",
+      "India"
+    ],
+    [
+      "Wakefit Mattress",
+      "Wakefit",
+      "Furniture",
+      "India"
+    ],
+    [
+      "Eames Lounge",
+      "Herman Miller",
+      "Furniture",
+      "United States"
+    ],
+    [
+      "Stressless Recliner",
+      "Ekornes",
+      "Furniture",
+      "Norway"
+    ],
+    [
+      "Dyson Vacuum",
+      "Dyson",
+      "Appliances",
+      "United Kingdom"
+    ],
+    [
+      "Philips Air Fryer",
+      "Philips",
+      "Appliances",
+      "Netherlands"
+    ],
+    [
+      "Bosch Washing Machine",
+      "Bosch",
+      "Appliances",
+      "Germany"
+    ],
+    [
+      "LG Refrigerator",
+      "LG",
+      "Appliances",
+      "South Korea"
+    ],
+    [
+      "Samsung Microwave",
+      "Samsung",
+      "Appliances",
+      "South Korea"
+    ],
+    [
+      "Whirlpool Fridge",
+      "Whirlpool",
+      "Appliances",
+      "United States"
+    ],
+    [
+      "IFB Washing",
+      "IFB",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Haier AC",
+      "Haier",
+      "Appliances",
+      "China"
+    ],
+    [
+      "Voltas AC",
+      "Voltas",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Daikin Inverter",
+      "Daikin",
+      "Appliances",
+      "Japan"
+    ],
+    [
+      "Blue Star AC",
+      "Blue Star",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Kent RO",
+      "Kent",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Aquaguard",
+      "Eureka Forbes",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Bajaj Mixer",
+      "Bajaj",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Preethi Mixer",
+      "Preethi",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Havells Fan",
+      "Havells",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Orient Fan",
+      "Orient",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Prestige Cooker",
+      "Prestige",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Hawkins Cooker",
+      "Hawkins",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Milton Thermosteel",
+      "Milton",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Borosil Glass",
+      "Borosil",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Symphony Cooler",
+      "Symphony",
+      "Appliances",
+      "India"
+    ],
+    [
+      "Roomba i3",
+      "iRobot",
+      "Appliances",
+      "United States"
+    ],
+    [
+      "Instant Pot",
+      "Instant Brands",
+      "Appliances",
+      "Canada"
+    ],
+    [
+      "Keurig K Mini",
+      "Keurig",
+      "Appliances",
+      "United States"
+    ],
+    [
+      "Nespresso Vertuo",
+      "Nestle",
+      "Appliances",
+      "Switzerland"
+    ],
+    [
+      "Tefal Pan",
+      "Tefal",
+      "Appliances",
+      "France"
+    ],
+    [
+      "Nike Mercurial",
+      "Nike",
+      "Sports",
+      "United States"
+    ],
+    [
+      "Adidas Predator",
+      "Adidas",
+      "Sports",
+      "Germany"
+    ],
+    [
+      "SG Bat",
+      "SG",
+      "Sports",
+      "India"
+    ],
+    [
+      "MRF Bat",
+      "MRF",
+      "Sports",
+      "India"
+    ],
+    [
+      "Kookaburra Bat",
+      "Kookaburra",
+      "Sports",
+      "Australia"
+    ],
+    [
+      "Spalding Ball",
+      "Spalding",
+      "Sports",
+      "United States"
+    ],
+    [
+      "Wilson Pro Staff",
+      "Wilson",
+      "Sports",
+      "United States"
+    ],
+    [
+      "Yonex Badminton",
+      "Yonex",
+      "Sports",
+      "Japan"
+    ],
+    [
+      "Li Ning Racket",
+      "Li Ning",
+      "Sports",
+      "China"
+    ],
+    [
+      "Cosco Ball",
+      "Cosco",
+      "Sports",
+      "India"
+    ],
+    [
+      "Nivia Football",
+      "Nivia",
+      "Sports",
+      "India"
+    ],
+    [
+      "Speedo Swim",
+      "Speedo",
+      "Sports",
+      "Australia"
+    ],
+    [
+      "Decathlon Quechua",
+      "Decathlon",
+      "Sports",
+      "France"
+    ],
+    [
+      "Trek Bicycle",
+      "Trek",
+      "Sports",
+      "United States"
+    ],
+    [
+      "Giant Bicycle",
+      "Giant",
+      "Sports",
+      "Taiwan"
+    ],
+    [
+      "Hercules Cycle",
+      "Hercules",
+      "Sports",
+      "India"
+    ],
+    [
+      "Btwin Cycle",
+      "Decathlon",
+      "Sports",
+      "France"
+    ],
+    [
+      "York Dumbbell",
+      "York",
+      "Sports",
+      "United States"
+    ],
+    [
+      "PlayStation 5",
+      "Sony",
+      "Gaming",
+      "Japan"
+    ],
+    [
+      "Xbox Series X",
+      "Microsoft",
+      "Gaming",
+      "United States"
+    ],
+    [
+      "Nintendo Switch",
+      "Nintendo",
+      "Gaming",
+      "Japan"
+    ],
+    [
+      "Steam Deck",
+      "Valve",
+      "Gaming",
+      "United States"
+    ],
+    [
+      "Oculus Quest",
+      "Meta",
+      "Gaming",
+      "United States"
+    ],
+    [
+      "Razer Deathadder",
+      "Razer",
+      "Gaming",
+      "Singapore"
+    ],
+    [
+      "Logitech G502",
+      "Logitech",
+      "Gaming",
+      "Switzerland"
+    ],
+    [
+      "HyperX Cloud",
+      "HyperX",
+      "Gaming",
+      "United States"
+    ],
+    [
+      "Corsair K70",
+      "Corsair",
+      "Gaming",
+      "United States"
+    ],
+    [
+      "SteelSeries Arctis",
+      "SteelSeries",
+      "Gaming",
+      "Denmark"
+    ],
+    [
+      "Minecraft",
+      "Mojang",
+      "Gaming",
+      "Sweden"
+    ],
+    [
+      "Fortnite",
+      "Epic Games",
+      "Gaming",
+      "United States"
+    ],
+    [
+      "Among Us",
+      "Innersloth",
+      "Gaming",
+      "United States"
+    ],
+    [
+      "Candy Crush",
+      "King",
+      "Gaming",
+      "Sweden"
+    ],
+    [
+      "Free Fire",
+      "Garena",
+      "Gaming",
+      "Singapore"
+    ],
+    [
+      "Clash of Clans",
+      "Supercell",
+      "Gaming",
+      "Finland"
+    ],
+    [
+      "God of War",
+      "Santa Monica Studio",
+      "Gaming",
+      "United States"
+    ],
+    [
+      "Elden Ring",
+      "FromSoftware",
+      "Gaming",
+      "Japan"
+    ],
+    [
+      "Call of Duty",
+      "Activision",
+      "Gaming",
+      "United States"
+    ],
+    [
+      "Valorant",
+      "Riot Games",
+      "Gaming",
+      "United States"
+    ],
+    [
+      "Subway Surfers",
+      "Kiloo",
+      "Gaming",
+      "Denmark"
+    ],
+    [
+      "Temple Run",
+      "Imangi Studios",
+      "Gaming",
+      "United States"
+    ],
+    [
+      "Mario Kart",
+      "Nintendo",
+      "Gaming",
+      "Japan"
+    ]
+  ]
+}
