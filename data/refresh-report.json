@@ -1,10 +1,10 @@
 {
- "runAt": "2026-11-06T23:21:13.422Z",
- "mode": "offline (cache only)",
+ "runAt": "2026-11-09T04:32:09.975Z",
+ "mode": "online",
  "products": 282,
- "verifiedSpelling": 35,
- "imagesAvailable": 1,
- "newImages": 0,
+ "verifiedSpelling": 180,
+ "imagesAvailable": 3,
+ "newImages": 2,
  "categories": {
   "Smartphones": 23,
   "Laptops": 16,

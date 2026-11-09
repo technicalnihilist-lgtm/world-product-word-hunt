@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T23:21:13.422Z",
+ "generatedAt": "2026-11-09T04:32:09.975Z",
  "text": "Product names verified against Wikipedia. Images from Wikimedia Commons, used under the licence stated for each file.",
  "images": [
   {
@@ -11,6 +11,26 @@
    "author": "TECHNICAL GURUJI 8.0",
    "page": "https://commons.wikimedia.org/wiki/File:Camon_20_Premier_5G.png",
    "local": "assets/img/tecnocamon20.jpg"
+  },
+  {
+   "id": "jawa42",
+   "product": "Jawa 42",
+   "file": "Yezdi Logo.png",
+   "licence": "Public domain",
+   "licenceUrl": "",
+   "author": "Unknown author Unknown author",
+   "page": "https://commons.wikimedia.org/wiki/File:Yezdi_Logo.png",
+   "local": "assets/img/jawa42.jpg"
+  },
+  {
+   "id": "doveshampoo",
+   "product": "Dove Shampoo",
+   "file": "Dove logo.png",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "author": "Trademark holder Unilever",
+   "page": "https://commons.wikimedia.org/wiki/File:Dove_logo.png",
+   "local": "assets/img/doveshampoo.jpg"
   }
  ]
 }
