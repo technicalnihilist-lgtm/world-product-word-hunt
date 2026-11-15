@@ -230,3 +230,17 @@ Code: MIT (`LICENSE`). Product names are trademarks of their owners; images keep
 their Commons licences (`data/credits.json`); Wikipedia text is CC BY-SA 4.0.
 Not affiliated with Wikipedia, the Wikimedia Foundation, or any brand named in
 the catalogue. See [CREDITS.md](CREDITS.md).
+
+---
+
+## ☕ Donate / Buy me a coffee
+
+**Coming soon** — our donation options are on the way.
+
+| Platform | Status |
+| --- | --- |
+| Paytm | Coming soon |
+| PayPal | Coming soon |
+| GPay (Google Pay) | Coming soon |
+
+If you like our work, you can support us with a donation. We are bringing this very soon — **coming soon**.
