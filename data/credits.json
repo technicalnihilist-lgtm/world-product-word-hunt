@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T04:32:09.975Z",
+ "generatedAt": "2026-11-16T04:47:02.948Z",
  "text": "Product names verified against Wikipedia. Images from Wikimedia Commons, used under the licence stated for each file.",
  "images": [
   {
@@ -21,6 +21,26 @@
    "author": "Unknown author Unknown author",
    "page": "https://commons.wikimedia.org/wiki/File:Yezdi_Logo.png",
    "local": "assets/img/jawa42.jpg"
+  },
+  {
+   "id": "burberrytrench",
+   "product": "Burberry Trench",
+   "file": "Horseferry House.jpg",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "author": "BurberryWiki",
+   "page": "https://commons.wikimedia.org/wiki/File:Horseferry_House.jpg",
+   "local": "assets/img/burberrytrench.jpg"
+  },
+  {
+   "id": "tclqled",
+   "product": "TCL QLED",
+   "file": "QD S.jpg",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "author": "Walkman16",
+   "page": "https://commons.wikimedia.org/wiki/File:QD_S.jpg",
+   "local": "assets/img/tclqled.jpg"
   },
   {
    "id": "doveshampoo",

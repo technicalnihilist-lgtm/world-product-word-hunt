@@ -1,12 +1,12 @@
 {
  "name": "WORLD PRODUCT WORD HUNT",
  "version": 1,
- "generatedAt": "2026-11-09T04:32:09.975Z",
+ "generatedAt": "2026-11-16T04:47:02.948Z",
  "agent": "refresh-catalog.mjs (Wikipedia + Wikimedia Commons)",
  "stats": {
   "products": 282,
-  "verified": 180,
-  "withImage": 3,
+  "verified": 248,
+  "withImage": 5,
   "categories": {
    "Smartphones": 23,
    "Laptops": 16,
@@ -275,7 +275,12 @@
    "category": "Smartphones",
    "country": "China",
    "letters": "POCOX6",
-   "wiki": null,
+   "wiki": {
+    "title": "Poco (smartphone)",
+    "url": "https://en.wikipedia.org/wiki/Poco_(smartphone)",
+    "extract": "",
+    "verified": false
+   },
    "image": null
   },
   {
@@ -285,8 +290,14 @@
    "category": "Smartphones",
    "country": "Hong Kong",
    "letters": "INFINIXNOTE40",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Infinix Mobile",
+    "url": "https://en.wikipedia.org/wiki/Infinix_Mobile",
+    "extract": "Infinix Mobile is a Hong Kong–based Chinese smartphone company, founded in April 2013 by Transsion.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Smartphone manufacturer based in Hong Kong"
   },
   {
    "id": "tecnocamon20",
@@ -337,9 +348,9 @@
    "country": "Taiwan",
    "letters": "ZENFONE10",
    "wiki": {
-    "title": "Asus ZenFone",
-    "url": "https://en.wikipedia.org/wiki/Asus_ZenFone",
-    "extract": "Asus ZenFone is a discontinued series of Android smartphones designed, marketed and produced by Asus from 2014 until 2026. Various models are powered by a series of Intel Atom, Qualcomm Snapdragon, and MediaTek processors. Most ZenFone also features the ZenUI user interface.",
+    "title": "Asus Zenfone 12 Ultra",
+    "url": "https://en.wikipedia.org/wiki/Asus_Zenfone_12_Ultra",
+    "extract": "The Zenfone 12 Ultra is a smartphone developed and marketed by ASUS, released on February 6, 2025. It features a 6.78-inch AMOLED display, a Snapdragon 8 Elite processor, and a triple-camera system. It is the second AI featured phone in the company's Zenfone product line, succeeding the Zenfone 11 Ultra from 2024.",
     "verified": true
    },
    "image": null,
@@ -435,7 +446,7 @@
    "wiki": {
     "title": "ThinkPad T series",
     "url": "https://en.wikipedia.org/wiki/ThinkPad_T_series",
-    "extract": "The ThinkPad T series is Lenovo’s official flagship ThinkPad product, offering high-performance computers aimed at businesses and professionals, originally introduced in 2000. Formerly an IBM brand, the series was produced by IBM until Lenovo acquired the ThinkPad brand following its purchase of IBM's Personal Computin",
+    "extract": "The T series of flagship laptops are part of Lenovo's ThinkPad product line, offering high-performance computers aimed at businesses and professionals, originally introduced in 2000. Formerly an IBM brand, the series was produced by IBM until Lenovo acquired the ThinkPad brand following its purchase of IBM's Personal C",
     "verified": true
    },
    "image": null,
@@ -448,7 +459,12 @@
    "category": "Laptops",
    "country": "United States",
    "letters": "DELLXPS13",
-   "wiki": null,
+   "wiki": {
+    "title": "Dell XPS",
+    "url": "https://en.wikipedia.org/wiki/Dell_XPS",
+    "extract": "",
+    "verified": false
+   },
    "image": null
   },
   {
@@ -458,8 +474,14 @@
    "category": "Laptops",
    "country": "United States",
    "letters": "HPSPECTRE",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "HP Spectre",
+    "url": "https://en.wikipedia.org/wiki/HP_Spectre",
+    "extract": "HP Spectre is a discontinued line of premium portable computers manufactured and marketed by Hewlett-Packard from 2012 to 2015 and by its successor HP Inc. from 2015 to 2025. Introduced as a high-end version of the HP Envy line in 2012, it was HP's flagship line of laptop products for consumers starting in 2016.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Discontinued laptop computer series by HP"
   },
   {
    "id": "asuszenbook",
@@ -517,8 +539,8 @@
    "country": "United States",
    "letters": "SURFACELAPTOP",
    "wiki": {
-    "title": "Surface Pro 9",
-    "url": "https://en.wikipedia.org/wiki/Surface_Pro_9",
+    "title": "Surface Laptop",
+    "url": "https://en.wikipedia.org/wiki/Surface_Laptop",
     "extract": "The Microsoft Surface Pro 9 is a 2-in-1 detachable tablet computer developed by Microsoft to supersede the Surface Pro 8 and Surface Pro X, merging both brands. The device was announced on October 12, 2022 introducing two new colors and alongside the Surface Laptop 5 and Surface Studio 2+. The tablet is powered by the ",
     "verified": true
    },
@@ -532,8 +554,14 @@
    "category": "Laptops",
    "country": "Singapore",
    "letters": "RAZERBLADE",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Razer Blade Stealth",
+    "url": "https://en.wikipedia.org/wiki/Razer_Blade_Stealth",
+    "extract": "The Razer Blade Stealth is a laptop lineup from Razer Inc. It was first launched 6 January 2016 during the Consumer Electronics Show alongside the Razer Core, the external graphics box. The product won the CES 2016 Best Laptop Award for its unique design choice of detaching the powerful GPU from the main device and con",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Laptop lineup from Razer Inc."
   },
   {
    "id": "alienwarem15",
@@ -542,8 +570,14 @@
    "category": "Laptops",
    "country": "United States",
    "letters": "ALIENWAREM15",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Alienware",
+    "url": "https://en.wikipedia.org/wiki/Alienware",
+    "extract": "Alienware Corporation is an American computer hardware subsidiary brand of Dell Inc.. Their product range is dedicated to gaming computers and accessories, which can be identified by its alien-themed designs. Alienware was founded in 1996 by Nelson Gonzalez and Alex Aguila. The development of the company is also associ",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "American computer hardware subsidiary of Dell Inc."
   },
   {
    "id": "msikatana",
@@ -618,10 +652,11 @@
    "wiki": {
     "title": "Acer Swift",
     "url": "https://en.wikipedia.org/wiki/Acer_Swift",
-    "extract": "",
-    "verified": false
+    "extract": "The Swift is a line of consumer-oriented high-end laptop computers produced by Acer. They are designed to be lightweight and thinner than typical laptops. Laptops in the Swift series are the Swift 1, Swift 3, Swift 5 and Swift 7.",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Line of notebook computers by Acer, Inc"
   },
   {
    "id": "corolla",
@@ -630,8 +665,14 @@
    "category": "Cars",
    "country": "Japan",
    "letters": "COROLLA",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Toyota Corolla",
+    "url": "https://en.wikipedia.org/wiki/Toyota_Corolla",
+    "extract": "The Toyota Corolla  is a series of compact cars manufactured and marketed globally by the Japanese automaker Toyota Motor Corporation since 1966. Since 1997, the Corolla has remained the best-selling automobile nameplate of all time, surpassing the Volkswagen Beetle. Toyota reached the milestone of 50 million Corollas ",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Japanese compact car"
   },
   {
    "id": "civic",
@@ -640,8 +681,14 @@
    "category": "Cars",
    "country": "Japan",
    "letters": "CIVIC",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Honda Civic",
+    "url": "https://en.wikipedia.org/wiki/Honda_Civic",
+    "extract": "The Honda Civic  is a series of automobiles manufactured by Honda since 1972. As of 2023, the Civic is positioned between the Honda Fit/City and Honda Accord in Honda's global passenger car line-up. It is one of the best-selling automobiles in history, with over 27 million units sold through 2021.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Japanese compact car"
   },
   {
    "id": "mustang",
@@ -701,10 +748,11 @@
    "wiki": {
     "title": "BMW M3",
     "url": "https://en.wikipedia.org/wiki/BMW_M3",
-    "extract": "",
-    "verified": false
+    "extract": "The BMW M3 is a high-performance version of the BMW 3 Series, developed by BMW's in-house motorsport division, BMW M GmbH. M3 models have been produced for every generation of 3 Series since the E30 M3 was introduced in 1986.",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "High-performance version of the BMW 3 Series automobile"
   },
   {
    "id": "mercedescclass",
@@ -713,8 +761,14 @@
    "category": "Cars",
    "country": "Germany",
    "letters": "MERCEDESCCLASS",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Mercedes-Benz B-Class",
+    "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_B-Class",
+    "extract": "The Mercedes-Benz B-Class is a subcompact executive car manufactured and marketed by Mercedes-Benz since 2005. Based on the A-Class with larger dimensions, the European New Car Assessment Programme classifies it as a small MPV.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Subcompact executive MPV produced by Mercedes-Benz"
   },
   {
    "id": "audia4",
@@ -774,10 +828,11 @@
    "wiki": {
     "title": "Maruti Suzuki Alto",
     "url": "https://en.wikipedia.org/wiki/Maruti_Suzuki_Alto",
-    "extract": "",
-    "verified": false
+    "extract": "The Maruti Suzuki Alto is a city car manufactured and marketed by Suzuki through its subsidiary Maruti Suzuki primarily for the Indian market since 2000. The first-generation model was essentially the Indian version of the fifth-generation Suzuki Alto kei car. The second generation was made as a standalone model, which",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Motor vehicle"
   },
   {
    "id": "tatanexon",
@@ -786,8 +841,14 @@
    "category": "Cars",
    "country": "India",
    "letters": "TATANEXON",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Tata Nexon",
+    "url": "https://en.wikipedia.org/wiki/Tata_Nexon",
+    "extract": "The Tata Nexon is a subcompact SUV produced by the Indian automaker Tata Motors since 2017. It is the first crossover SUV from the brand and occupies the sub-4 metre crossover SUV segment in India.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Subcompact crossover SUV"
   },
   {
    "id": "mahindraxuv700",
@@ -845,9 +906,9 @@
    "country": "Czechia",
    "letters": "SKODAOCTAVIA",
    "wiki": {
-    "title": "Škoda Auto",
-    "url": "https://en.wikipedia.org/wiki/%C5%A0koda_Auto",
-    "extract": "Škoda Auto a.s., often shortened to Škoda, is a Czech automobile manufacturer established in 1896 as the successor to Laurin & Klement and headquartered in Mladá Boleslav, Czech Republic. Škoda Works became state owned in 1948. After the Velvet Revolution, it was gradually privatized starting in 1991, eventually becomi",
+    "title": "Škoda Octavia",
+    "url": "https://en.wikipedia.org/wiki/%C5%A0koda_Octavia",
+    "extract": "The Škoda Octavia is a small family car (C-segment) produced by the Czech car manufacturer Škoda Auto since the end of 1996. It shares its name with an earlier model produced between 1959 and 1971. Four generations of the modern-era Octavia model have been introduced to date, delivered with five-door liftback or five-d",
     "verified": true
    },
    "image": null,
@@ -860,8 +921,14 @@
    "category": "Cars",
    "country": "Japan",
    "letters": "NISSANLEAF",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Nissan Leaf",
+    "url": "https://en.wikipedia.org/wiki/Nissan_Leaf",
+    "extract": "The Nissan Leaf  is a battery electric car produced by Nissan since 2010. It was offered exclusively as a 5-door hatchback until 2025, when it became a crossover SUV model. The term \"LEAF\" serves as a backronym to leading environmentally-friendly affordable family car.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Battery electric car"
   },
   {
    "id": "jeepwrangler",
@@ -870,8 +937,14 @@
    "category": "Cars",
    "country": "United States",
    "letters": "JEEPWRANGLER",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Jeep Wrangler",
+    "url": "https://en.wikipedia.org/wiki/Jeep_Wrangler",
+    "extract": "The Jeep Wrangler is a series of compact and mid-size off-road SUVs manufactured by Jeep since 1986, and currently in its fourth generation. The Wrangler JL, the most recent generation, was unveiled in late 2017 and is produced at Jeep's Toledo Complex.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Four-wheel-drive off-road SUV produced by Jeep"
   },
   {
    "id": "volvoxc90",
@@ -1101,10 +1174,11 @@
    "wiki": {
     "title": "Yamaha Motor Company",
     "url": "https://en.wikipedia.org/wiki/Yamaha_Motor_Company",
-    "extract": "",
-    "verified": false
+    "extract": "Yamaha Motor Co., Ltd.  is a Japanese multinational conglomerate mobility manufacturer that was founded in 1955. The company operates across various industries and manufactures a wide range of motorized products, including motorcycles, motorboats, outboard motors, and semiconductor manufacturing equipment.",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Japanese motorcycle manufacturer"
   },
   {
    "id": "ktmduke",
@@ -1171,9 +1245,9 @@
    "country": "United States",
    "letters": "HARLEYDAVIDSON",
    "wiki": {
-    "title": "William S. Harley",
-    "url": "https://en.wikipedia.org/wiki/William_S._Harley",
-    "extract": "William Sylvester Harley was an American mechanical engineer and businessman. He was one of the four co-founders of the Harley-Davidson Motor Company.",
+    "title": "Harley-Davidson",
+    "url": "https://en.wikipedia.org/wiki/Harley-Davidson",
+    "extract": "Harley-Davidson, Inc. is an American motorcycle manufacturer and lifestyle brand headquartered in Milwaukee, Wisconsin. Founded in 1903, it is one of two major American motorcycle manufacturers to survive the Great Depression along with its historical rival, Indian Motorcycle Company. The company has survived numerous ",
     "verified": true
    },
    "image": null,
@@ -1189,10 +1263,11 @@
    "wiki": {
     "title": "Ducati Monster",
     "url": "https://en.wikipedia.org/wiki/Ducati_Monster",
-    "extract": "",
-    "verified": false
+    "extract": "The Ducati Monster is a standard, or naked bike, motorcycle designed by Miguel Angel Galluzzi and produced by Ducati in Bologna, Italy, since 1991. In 2005, Monster sales accounted for over half of Ducati's worldwide sales. Like most modern Ducati motorcycles, it has a 90° V-twin engine, called an L-twin by Ducati, wit",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Type of motorcycle"
   },
   {
    "id": "kawasakininja",
@@ -1280,8 +1355,14 @@
    "category": "Clothing",
    "country": "United States",
    "letters": "LEVIS501",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Levi Strauss & Co.",
+    "url": "https://en.wikipedia.org/wiki/Levi_Strauss_%26_Co.",
+    "extract": "Levi Strauss & Co. is an American clothing company known worldwide for its Levi's brand of denim jeans. It was founded in May 1853 when German-Jewish immigrant Levi Strauss moved from New York City, New York, to San Francisco, California, to open a West Coast branch of his brothers' New York dry goods business. The cor",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "American clothing company"
   },
   {
    "id": "chucktaylor",
@@ -1317,9 +1398,9 @@
    "country": "United States",
    "letters": "TOMMYHILFIGER",
    "wiki": {
-    "title": "Tommy Hilfiger",
-    "url": "https://en.wikipedia.org/wiki/Tommy_Hilfiger",
-    "extract": "Thomas Jacob Hilfiger is an American fashion designer and the founder of Tommy Hilfiger Corporation.",
+    "title": "Tommy Hilfiger (company)",
+    "url": "https://en.wikipedia.org/wiki/Tommy_Hilfiger_(company)",
+    "extract": "Tommy Hilfiger B.V., formerly known as Tommy Hilfiger Corporation and Tommy Hilfiger Inc., is a Dutch-based American clothing brand that manufactures apparel and licensed products such as footwear, accessories, fragrances and home furnishings. The company was founded in New York City in 1985, and its merchandise is sol",
     "verified": true
    },
    "image": null,
@@ -1351,10 +1432,20 @@
    "wiki": {
     "title": "Burberry",
     "url": "https://en.wikipedia.org/wiki/Burberry",
-    "extract": "",
-    "verified": false
+    "extract": "Burberry Group plc is a British luxury fashion house established in 1856 by Thomas Burberry and headquartered in London, England. It designs and distributes ready to wear, including trench coats, leather accessories, and footwear. It is listed on the London Stock Exchange and is a constituent of the FTSE 100 Index.",
+    "verified": true
    },
-   "image": null
+   "image": {
+    "local": "assets/img/burberrytrench.jpg",
+    "source": "Wikimedia Commons",
+    "file": "Horseferry House.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "BurberryWiki",
+    "page": "https://commons.wikimedia.org/wiki/File:Horseferry_House.jpg",
+    "bytes": 68498
+   },
+   "subtitle": "British luxury fashion house"
   },
   {
    "id": "raybanaviator",
@@ -1364,12 +1455,13 @@
    "country": "Italy",
    "letters": "RAYBANAVIATOR",
    "wiki": {
-    "title": "Ray-Ban",
-    "url": "https://en.wikipedia.org/wiki/Ray-Ban",
-    "extract": "",
-    "verified": false
+    "title": "Ray-Ban Wayfarer",
+    "url": "https://en.wikipedia.org/wiki/Ray-Ban_Wayfarer",
+    "extract": "Ray-Ban Wayfarer sunglasses and eyeglasses have been manufactured by Ray-Ban since 1952. Made popular in the 1950s and 1960s by music and film icons such as Buddy Holly, Roy Orbison and James Dean, Wayfarers almost became discontinued in the 1970s, before a major resurgence was created in the 1980s through massive prod",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Line of sunglasses by Ray-Ban"
   },
   {
    "id": "havaianas",
@@ -1447,9 +1539,9 @@
    "country": "United States",
    "letters": "NIKEAIRMAX",
    "wiki": {
-    "title": "Nike Air Force",
-    "url": "https://en.wikipedia.org/wiki/Nike_Air_Force",
-    "extract": "Nike Air Force is a range of athletic shoes made by Nike. It was created by designer Bruce Kilgore and was the first basketball shoe to use Nike's \"Air\" technology. The shoe is offered in low-, mid- and high-top styles.",
+    "title": "Nike Air Max",
+    "url": "https://en.wikipedia.org/wiki/Nike_Air_Max",
+    "extract": "Nike Air Max is a line of shoes produced by Nike, Inc., with the first model released in 1986. Air Max shoes are identified by their midsoles incorporating flexible urethane pouches filled with pressurized gas, visible from the exterior of the shoe and intended to provide cushioning to the underfoot. Air Max was concep",
     "verified": true
    },
    "image": null,
@@ -1462,8 +1554,14 @@
    "category": "Shoes",
    "country": "United States",
    "letters": "JORDAN1RETRO",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Air Jordan",
+    "url": "https://en.wikipedia.org/wiki/Air_Jordan",
+    "extract": "Air Jordan is a line of basketball and sportswear shoes produced by Nike, Inc. The shoes, related apparel and accessories are now marketed under Jordan Brand. The first Air Jordan shoe was produced for basketball player Michael Jordan during his time with the Chicago Bulls on November 17, 1984, and released to the publ",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "American basketball and sportswear brand by Nike"
   },
   {
    "id": "yeezyboost",
@@ -1536,8 +1634,14 @@
    "category": "Shoes",
    "country": "France",
    "letters": "HOKACLIFTON",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Hoka",
+    "url": "https://en.wikipedia.org/wiki/Hoka",
+    "extract": "Hoka is an American sportswear company that designs and markets running shoes. It was founded in 2009 in Annecy, France, and had been based in Richmond, California, United States, before it was acquired by Deckers Brands in 2013. Hoka first gained attention in the running industry by producing shoes with oversized mids",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Athletic shoe company from France"
   },
   {
    "id": "oncloud",
@@ -1617,10 +1721,11 @@
    "wiki": {
     "title": "Asics Gel-Kayano 14",
     "url": "https://en.wikipedia.org/wiki/Asics_Gel-Kayano_14",
-    "extract": "",
-    "verified": false
+    "extract": "Asics Gel-Kayano 14 is a running shoe released by Asics in 2008. Popularity of the shoe was boosted thanks in part to the Y2K fashion revival in the early 2020s and has seen a second life as a lifestyle shoe.",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Line of shoes by Asics"
   },
   {
    "id": "pumasuede",
@@ -1656,9 +1761,9 @@
    "country": "Japan",
    "letters": "CASIOGSHOCK",
    "wiki": {
-    "title": "Casio",
-    "url": "https://en.wikipedia.org/wiki/Casio",
-    "extract": "Casio Computer Co., Ltd.  is a Japanese multinational electronics manufacturer headquartered in Shibuya, Tokyo. Its principal products include watches, clocks, calculators, electronic dictionaries, label printers, and electronic musical instruments. In the fiscal year ended 31 March 2026, Casio reported consolidated ne",
+    "title": "Casio Loopy",
+    "url": "https://en.wikipedia.org/wiki/Casio_Loopy",
+    "extract": "The Loopy , subtitled My Seal Computer SV-100, is a 32-bit home video game console. Released exclusively in Japan in October 1995 with a price of 25,000¥, the marketing for it was completely targeted to girls and women.",
     "verified": true
    },
    "image": null,
@@ -1719,8 +1824,14 @@
    "category": "Watches",
    "country": "United States",
    "letters": "FITBITCHARGE",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Fitbit",
+    "url": "https://en.wikipedia.org/wiki/Fitbit",
+    "extract": "Fitbit, sometimes marketed as Google Fitbit, is a line of wireless-enabled wearable technology, physical fitness monitors and activity trackers such as smartwatches, pedometers and monitors for heart rate, quality of sleep, and stairs climbed as well as related software. It operated as an American consumer electronics ",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Series of activity tracker devices by Google"
   },
   {
    "id": "titanraga",
@@ -1729,8 +1840,14 @@
    "category": "Watches",
    "country": "India",
    "letters": "TITANRAGA",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Titan Company",
+    "url": "https://en.wikipedia.org/wiki/Titan_Company",
+    "extract": "Titan Company Limited is an Indian fashion accessories company that mainly manufactures items such as jewellery, watches and eyewear. Part of the Tata Group and started as a joint venture with TIDCO, the company has its corporate headquarters in Electronic City, Bangalore, and registered office in Hosur, Tamil Nadu.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Indian multinational jeweller and watchmaker"
   },
   {
    "id": "fastrackreflex",
@@ -1830,9 +1947,9 @@
    "country": "Japan",
    "letters": "SONYBRAVIA",
    "wiki": {
-    "title": "Sony",
-    "url": "https://en.wikipedia.org/wiki/Sony",
-    "extract": "Sony Group Corporation is a Japanese multinational conglomerate headquartered at the Sony City building in Minato, Tokyo. The Sony Group is a highly diversified global conglomerate with businesses spanning video games, music, film and television, consumer electronics, imaging and sensing, semiconductors, financial serv",
+    "title": "Bravia",
+    "url": "https://en.wikipedia.org/wiki/Bravia",
+    "extract": "Bravia is a brand of televisions currently produced by Bravia Inc. based in Ōsaki, Tokyo, Japan, a joint venture between TCL Electronics and Sony Corporation. The brand name is owned by Sony, which has produced flat-panel LCD televisions using the brand since 2005. Bravia products have been produced under the joint ven",
     "verified": true
    },
    "image": null,
@@ -1866,7 +1983,16 @@
     "extract": "A quantum dot display is a display device that uses quantum dots (QDs), semiconductor nanocrystals which can produce pure monochromatic red, green, and blue light.",
     "verified": true
    },
-   "image": null,
+   "image": {
+    "local": "assets/img/tclqled.jpg",
+    "source": "Wikimedia Commons",
+    "file": "QD S.jpg",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Walkman16",
+    "page": "https://commons.wikimedia.org/wiki/File:QD_S.jpg",
+    "bytes": 37008
+   },
    "subtitle": "Type of display device"
   },
   {
@@ -1901,8 +2027,14 @@
    "category": "Electronics",
    "country": "United States",
    "letters": "ECHODOT",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Amazon Echo",
+    "url": "https://en.wikipedia.org/wiki/Amazon_Echo",
+    "extract": "Amazon Echo, often shortened to Echo, is a brand of smart speakers developed by Amazon. Echo devices connect to the voice-controlled intelligent personal assistant service, Alexa, which responds to a wake term when spoken by its user. The features of the device include voice interaction, audio program playback, such as",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Voice command device from Amazon"
   },
   {
    "id": "nestmini",
@@ -1978,10 +2110,11 @@
    "wiki": {
     "title": "IPad Pro (3rd generation)",
     "url": "https://en.wikipedia.org/wiki/IPad_Pro_(3rd_generation)",
-    "extract": "",
-    "verified": false
+    "extract": "The third generation of iPad Pro is a line of tablet computers developed and marketed by Apple Inc. Two models, with a 12.9 inch or 11 inch screen, were both announced on October 30, 2018, and were available to purchase on November 7. This generation of iPad Pro was the first iPad compatible with the new Apple Pencil s",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Tablet computer developed by Apple (2018–2020)"
   },
   {
    "id": "galaxytab",
@@ -2074,8 +2207,14 @@
    "category": "Cosmetics",
    "country": "United States",
    "letters": "OLAYREGENERIST",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "OLAY",
+    "url": "https://en.wikipedia.org/wiki/OLAY",
+    "extract": "Olay or Olaz, previously Oil of Olay, Oil of Olaz, Oil of Ulan, or Oil of Ulay, is an American skin care brand owned by Procter & Gamble (P&G). For the 2009 fiscal year, which ended on June 30, Olay accounted for an estimated $2.8 billion of P&G's revenue.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "American skin care brand owned by Procter & Gamble"
   },
   {
    "id": "doveshampoo",
@@ -2228,10 +2367,11 @@
    "wiki": {
     "title": "Laneige",
     "url": "https://en.wikipedia.org/wiki/Laneige",
-    "extract": "",
-    "verified": false
+    "extract": "Laneige is a South Korean cosmetics brand launched by Amore Pacific in 1994. Its name comes from the French \"la neige\", which translates to \"snow\". The brand's flagship products include its Water Bank skin care line, Water Sleeping Mask, BB Cushion foundation and two-tone lipsticks.",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "South Korean cosmetics brand"
   },
   {
    "id": "plumvitaminc",
@@ -2240,7 +2380,12 @@
    "category": "Beauty",
    "country": "India",
    "letters": "PLUMVITAMINC",
-   "wiki": null,
+   "wiki": {
+    "title": "Plum",
+    "url": "https://en.wikipedia.org/wiki/Plum",
+    "extract": "",
+    "verified": false
+   },
    "image": null
   },
   {
@@ -2321,10 +2466,11 @@
    "wiki": {
     "title": "Nutella",
     "url": "https://en.wikipedia.org/wiki/Nutella",
-    "extract": "",
-    "verified": false
+    "extract": "Nutella is an Italian brand of sweetened hazelnut cocoa spread. Nutella is manufactured by the Italian company Ferrero and was introduced in 1964, although the first iteration dates to 1963.",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Chocolate and hazelnut flavoured spread"
   },
   {
    "id": "oreo",
@@ -2333,7 +2479,12 @@
    "category": "Food",
    "country": "United States",
    "letters": "OREO",
-   "wiki": null,
+   "wiki": {
+    "title": "Oreo",
+    "url": "https://en.wikipedia.org/wiki/Oreo",
+    "extract": "",
+    "verified": false
+   },
    "image": null
   },
   {
@@ -2394,10 +2545,11 @@
    "wiki": {
     "title": "Haldiram's",
     "url": "https://en.wikipedia.org/wiki/Haldiram's",
-    "extract": "",
-    "verified": false
+    "extract": "Haldiram's India Pvt Ltd, doing business as Haldiram's is an Indian multinational fast-food restaurant chain, founded in 1937, as a confectionery and desserts shop in Bikaner, Rajasthan, by Ganga Bhishen Agarwal. It is currently based in Nagpur, Maharashtra. Haldiram's is also a FMCG company as most of its restaurants ",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Vegetarian Indian restaurant and foodstuff manufacturer"
   },
   {
    "id": "parleg",
@@ -2406,8 +2558,14 @@
    "category": "Food",
    "country": "India",
    "letters": "PARLEG",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Parle-G",
+    "url": "https://en.wikipedia.org/wiki/Parle-G",
+    "extract": "Parle-G is a brand of biscuits manufactured by Parle Products in India. A 2011 Nielsen survey reported that it is the best-selling brand of biscuits in the world.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Brand of Indian biscuits manufactured by Parle Products"
   },
   {
    "id": "bourbonbiscuit",
@@ -2426,8 +2584,14 @@
    "category": "Food",
    "country": "India",
    "letters": "AMULBUTTER",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Amul",
+    "url": "https://en.wikipedia.org/wiki/Amul",
+    "extract": "Amul is an Indian dairy brand owned by the cooperative society, Gujarat Cooperative Milk Marketing Federation (GCMMF), based in Anand, Gujarat. GCMMF is controlled by 3.6 million milk producers.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Indian dairy cooperative society"
   },
   {
    "id": "cadburygems",
@@ -2469,9 +2633,9 @@
    "country": "United Kingdom",
    "letters": "MARSBAR",
    "wiki": {
-    "title": "Mars, Bars",
-    "url": "https://en.wikipedia.org/wiki/Mars%2C_Bars",
-    "extract": "\"Mars, Bars\" is the fourteenth episode of the third season of the American mystery television series Veronica Mars, and the fifty-eighth episode overall. Directed by Harry Winer, with a story by Phil Klemmer, John Enbom, and Joe Voci and a teleplay by Klemmer and Enbom, the episode premiered on The CW on February 20, 2",
+    "title": "Mars bar",
+    "url": "https://en.wikipedia.org/wiki/Mars_bar",
+    "extract": "Mars, commonly known as a Mars bar, is a chocolate bar produced by Mars Inc., consisting of caramel and nougat coated with milk chocolate. It was first manufactured in 1932 in England by Forrest Mars Sr., modelled after his father's original Milky Way bar.",
     "verified": true
    },
    "image": null,
@@ -2502,10 +2666,11 @@
    "wiki": {
     "title": "Lindt",
     "url": "https://en.wikipedia.org/wiki/Lindt",
-    "extract": "",
-    "verified": false
+    "extract": "Chocoladefabriken Lindt & Sprüngli AG, doing business as Lindt, is a Swiss chocolatier and confectionery company founded in 1845 and known for its chocolate truffles and chocolate bars, among other sweets. It is based in Kilchberg, where its main factory and museum are located. Lindt is one of the largest Swiss chocola",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Swiss chocolate maker"
   },
   {
    "id": "haagendazs",
@@ -2593,8 +2758,14 @@
    "category": "Food",
    "country": "India",
    "letters": "BINGOMADANGLES",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Bingo (snack)",
+    "url": "https://en.wikipedia.org/wiki/Bingo_(snack)",
+    "extract": "Bingo! is a snacks brand of potato chips owned by ITC Limited. It was introduced in India in 2007 as part of ITC's entry into the packaged snacks market. The brand has products such as potato chips, Bingo Tedhe Medhe and Bingo Mad Angles.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Indian snack food brand"
   },
   {
    "id": "tooyumm",
@@ -2603,8 +2774,14 @@
    "category": "Food",
    "country": "India",
    "letters": "TOOYUMM",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "RP-Sanjiv Goenka Group",
+    "url": "https://en.wikipedia.org/wiki/RP-Sanjiv_Goenka_Group",
+    "extract": "RP-Sanjiv Goenka Group is an Indian multinational conglomerate headquartered in Kolkata. The founding was the result of a divestiture by RPG Enterprises in 2011. The Group's businesses include power and energy, carbon black manufacturing, retail, IT-enabled services, FMCG, media and entertainment, infrastructure and ed",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Indian multinational conglomerate"
   },
   {
    "id": "cocacola",
@@ -2679,10 +2856,11 @@
    "wiki": {
     "title": "Thums Up",
     "url": "https://en.wikipedia.org/wiki/Thums_Up",
-    "extract": "",
-    "verified": false
+    "extract": "Thums Up is a brand of cola. It was introduced in 1977 to offset the withdrawal of The Coca-Cola Company from India. The brand was later bought by Coca-Cola who re-launched it in order to compete against Pepsi to capture the market.",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Indian brand of cola"
   },
   {
    "id": "limca",
@@ -2742,10 +2920,11 @@
    "wiki": {
     "title": "Monster Energy",
     "url": "https://en.wikipedia.org/wiki/Monster_Energy",
-    "extract": "",
-    "verified": false
+    "extract": "Monster Energy is a brand of energy drinks that was created\nby Hansen Natural Company in April 2002 and released to the public with its original flavor on April 18, 2002. In 2022, Monster Energy had a 30.1% share of the American energy drink market, the second-highest after Red Bull. As of March 2026, there are over 30",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Brand of energy drinks"
   },
   {
    "id": "starbuckslatte",
@@ -2754,8 +2933,14 @@
    "category": "Drinks",
    "country": "United States",
    "letters": "STARBUCKSLATTE",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Starbucks",
+    "url": "https://en.wikipedia.org/wiki/Starbucks",
+    "extract": "Starbucks Corporation is an American multinational chain of coffeehouses and roastery reserves headquartered in Seattle, Washington. It was founded in 1971 by Jerry Baldwin, Zev Siegl, and Gordon Bowker at Seattle's Pike Place Market initially as a coffee bean wholesaler. Starbucks was converted into a coffee shop serv",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "American multinational coffeehouse chain"
   },
   {
    "id": "nescafeclassic",
@@ -2764,8 +2949,14 @@
    "category": "Drinks",
    "country": "Switzerland",
    "letters": "NESCAFECLASSIC",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Nescafé",
+    "url": "https://en.wikipedia.org/wiki/Nescaf%C3%A9",
+    "extract": "Nescafé is a brand of instant coffee sold by the multinational food and drink corporation Nestlé. It comes in many different forms. The name is a portmanteau of the words \"Nestlé\" and \"café\". Nestlé first introduced their flagship coffee brand in Switzerland on April 1, 1938.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Coffee brand made by Nestlé"
   },
   {
    "id": "brucoffee",
@@ -2774,8 +2965,14 @@
    "category": "Drinks",
    "country": "India",
    "letters": "BRUCOFFEE",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Hindustan Unilever",
+    "url": "https://en.wikipedia.org/wiki/Hindustan_Unilever",
+    "extract": "Hindustan Unilever Limited (HUL) is an Indian fast-moving consumer goods company, headquartered in Mumbai. It is a subsidiary of the Anglo-Dutch company Unilever. Its products include foods, beverages, cleaning agents, personal care products and other consumer staples.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Indian consumer goods company pvt ltd"
   },
   {
    "id": "liptontea",
@@ -2835,10 +3032,11 @@
    "wiki": {
     "title": "Frooti",
     "url": "https://en.wikipedia.org/wiki/Frooti",
-    "extract": "",
-    "verified": false
+    "extract": "Frooti is a mango-flavoured drink sold in India. It is made with natural flavours and mango-concentrate. It is the flagship product and most successful drink product made by Parle Agro. Frooti was launched in 1985 in Tetra Pak packaging, and is now also sold in PET bottles and rectangular shaped packs. Frooti is export",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Mango flavoured drink in India"
   },
   {
    "id": "slicemango",
@@ -2847,8 +3045,14 @@
    "category": "Drinks",
    "country": "India",
    "letters": "SLICEMANGO",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Slice (drink)",
+    "url": "https://en.wikipedia.org/wiki/Slice_(drink)",
+    "extract": "Slice is a line of primarily fruit-flavored soft drinks originally manufactured by PepsiCo and currently manufactured as a low-sugar prebiotic soda by Suja Life. Slice was first introduced in 1984 but discontinued by PepsiCo in North America in the late 2000s.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Fruit-flavored soft drink"
   },
   {
    "id": "stingenergy",
@@ -2908,10 +3112,11 @@
    "wiki": {
     "title": "Corona (beer)",
     "url": "https://en.wikipedia.org/wiki/Corona_(beer)",
-    "extract": "",
-    "verified": false
+    "extract": "Corona is a Mexican brand of beer produced by Grupo Modelo in Mexico. It is brewed, exported, and distributed globally by Grupo Modelo's parent company AB InBev. In the United States and Guam, Constellation Brands is the exclusive licensee and sole importer distributor of Corona. The beer is also brewed in China for th",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Mexican beer brand"
   },
   {
    "id": "heineken",
@@ -2920,8 +3125,14 @@
    "category": "Drinks",
    "country": "Netherlands",
    "letters": "HEINEKEN",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Gerard Adriaan Heineken",
+    "url": "https://en.wikipedia.org/wiki/Gerard_Adriaan_Heineken",
+    "extract": "Gerard Adriaan Heineken was a Dutch brewer who acquired the Amsterdam brewery De Hooiberg in 1864 and developed it into the foundation of the company later known as Heineken.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Dutch brewer and entrepreneur (1841–1893)"
   },
   {
    "id": "guinnessstout",
@@ -3001,10 +3212,11 @@
    "wiki": {
     "title": "Lego City",
     "url": "https://en.wikipedia.org/wiki/Lego_City",
-    "extract": "",
-    "verified": false
+    "extract": "Lego City is a theme under which Lego building sets are released based on city life, with the models depicting city and emergency services, airport, train, construction, and civilian services. It evolved from Legoland Town as one of the three original themes that Lego produced upon its launch of the Lego minifigure in ",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Lego theme"
   },
   {
    "id": "hotwheels",
@@ -3013,8 +3225,14 @@
    "category": "Toys",
    "country": "United States",
    "letters": "HOTWHEELS",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Hot Wheels",
+    "url": "https://en.wikipedia.org/wiki/Hot_Wheels",
+    "extract": "Hot Wheels is an American media franchise and brand of scale model cars invented by Elliot Handler and introduced by his company Mattel on May 18, 1968. It was the primary competitor of Matchbox until Mattel bought Matchbox owner Tyco Toys in 1997.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Brand of scale model cars by Mattel"
   },
   {
    "id": "rubikscube",
@@ -3074,10 +3292,11 @@
    "wiki": {
     "title": "Jenga",
     "url": "https://en.wikipedia.org/wiki/Jenga",
-    "extract": "",
-    "verified": false
+    "extract": "Jenga is a game of physical skill created by British board game designer and author Leslie Scott and marketed by Hasbro. The name comes from the Swahili word \"kujenga\" which means 'to build or construct'. Players take turns removing one block at a time from a tower constructed of 54 blocks. Each block removed is then p",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Game played with a tower of blocks"
   },
   {
    "id": "unocard",
@@ -3086,8 +3305,14 @@
    "category": "Toys",
    "country": "United States",
    "letters": "UNOCARD",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Uno (card game)",
+    "url": "https://en.wikipedia.org/wiki/Uno_(card_game)",
+    "extract": "Uno, stylized in all caps as UNO, is a proprietary American shedding-type card game originally developed in 1971 by Merle Robbins in Reading, Ohio, a suburb of Cincinnati, that housed International Inc., a gaming company acquired by Mattel on January 23, 1992.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Card game produced by Mattel"
   },
   {
    "id": "nerfblaster",
@@ -3096,8 +3321,14 @@
    "category": "Toys",
    "country": "United States",
    "letters": "NERFBLASTER",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Nerf Blaster",
+    "url": "https://en.wikipedia.org/wiki/Nerf_Blaster",
+    "extract": "A Nerf Blaster or Nerf Gun is a toy gun made by Hasbro that fires foam darts, arrows, discs, or foam balls. “Nerf blaster” or more commonly “Nerf gun” are often used to describe the toy. Nerf blasters are manufactured in multiple forms; the first Nerf blasters emerged in the late 1980s with the release of the Nerf Blas",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Toy gun firing Nerf darts"
   },
   {
    "id": "playdoh",
@@ -3117,9 +3348,9 @@
    "country": "Japan",
    "letters": "BEYBLADEBURST",
    "wiki": {
-    "title": "Beyblade",
-    "url": "https://en.wikipedia.org/wiki/Beyblade",
-    "extract": "Beyblade  is a battling spinning top toyline and multimedia franchise developed by the Japanese toy company Takara Tomy. Beyblades were inspired by the older Beigoma. The first Beyblades were released in 1999 in Japan, along with a related manga series. Beyblades were developed by Takara until it merged with Tomy in 20",
+    "title": "Beyblade Burst",
+    "url": "https://en.wikipedia.org/wiki/Beyblade_Burst",
+    "extract": "Beyblade Burst  is a Japanese manga and toyline created by Hiro Morita, based on Takara Tomy's Beyblade franchise. The third series of the franchise, the Beyblade Burst toyline launched on July 15, 2015, while the original manga was serialized in Shogakukan's children's manga magazine CoroCoro Comic from August 2015 to",
     "verified": true
    },
    "image": null,
@@ -3263,7 +3494,12 @@
    "category": "Furniture",
    "country": "United States",
    "letters": "EAMESLOUNGE",
-   "wiki": null,
+   "wiki": {
+    "title": "Eames Lounge Chair",
+    "url": "https://en.wikipedia.org/wiki/Eames_Lounge_Chair",
+    "extract": "",
+    "verified": false
+   },
    "image": null
   },
   {
@@ -3273,8 +3509,14 @@
    "category": "Appliances",
    "country": "United Kingdom",
    "letters": "DYSONVACUUM",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Freeman Dyson",
+    "url": "https://en.wikipedia.org/wiki/Freeman_Dyson",
+    "extract": "Freeman John Dyson was a British-American theoretical physicist and mathematician who worked in quantum field theory, astrophysics, random matrices, mathematical formulation of quantum mechanics, condensed matter physics, nuclear physics, and engineering. He was professor emeritus in the Institute for Advanced Study in",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "British theoretical physicist and mathematician (1923–2020)"
   },
   {
    "id": "lgrefrigerator",
@@ -3283,8 +3525,14 @@
    "category": "Appliances",
    "country": "South Korea",
    "letters": "LGREFRIGERATOR",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "LG Electronics",
+    "url": "https://en.wikipedia.org/wiki/LG_Electronics",
+    "extract": "LG Electronics Inc. is a South Korean multinational major appliance and consumer electronics corporation headquartered in Yeouido-dong, Seoul, South Korea. LG Electronics is a part of LG Corporation, the fourth largest chaebol in South Korea, and often considered as the pinnacle of LG Corp with the group's chemical and",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "South Korean multinational electronics company"
   },
   {
    "id": "ifbwashing",
@@ -3357,8 +3605,14 @@
    "category": "Appliances",
    "country": "India",
    "letters": "BLUESTARAC",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Orange County Blue Star",
+    "url": "https://en.wikipedia.org/wiki/Orange_County_Blue_Star",
+    "extract": "Orange County Blue Star was an amateur American soccer team based in Irvine, California. Founded in 1997, the team played in the USL Premier Development League (PDL), the fourth tier of the American Soccer Pyramid, in the Southwest Division of the Western Conference until 2012.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Soccer club"
   },
   {
    "id": "kentro",
@@ -3367,8 +3621,14 @@
    "category": "Appliances",
    "country": "India",
    "letters": "KENTRO",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Kent State shootings",
+    "url": "https://en.wikipedia.org/wiki/Kent_State_shootings",
+    "extract": "The Kent State shootings were the killing of four and wounding of nine unarmed college students by the Ohio National Guard on the Kent State University campus in Kent, Ohio, United States. The shootings took place on May 4, 1970, after days of escalating violence, during a rally opposing the expanding involvement of th",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "1970 shootings in Kent, Ohio, US"
   },
   {
    "id": "aquaguard",
@@ -3377,8 +3637,14 @@
    "category": "Appliances",
    "country": "India",
    "letters": "AQUAGUARD",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Eureka Forbes",
+    "url": "https://en.wikipedia.org/wiki/Eureka_Forbes",
+    "extract": "Eureka Forbes Limited is an Indian home appliances company based in Mumbai. It makes water purification devices, vacuum cleaners, air purification systems, and home security products.Multiple consumers have filed complaints and legal notices against Eureka Forbes in consumer forums regarding online Annual Maintenance C",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Indian multinational home appliances company"
   },
   {
    "id": "bajajmixer",
@@ -3454,10 +3720,11 @@
    "wiki": {
     "title": "TTK Prestige",
     "url": "https://en.wikipedia.org/wiki/TTK_Prestige",
-    "extract": "",
-    "verified": false
+    "extract": "TTK Prestige Limited is an Indian company that manufactures kitchen appliances and cookware, under the \"Prestige\" and \"Judge\" brand. The company is best known for its pressure cookers.",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Indian home appliance manufacturer"
   },
   {
    "id": "hawkinscooker",
@@ -3533,10 +3800,11 @@
    "wiki": {
     "title": "Instant Pot",
     "url": "https://en.wikipedia.org/wiki/Instant_Pot",
-    "extract": "",
-    "verified": false
+    "extract": "Instant Pot is a brand of automated multicookers manufactured by Instant Pot Brands. It is sometimes colloquially referred to as InstaPot. The multicookers are electronically-controlled combined pressure cookers and slow cookers. The original cookers were marketed as 6-in-1 appliances designed to consolidate the cookin",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Canadian brand of multicookers (2010–)"
   },
   {
    "id": "keurigkmini",
@@ -3545,8 +3813,14 @@
    "category": "Appliances",
    "country": "United States",
    "letters": "KEURIGKMINI",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Keurig",
+    "url": "https://en.wikipedia.org/wiki/Keurig",
+    "extract": "Keurig is a beverage brewing system for home and commercial use. The North American company Keurig Dr Pepper manufactures the machines. The main Keurig products are K-Cup pods, which are single-serve coffee containers; other beverage pods; and the proprietary machines that use these pods to make beverages.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Beverage brewing system"
   },
   {
    "id": "tefalpan",
@@ -3555,7 +3829,12 @@
    "category": "Appliances",
    "country": "France",
    "letters": "TEFALPAN",
-   "wiki": null,
+   "wiki": {
+    "title": "Tefal",
+    "url": "https://en.wikipedia.org/wiki/Tefal",
+    "extract": "",
+    "verified": false
+   },
    "image": null
   },
   {
@@ -3632,10 +3911,11 @@
    "wiki": {
     "title": "Kookaburra Beast",
     "url": "https://en.wikipedia.org/wiki/Kookaburra_Beast",
-    "extract": "",
-    "verified": false
+    "extract": "The Kookaburra Beast is a line of cricket bats manufactured by the Australian company Kookaburra Sport. This bat is popular with many international players, however after a decision in February 2006, the graphite backed model has been banned by the Marylebone Cricket Club in international test matches due to a speculat",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Line of cricket bats"
   },
   {
    "id": "spaldingball",
@@ -3711,10 +3991,11 @@
    "wiki": {
     "title": "Cosco (India) Limited",
     "url": "https://en.wikipedia.org/wiki/Cosco_(India)_Limited",
-    "extract": "",
-    "verified": false
+    "extract": "Cosco (India) Ltd. is an Indian sports equipment manufacturer based in Delhi.",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Indian sports equipment manufacturer"
   },
   {
    "id": "niviafootball",
@@ -3723,8 +4004,14 @@
    "category": "Sports",
    "country": "India",
    "letters": "NIVIAFOOTBALL",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Nivia Sports",
+    "url": "https://en.wikipedia.org/wiki/Nivia_Sports",
+    "extract": "Nivia Sports is an Indian sports equipment company founded in 1934 in Sialkot, now headquartered in Jalandhar, Punjab. It manufactures sports gear, accessories, athletic wear, and footwear and serves as the official ball partner for leagues like ISL and FIBA-certified events. The brand name, a blend of founder Nihal Ch",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Indian sports equipment manufacturing company"
   },
   {
    "id": "speedoswim",
@@ -3733,8 +4020,14 @@
    "category": "Sports",
    "country": "Australia",
    "letters": "SPEEDOSWIM",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Speedo",
+    "url": "https://en.wikipedia.org/wiki/Speedo",
+    "extract": "Speedo International Limited is an Australian-British distributor of swimwear and swim-related accessories based in Nottingham, England.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Swimwear and sports goods company"
   },
   {
    "id": "trekbicycle",
@@ -3810,10 +4103,11 @@
    "wiki": {
     "title": "Old Law Tenement",
     "url": "https://en.wikipedia.org/wiki/Old_Law_Tenement",
-    "extract": "",
-    "verified": false
+    "extract": "Old Law Tenements are tenements built in New York City after the Tenement House Act of 1879 and before the New York State Tenement House Act of 1901. The 1879 law required that every habitable room have a window opening to plain air, a requirement that was met by including air shafts between adjacent buildings. Old Law",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "1879 New York City law"
   },
   {
    "id": "playstation5",
@@ -3885,8 +4179,14 @@
    "category": "Gaming",
    "country": "United States",
    "letters": "OCULUSQUEST",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Oculus Quest",
+    "url": "https://en.wikipedia.org/wiki/Oculus_Quest",
+    "extract": "The first-generation Oculus Quest is a virtual reality headset developed by Oculus, a brand of Facebook, Inc., and released on May 21, 2019. Similar to its predecessor, Oculus Go, it is a standalone device, that can run games and software wirelessly under an Android-based operating system. It supports positional tracki",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Virtual reality headset"
   },
   {
    "id": "logitechg502",
@@ -3895,7 +4195,12 @@
    "category": "Gaming",
    "country": "Switzerland",
    "letters": "LOGITECHG502",
-   "wiki": null,
+   "wiki": {
+    "title": "List of Logitech products",
+    "url": "https://en.wikipedia.org/wiki/List_of_Logitech_products",
+    "extract": "This is a list of various Logitech products. Individual products may have their own article.",
+    "verified": true
+   },
    "image": null
   },
   {
@@ -3905,8 +4210,14 @@
    "category": "Gaming",
    "country": "United States",
    "letters": "HYPERXCLOUD",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Kingston Technology",
+    "url": "https://en.wikipedia.org/wiki/Kingston_Technology",
+    "extract": "Kingston Technology Corporation is an American multinational computer technology corporation that develops, manufactures, sells and supports computer memory products such as memory modules, solid-state drives, and other flash memory products. It founded the HyperX gaming brand, but then sold it to HP. The company is he",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "American digital storage corporation"
   },
   {
    "id": "corsairk70",
@@ -3979,8 +4290,14 @@
    "category": "Gaming",
    "country": "Sweden",
    "letters": "CANDYCRUSH",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Candy Crush Saga",
+    "url": "https://en.wikipedia.org/wiki/Candy_Crush_Saga",
+    "extract": "Candy Crush Saga is a free-to-play match-three video game released by King on April 12, 2012, originally for Facebook; other versions for iOS, Android, Windows Phone, and Windows 10 followed. It is a variation of their browser game Candy Crush.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "2012 video game"
   },
   {
    "id": "freefire",
@@ -4054,9 +4371,9 @@
    "country": "United States",
    "letters": "CALLOFDUTY",
    "wiki": {
-    "title": "Call of Duty",
-    "url": "https://en.wikipedia.org/wiki/Call_of_Duty",
-    "extract": "Call of Duty (CoD) is a first-person shooter video game series and media franchise published by Activision, starting in 2003. The games were first developed by Infinity Ward, then by Treyarch, Sledgehammer Games and Raven Software. Several spin-off and handheld games were made by other developers. The latest game, Call",
+    "title": "Call of Duty: Warzone (2020 video game)",
+    "url": "https://en.wikipedia.org/wiki/Call_of_Duty%3A_Warzone_(2020_video_game)",
+    "extract": "Call of Duty: Warzone was a free-to-play battle royale first-person shooter game developed by Raven Software and Infinity Ward and published by Activision as part of the Call of Duty video game series. It was released on March 10, 2020, for PlayStation 4, Windows, and Xbox One as part of Call of Duty: Modern Warfare (2",
     "verified": true
    },
    "image": null,
@@ -4069,8 +4386,14 @@
    "category": "Gaming",
    "country": "United States",
    "letters": "VALORANT",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Valorant",
+    "url": "https://en.wikipedia.org/wiki/Valorant",
+    "extract": "Valorant is a 2020 first-person tactical hero shooter video game developed and published by Riot Games. A free-to-play game, Valorant takes inspiration from the Counter-Strike series, borrowing several mechanics such as the buy menu, spray patterns, and inaccuracy while moving. Development started in 2014 and was tease",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "2020 video game by Riot Games"
   },
   {
    "id": "subwaysurfers",
@@ -4079,8 +4402,14 @@
    "category": "Gaming",
    "country": "Denmark",
    "letters": "SUBWAYSURFERS",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Subway Surfers",
+    "url": "https://en.wikipedia.org/wiki/Subway_Surfers",
+    "extract": "Subway Surfers is a 2012 endless runner mobile game which is co-developed by Kiloo and SYBO Games, private companies based in Denmark. It is available on iOS, Android, HarmonyOS NEXT, Amazon Fire Tablet, Windows Phone platforms, and is playable on web browser at Poki.com and uses the Unity game engine.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "2012 video game"
   },
   {
    "id": "templerun",
@@ -4089,7 +4418,12 @@
    "category": "Gaming",
    "country": "United States",
    "letters": "TEMPLERUN",
-   "wiki": null,
+   "wiki": {
+    "title": "Temple Run 2",
+    "url": "https://en.wikipedia.org/wiki/Temple_Run_2",
+    "extract": "",
+    "verified": false
+   },
    "image": null
   },
   {
@@ -4099,8 +4433,14 @@
    "category": "Gaming",
    "country": "Japan",
    "letters": "MARIOKART",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Mario Kart World",
+    "url": "https://en.wikipedia.org/wiki/Mario_Kart_World",
+    "extract": "Mario Kart World is a 2025 kart racing game developed by Nintendo EPD and published by Nintendo for the Nintendo Switch 2. As in previous Mario Kart games, players control Mario series characters as they race against opponents. World introduces an open-world design and mode, off-roading techniques, an elimination rally",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "2025 video game"
   }
  ]
 }
