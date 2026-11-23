@@ -1,11 +1,11 @@
 {
  "name": "WORLD PRODUCT WORD HUNT",
  "version": 1,
- "generatedAt": "2026-11-16T04:47:02.948Z",
+ "generatedAt": "2026-11-23T04:44:03.669Z",
  "agent": "refresh-catalog.mjs (Wikipedia + Wikimedia Commons)",
  "stats": {
   "products": 282,
-  "verified": 248,
+  "verified": 269,
   "withImage": 5,
   "categories": {
    "Smartphones": 23,
@@ -244,9 +244,9 @@
    "country": "Japan",
    "letters": "XPERIA1",
    "wiki": {
-    "title": "Sony Xperia 1",
-    "url": "https://en.wikipedia.org/wiki/Sony_Xperia_1",
-    "extract": "The Sony Xperia 1 is an Android smartphone made by Sony. Part of Sony's flagship Xperia series, the device was announced to the public at a press conference held at the annual 2019 Mobile World Congress event on February 25, 2019. It's the world's first smartphone with an ultrawide 21:9 aspect ratio 4K HDR OLED display",
+    "title": "Sony Xperia 1 VIII",
+    "url": "https://en.wikipedia.org/wiki/Sony_Xperia_1_VIII",
+    "extract": "The Sony Xperia 1 VIII is a flagship smartphone unveiled by Sony on May 13, 2026. It features a redesigned rear camera design for the first time since the original Xperia 1 (2019), a new, bigger periscope telephoto sensor and lens, and a 6.5-inch LTPO FHD+ HDR BT.2020 OLED screen with a 19.5:9 aspect ratio, powered by ",
     "verified": true
    },
    "image": null,
@@ -278,10 +278,11 @@
    "wiki": {
     "title": "Poco (smartphone)",
     "url": "https://en.wikipedia.org/wiki/Poco_(smartphone)",
-    "extract": "",
-    "verified": false
+    "extract": "Poco, formerly known as Poco by Xiaomi or Pocophone by Xiaomi is a Chinese brand owned by Xiaomi that specialises in smartphones. The Poco brand was first announced in August 2018 as a mid-range smartphone line under Xiaomi. Poco India became an independent brand on 17 January 2020, followed by its global counterpart o",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Chinese smartphone brand by Xiaomi"
   },
   {
    "id": "infinixnote40",
@@ -462,10 +463,11 @@
    "wiki": {
     "title": "Dell XPS",
     "url": "https://en.wikipedia.org/wiki/Dell_XPS",
-    "extract": "",
-    "verified": false
+    "extract": "XPS is a family of consumer-oriented high-end laptop and desktop computers manufactured by Dell since 1993, formerly part of Dimension, and since 2008 as a standalone brand.",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Line of high-performance computers by Dell"
   },
   {
    "id": "hpspectre",
@@ -475,9 +477,9 @@
    "country": "United States",
    "letters": "HPSPECTRE",
    "wiki": {
-    "title": "HP Spectre",
-    "url": "https://en.wikipedia.org/wiki/HP_Spectre",
-    "extract": "HP Spectre is a discontinued line of premium portable computers manufactured and marketed by Hewlett-Packard from 2012 to 2015 and by its successor HP Inc. from 2015 to 2025. Introduced as a high-end version of the HP Envy line in 2012, it was HP's flagship line of laptop products for consumers starting in 2016.",
+    "title": "HP Inc.",
+    "url": "https://en.wikipedia.org/wiki/HP_Inc.",
+    "extract": "HP Inc. is an American multinational information technology company with its headquarters in Palo Alto, California, that develops personal computers (PCs), printers and other related supplies, as well as 3D printing services. It is the world's second-largest personal computer vendor by unit sales after Lenovo and ahead",
     "verified": true
    },
    "image": null,
@@ -541,7 +543,7 @@
    "wiki": {
     "title": "Surface Laptop",
     "url": "https://en.wikipedia.org/wiki/Surface_Laptop",
-    "extract": "The Microsoft Surface Pro 9 is a 2-in-1 detachable tablet computer developed by Microsoft to supersede the Surface Pro 8 and Surface Pro X, merging both brands. The device was announced on October 12, 2022 introducing two new colors and alongside the Surface Laptop 5 and Surface Studio 2+. The tablet is powered by the ",
+    "extract": "The Surface Laptop is a line of laptops marketed by Microsoft, as a sub-brand of their Surface devices.",
     "verified": true
    },
    "image": null,
@@ -732,7 +734,7 @@
    "wiki": {
     "title": "Tesla Model Y",
     "url": "https://en.wikipedia.org/wiki/Tesla_Model_Y",
-    "extract": "The Tesla Model Y is a battery electric compact crossover SUV produced by Tesla, Inc. since 2020. Presented in March 2019 as the company's fifth production model, the Model Y is the best-selling electric vehicle of all time, having sold more than 2.16 million units worldwide.",
+    "extract": "The Tesla Model Y is a battery electric compact crossover SUV produced by Tesla, Inc. since 2020. First presented in March 2019 as the company's fifth production model, the Model Y is the best-selling electric vehicle of all time, having sold more than 2.16 million units worldwide.",
     "verified": true
    },
    "image": null,
@@ -762,8 +764,8 @@
    "country": "Germany",
    "letters": "MERCEDESCCLASS",
    "wiki": {
-    "title": "Mercedes-Benz B-Class",
-    "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_B-Class",
+    "title": "Mercedes-Benz W123",
+    "url": "https://en.wikipedia.org/wiki/Mercedes-Benz_W123",
     "extract": "The Mercedes-Benz B-Class is a subcompact executive car manufactured and marketed by Mercedes-Benz since 2005. Based on the A-Class with larger dimensions, the European New Car Assessment Programme classifies it as a small MPV.",
     "verified": true
    },
@@ -860,7 +862,7 @@
    "wiki": {
     "title": "Mahindra XUV700",
     "url": "https://en.wikipedia.org/wiki/Mahindra_XUV700",
-    "extract": "The Mahindra XUV700 is a compact crossover SUV produced by the Indian automobile manufacturer Mahindra & Mahindra. Introduced in August 2021, the vehicle was originally positioned to replace the XUV500 but was launched as a separate model. The facelifted version is called the Mahindra XUV 7XO.",
+    "extract": "The Mahindra XUV700 is a compact crossover SUV produced by the Indian automobile manufacturer Mahindra & Mahindra. Introduced in August 2021, the vehicle was originally positioned to replace the XUV500, but was launched as a separate model. The facelifted version is called the Mahindra XUV 7XO.",
     "verified": true
    },
    "image": null,
@@ -906,9 +908,9 @@
    "country": "Czechia",
    "letters": "SKODAOCTAVIA",
    "wiki": {
-    "title": "Škoda Octavia",
-    "url": "https://en.wikipedia.org/wiki/%C5%A0koda_Octavia",
-    "extract": "The Škoda Octavia is a small family car (C-segment) produced by the Czech car manufacturer Škoda Auto since the end of 1996. It shares its name with an earlier model produced between 1959 and 1971. Four generations of the modern-era Octavia model have been introduced to date, delivered with five-door liftback or five-d",
+    "title": "Škoda Auto",
+    "url": "https://en.wikipedia.org/wiki/%C5%A0koda_Auto",
+    "extract": "Škoda Auto a.s., often shortened to Škoda, is a Czech automobile manufacturer established in 1896 as the successor to Laurin & Klement and headquartered in Mladá Boleslav, Czech Republic. Škoda Works became state owned in 1948. After the Velvet Revolution, it was gradually privatized starting in 1991, eventually becomi",
     "verified": true
    },
    "image": null,
@@ -953,8 +955,14 @@
    "category": "Cars",
    "country": "Sweden",
    "letters": "VOLVOXC90",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Volvo XC90",
+    "url": "https://en.wikipedia.org/wiki/Volvo_XC90",
+    "extract": "The Volvo XC90 is a mid-size luxury SUV manufactured and marketed by Volvo Cars since 2002 and in its second generation.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Mid-size luxury crossover SUV"
   },
   {
    "id": "porsche911",
@@ -1028,9 +1036,9 @@
    "country": "China",
    "letters": "BYDATTO3",
    "wiki": {
-    "title": "BYD Atto 3",
-    "url": "https://en.wikipedia.org/wiki/BYD_Atto_3",
-    "extract": "The BYD Atto 3, also marketed as BYD Yuan Plus in China and several Latin American countries, is a battery electric compact SUV (C-segment) manufactured by BYD Auto. Part of the BYD Yuan series that is named after the Yuan dynasty, the Yuan Plus was released in mainland China in February 2022. For many overseas markets",
+    "title": "BYD Atto 2",
+    "url": "https://en.wikipedia.org/wiki/BYD_Atto_2",
+    "extract": "The BYD Atto 2 is a subcompact SUV (B-segment) manufactured by BYD Auto since 2024. First sold in China as a battery electric vehicle called the BYD Yuan Up and part of the BYD Yuan series that is named after the Yuan dynasty, the Atto 2 was introduced in February 2024 and entered production in March 2024.",
     "verified": true
    },
    "image": null,
@@ -1277,12 +1285,13 @@
    "country": "Japan",
    "letters": "KAWASAKININJA",
    "wiki": {
-    "title": "Kawasaki Ninja ZX-6R",
-    "url": "https://en.wikipedia.org/wiki/Kawasaki_Ninja_ZX-6R",
-    "extract": "",
-    "verified": false
+    "title": "Kawasaki Ninja 250R",
+    "url": "https://en.wikipedia.org/wiki/Kawasaki_Ninja_250R",
+    "extract": "The Kawasaki Ninja 250R is a motorcycle in the Ninja sport bike series from the Japanese manufacturer Kawasaki originally introduced in 1986. As the marque's entry-level sport bike, the motorcycle has undergone few changes throughout its quarter-century lifetime, having received only three substantial redesigns. In som",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Sport bike manufactured by Kawasaki"
   },
   {
    "id": "vespaprimavera",
@@ -1371,8 +1380,14 @@
    "category": "Clothing",
    "country": "United States",
    "letters": "CHUCKTAYLOR",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Chuck Taylor All-Stars",
+    "url": "https://en.wikipedia.org/wiki/Chuck_Taylor_All-Stars",
+    "extract": "Chuck Taylor All-Stars or Converse All Stars are sneakers manufactured by American fashion brand Converse. Initially developed as a basketball shoe in the early 20th century, its design has remained largely unchanged since its introduction. The shoe consists of a stitched upper portion, and a toe cap and outsole usuall",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Canvas and rubber shoes (sneakers)"
   },
   {
    "id": "stansmith",
@@ -1470,8 +1485,14 @@
    "category": "Clothing",
    "country": "Brazil",
    "letters": "HAVAIANAS",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Havaianas",
+    "url": "https://en.wikipedia.org/wiki/Havaianas",
+    "extract": "Havaianas is a Brazilian brand of flip-flop sandals created and patented in 1962. The brand was founded by Brazilian manufacturer Alpargatas S.A. Inspired by the hybrid Hawaiian and Japanese zori sandals popularized in Hawaii, there are claims that Havaianas were the first mass-produced flip-flops made out of rubber, b",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Brazilian footwear brand"
   },
   {
    "id": "crocsclassic",
@@ -1480,8 +1501,14 @@
    "category": "Clothing",
    "country": "United States",
    "letters": "CROCSCLASSIC",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Crocs",
+    "url": "https://en.wikipedia.org/wiki/Crocs",
+    "extract": "Crocs, Inc. is an American footwear company based in Broomfield, Colorado, which manufactures and markets the Crocs brand of foam footwear. Crocs, Inc. terms these \"clogs\", but they do not contain wood like traditional clogs. In 2021, they acquired the Italian footwear brand HEYDUDE for $2.5 billion. In 2025, Crocs rev",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "American shoe manufacturing company"
   },
   {
    "id": "docmartens",
@@ -1539,9 +1566,9 @@
    "country": "United States",
    "letters": "NIKEAIRMAX",
    "wiki": {
-    "title": "Nike Air Max",
-    "url": "https://en.wikipedia.org/wiki/Nike_Air_Max",
-    "extract": "Nike Air Max is a line of shoes produced by Nike, Inc., with the first model released in 1986. Air Max shoes are identified by their midsoles incorporating flexible urethane pouches filled with pressurized gas, visible from the exterior of the shoe and intended to provide cushioning to the underfoot. Air Max was concep",
+    "title": "Nike Air Force",
+    "url": "https://en.wikipedia.org/wiki/Nike_Air_Force",
+    "extract": "Nike Air Force is a range of athletic shoes made by Nike. It was created by designer Bruce Kilgore and was the first basketball shoe to use Nike's \"Air\" technology. The shoe is offered in low-, mid- and high-top styles.",
     "verified": true
    },
    "image": null,
@@ -1650,8 +1677,14 @@
    "category": "Shoes",
    "country": "Switzerland",
    "letters": "ONCLOUD",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "On (company)",
+    "url": "https://en.wikipedia.org/wiki/On_(company)",
+    "extract": "On Holding AG is a Swiss athletic shoe and performance sportswear company that designs and markets sports clothing and running shoes.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Swiss athletic shoe and sportswear company"
   },
   {
    "id": "sauconyride",
@@ -1660,7 +1693,12 @@
    "category": "Shoes",
    "country": "United States",
    "letters": "SAUCONYRIDE",
-   "wiki": null,
+   "wiki": {
+    "title": "Quintana Roo (company)",
+    "url": "https://en.wikipedia.org/wiki/Quintana_Roo_(company)",
+    "extract": "",
+    "verified": false
+   },
    "image": null
   },
   {
@@ -1947,9 +1985,9 @@
    "country": "Japan",
    "letters": "SONYBRAVIA",
    "wiki": {
-    "title": "Bravia",
-    "url": "https://en.wikipedia.org/wiki/Bravia",
-    "extract": "Bravia is a brand of televisions currently produced by Bravia Inc. based in Ōsaki, Tokyo, Japan, a joint venture between TCL Electronics and Sony Corporation. The brand name is owned by Sony, which has produced flat-panel LCD televisions using the brand since 2005. Bravia products have been produced under the joint ven",
+    "title": "Sony",
+    "url": "https://en.wikipedia.org/wiki/Sony",
+    "extract": "Sony Group Corporation is a Japanese multinational conglomerate headquartered at the Sony City building in Minato, Tokyo. The Sony Group is a highly diversified global conglomerate with businesses spanning video games, music, film and television, consumer electronics, technology, semiconductors, financial services and ",
     "verified": true
    },
    "image": null,
@@ -2187,8 +2225,14 @@
    "category": "Cosmetics",
    "country": "Canada",
    "letters": "MACRUBYWOO",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "MAC Cosmetics",
+    "url": "https://en.wikipedia.org/wiki/MAC_Cosmetics",
+    "extract": "MAC Cosmetics is a Canadian cosmetics manufacturer founded in Toronto in 1984 by Frank Toskan and Frank Angelo. The company has been headquartered in New York City since becoming a subsidiary of Estée Lauder Companies in 1998. MAC is an acronym for Make-Up Art Cosmetics.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "International cosmetics store retail chain"
   },
   {
    "id": "fentybeauty",
@@ -2296,7 +2340,12 @@
    "category": "Cosmetics",
    "country": "United States",
    "letters": "ORALBBRUSH",
-   "wiki": null,
+   "wiki": {
+    "title": "Oral-B",
+    "url": "https://en.wikipedia.org/wiki/Oral-B",
+    "extract": "",
+    "verified": false
+   },
    "image": null
   },
   {
@@ -2333,9 +2382,9 @@
    "country": "India",
    "letters": "KAMAAYURVEDA",
    "wiki": {
-    "title": "Ayurveda",
-    "url": "https://en.wikipedia.org/wiki/Ayurveda",
-    "extract": "Ayurveda is an alternative medicine system with historical roots in the Indian subcontinent. It is heavily practised throughout India and Nepal, where as much as 80% of the population report using Ayurveda. Ayurveda has been adapted for Western consumption, notably by Baba Hari Dass in the 1970s and Maharishi Ayurveda ",
+    "title": "Kama Sutra",
+    "url": "https://en.wikipedia.org/wiki/Kama_Sutra",
+    "extract": "The Kama Sutra, in English also spelled Kamasutra, is an ancient Sanskrit text on sexuality, eroticism, and emotional fulfillment. Attributed to Vātsyāyana, the Kamasutra is neither exclusively nor predominantly a sex manual on sex positions, but rather a guide on the art of living well, the nature of love, finding par",
     "verified": true
    },
    "image": null,
@@ -2482,10 +2531,11 @@
    "wiki": {
     "title": "Oreo",
     "url": "https://en.wikipedia.org/wiki/Oreo",
-    "extract": "",
-    "verified": false
+    "extract": "Oreo is an American brand of sandwich cookie consisting of two cocoa biscuits with a sweet fondant filling. Oreos were introduced in 1912 by Nabisco, and the brand has been owned by Mondelez International since its acquisition of Nabisco in 2012. Oreo cookies are available in more than 100 countries. Many varieties of ",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Chocolate cookie with creme filling made by Nabisco"
   },
   {
    "id": "pringles",
@@ -2651,10 +2701,11 @@
    "wiki": {
     "title": "Toblerone",
     "url": "https://en.wikipedia.org/wiki/Toblerone",
-    "extract": "",
-    "verified": false
+    "extract": "Toblerone is a chocolate brand owned by Mondelez International. It was produced in Bern, Switzerland, except for some produced before 1970 in England and Scotland, until 2022, when Mondelez began producing some of it in Bratislava, Slovakia. Following the shift away from exclusively Swiss production, the labels were ch",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Swiss chocolate brand"
   },
   {
    "id": "lindtlindor",
@@ -2746,10 +2797,11 @@
    "wiki": {
     "title": "Kurkure",
     "url": "https://en.wikipedia.org/wiki/Kurkure",
-    "extract": "",
-    "verified": false
+    "extract": "Kurkure is an Indian brand of spiced crunchy puffcorn snacks made up of rice, lentil and corn. It is owned by PepsiCo through its subsidiary Frito-Lay. It was launched in India in 1999 and nine years later, it was launched in Pakistan in 2008. The snack is manufactured in India and in Pakistan, and has limited availabi",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Indian spicy puffcorn snack"
   },
   {
    "id": "bingomadangles",
@@ -2791,12 +2843,13 @@
    "country": "United States",
    "letters": "COCACOLA",
    "wiki": {
-    "title": "List of Coca-Cola slogans",
-    "url": "https://en.wikipedia.org/wiki/List_of_Coca-Cola_slogans",
-    "extract": "The Coca-Cola Company has used various advertising slogans to market Coca-Cola since its inception in 1886. The company uses a combination of international advertising campaigns and national or regional campaigns. Following is a list of some of its slogans.",
+    "title": "Coca",
+    "url": "https://en.wikipedia.org/wiki/Coca",
+    "extract": "Coca is any of the four cultivated plants in the family Erythroxylaceae, native to western South America. It is known worldwide for its psychoactive alkaloid, cocaine. The leaves contain cocaine, which acts as a mild stimulant when chewed or consumed as tea; this traditional use involves slower absorption than purified",
     "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Plant in the Erythroxylaceae family"
   },
   {
    "id": "pepsicola",
@@ -2886,9 +2939,9 @@
    "country": "United States",
    "letters": "MOUNTAINDEW",
    "wiki": {
-    "title": "Mountain Dew Amp",
-    "url": "https://en.wikipedia.org/wiki/Mountain_Dew_Amp",
-    "extract": "Mountain Dew Amp is an energy drink brand produced by PepsiCo. At the time of its introduction in 2001, Amp Energy was initially distributed under the Mountain Dew soft drink brand. Beginning in 2009, it was produced and labeled under its own stand-alone trademark name, but in 2018, reverted to using Mountain Dew brand",
+    "title": "Mountain Dew",
+    "url": "https://en.wikipedia.org/wiki/Mountain_Dew",
+    "extract": "Mountain Dew, stylized as Mtn Dew in some countries and colloquially known as Dew in some areas, is a soft drink brand owned by PepsiCo. The original formula was invented in 1940 by Tennessee beverage bottlers Barney and Ally Hartman. A revised formula was created by Bill Bridgforth in 1958. The rights to this formula ",
     "verified": true
    },
    "image": null,
@@ -3096,7 +3149,7 @@
    "wiki": {
     "title": "Gatorade",
     "url": "https://en.wikipedia.org/wiki/Gatorade",
-    "extract": "Gatorade is a brand of sports drinks owned and manufactured by PepsiCo and is distributed in over 80 countries. The beverage was developed in 1965 by a team of researchers at the University of Florida led by Robert Cade. It was originally made for the school's student-athletes, the Gators, to replenish the carbohydrate",
+    "extract": "Gatorade is a American brand of sports drinks owned and manufactured by PepsiCo and is distributed in over 80 countries. The beverage was developed in 1965 by a team of researchers at the University of Florida led by Robert Cade. It was originally made for the school's student-athletes, the Gators, to replenish the car",
     "verified": true
    },
    "image": null,
@@ -3151,8 +3204,14 @@
    "category": "Drinks",
    "country": "United States",
    "letters": "JACKDANIELS",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Jack Daniel's",
+    "url": "https://en.wikipedia.org/wiki/Jack_Daniel's",
+    "extract": "Jack Daniel's is a brand of Tennessee whiskey produced at Jack Daniel Distillery in Lynchburg, Tennessee, which has been owned by Brown-Forman since 1956.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Whiskey brand"
   },
   {
    "id": "johnniewalker",
@@ -3244,7 +3303,7 @@
    "wiki": {
     "title": "Rubik's Cube",
     "url": "https://en.wikipedia.org/wiki/Rubik's_Cube",
-    "extract": "The Rubik's Cube is a 3D combination puzzle invented in 1974 by Hungarian sculptor and professor of architecture Ernő Rubik. Originally called the Magic Cube, the puzzle was licensed by Rubik to be sold by Pentangle Puzzles in the UK in 1978, and then by Ideal Toy Corp in 1980 via businessman Tibor Laczi and Seven Town",
+    "extract": "The Rubik's Cube is a 3D combination puzzle invented in 1974 by Hungarian sculptor and professor of architecture Ernő Rubik. Originally called the Magic Cube, the puzzle was licensed by Rubik to be sold by Pentangle Puzzles in the United Kingdom in 1978, and then by Ideal Toy Corp in 1980 via businessman Tibor Laczi an",
     "verified": true
    },
    "image": null,
@@ -3258,9 +3317,9 @@
    "country": "United States",
    "letters": "MONOPOLYBOARD",
    "wiki": {
-    "title": "Monopoly (game)",
-    "url": "https://en.wikipedia.org/wiki/Monopoly_(game)",
-    "extract": "Monopoly is a multiplayer economics-themed board game. In the game, players roll two standard dice to move their token clockwise around the board, buying and trading properties and railroads and developing them with houses and hotels. Players collect rent from their opponents and aim to drive them into bankruptcy. Mone",
+    "title": "Ms. Monopoly",
+    "url": "https://en.wikipedia.org/wiki/Ms._Monopoly",
+    "extract": "Ms. Monopoly is a version of the Monopoly board game that highlights inventions created or contributed to by women and gives bonuses to female players. It was released by Hasbro in 2019.",
     "verified": true
    },
    "image": null,
@@ -3337,8 +3396,14 @@
    "category": "Toys",
    "country": "United States",
    "letters": "PLAYDOH",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "Play-Doh",
+    "url": "https://en.wikipedia.org/wiki/Play-Doh",
+    "extract": "Play-Doh, also known as Play-Dough, is an American brand of modeling compound marketed for young children to make arts and crafts projects. The product was first manufactured in Cincinnati, Ohio, as a wallpaper cleaner in the 1930s. Play-Doh was then reworked and marketed to Cincinnati schools in the mid-1950s. Play-Do",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Children's modeling compound"
   },
   {
    "id": "beybladeburst",
@@ -3348,9 +3413,9 @@
    "country": "Japan",
    "letters": "BEYBLADEBURST",
    "wiki": {
-    "title": "Beyblade Burst",
-    "url": "https://en.wikipedia.org/wiki/Beyblade_Burst",
-    "extract": "Beyblade Burst  is a Japanese manga and toyline created by Hiro Morita, based on Takara Tomy's Beyblade franchise. The third series of the franchise, the Beyblade Burst toyline launched on July 15, 2015, while the original manga was serialized in Shogakukan's children's manga magazine CoroCoro Comic from August 2015 to",
+    "title": "Beyblade",
+    "url": "https://en.wikipedia.org/wiki/Beyblade",
+    "extract": "Beyblade  is a battling spinning top toyline and multimedia franchise developed by the Japanese toy company Takara Tomy. Beyblades were inspired by the older Beigoma. The first Beyblades were released in 1999 in Japan, along with a related manga series. Beyblades were developed by Takara until it merged with Tomy in 20",
     "verified": true
    },
    "image": null,
@@ -3366,7 +3431,7 @@
    "wiki": {
     "title": "Catan",
     "url": "https://en.wikipedia.org/wiki/Catan",
-    "extract": "Catan, previously known as The Settlers of Catan or simply Settlers, is a multiplayer board game designed by Klaus Teuber. It was first published in 1995 in Germany by Franckh-Kosmos Verlag (Kosmos). Its release, The Settlers of Catan became one of the first Eurogames to achieve popularity outside Europe. As of 2020, m",
+    "extract": "Catan, previously known as The Settlers of Catan or simply Settlers, is a multiplayer board game designed by Klaus Teuber. It was first published in 1995 in Germany by Franckh-Kosmos Verlag (Kosmos). The Settlers of Catan became one of the first Eurogames to achieve popularity outside Europe. As of 2020, more than 32 m",
     "verified": true
    },
    "image": null,
@@ -3398,10 +3463,11 @@
    "wiki": {
     "title": "Tamagotchi",
     "url": "https://en.wikipedia.org/wiki/Tamagotchi",
-    "extract": "",
-    "verified": false
+    "extract": "Tamagotchi  is a brand of handheld digital pets marketed since 1996 by Japanese toymaker Bandai, a division of Bandai Namco Holdings. Most Tamagotchi are housed in a small egg-shaped handheld video game with an interface consisting of three buttons, with the goal of raising the pet as it goes through different life sta",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Digital pet toy brand"
   },
   {
    "id": "slinky",
@@ -3410,7 +3476,12 @@
    "category": "Toys",
    "country": "United States",
    "letters": "SLINKY",
-   "wiki": null,
+   "wiki": {
+    "title": "List of Toy Story characters",
+    "url": "https://en.wikipedia.org/wiki/List_of_Toy_Story_characters",
+    "extract": "This is a list of characters from Disney and Pixar's Toy Story franchise, which includes the animated feature films Toy Story, Toy Story 2, Toy Story 3, Toy Story 4, Toy Story 5, and Lightyear, as well as the Toy Story Toons series and television specials Toy Story of Terror! and Toy Story That Time Forgot.",
+    "verified": true
+   },
    "image": null
   },
   {
@@ -3420,8 +3491,14 @@
    "category": "Furniture",
    "country": "Sweden",
    "letters": "IKEABILLY",
-   "wiki": null,
-   "image": null
+   "wiki": {
+    "title": "IKEA Billy",
+    "url": "https://en.wikipedia.org/wiki/IKEA_Billy",
+    "extract": "Billy is a bookcase sold by the Swedish furniture company IKEA. It was developed in 1979 by the Swedish designer Gillis Lundgren, and IKEA has sold over 140 million units of the bookcases worldwide. Its popularity and global spread have led to its use as a price index.",
+    "verified": true
+   },
+   "image": null,
+   "subtitle": "Bookcase range by IKEA"
   },
   {
    "id": "ikeapoang",
@@ -3497,10 +3574,11 @@
    "wiki": {
     "title": "Eames Lounge Chair",
     "url": "https://en.wikipedia.org/wiki/Eames_Lounge_Chair",
-    "extract": "",
-    "verified": false
+    "extract": "The Eames Lounge Chair and Ottoman is a lounge chair and ottoman manufactured and sold by American furniture company Herman Miller. Introduced in 1956, the Eames Lounge Chair was designed by Charles and Ray Eames of the Eames Office and is made of molded plywood and leather. It was the first chair the Eameses designed ",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Chair designed by Charles and Ray Eames"
   },
   {
    "id": "dysonvacuum",
@@ -3832,10 +3910,11 @@
    "wiki": {
     "title": "Tefal",
     "url": "https://en.wikipedia.org/wiki/Tefal",
-    "extract": "",
-    "verified": false
+    "extract": "Tefal S.A.S. is a French cookware and small appliance manufacturer, owned by Groupe SEB since 1968. The company is known for creating the non-stick cookware category and for offering frying equipment with a low requirement of fat or oils. The name is a portmanteau of Teflon and aluminium.",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "French cookware and appliance company"
   },
   {
    "id": "nikemercurial",
@@ -4167,10 +4246,11 @@
    "wiki": {
     "title": "Steam Deck",
     "url": "https://en.wikipedia.org/wiki/Steam_Deck",
-    "extract": "",
-    "verified": false
+    "extract": "The Steam Deck is a handheld gaming computer produced by Valve Corporation, designed to run games available on its Steam storefront. Built upon the experiences gained from Valve's earlier ventures with the original 2015 Steam Machine and the Steam Controller, the Steam Deck integrates a custom AMD APU and SteamOS, a Li",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "Handheld gaming computer by Valve"
   },
   {
    "id": "oculusquest",
@@ -4421,10 +4501,11 @@
    "wiki": {
     "title": "Temple Run 2",
     "url": "https://en.wikipedia.org/wiki/Temple_Run_2",
-    "extract": "",
-    "verified": false
+    "extract": "Temple Run 2 is an endless runner video game developed and published by Imangi Studios. A sequel to Temple Run, the game was produced, designed and programmed by husband and wife team Keith Shepherd and Natalia Luckyanova, with art by Kiril Tchangov. It was released on the App Store on January 16, 2013, on Google Play ",
+    "verified": true
    },
-   "image": null
+   "image": null,
+   "subtitle": "2013 endless runner video game"
   },
   {
    "id": "mariokart",
@@ -4436,7 +4517,7 @@
    "wiki": {
     "title": "Mario Kart World",
     "url": "https://en.wikipedia.org/wiki/Mario_Kart_World",
-    "extract": "Mario Kart World is a 2025 kart racing game developed by Nintendo EPD and published by Nintendo for the Nintendo Switch 2. As in previous Mario Kart games, players control Mario series characters as they race against opponents. World introduces an open-world design and mode, off-roading techniques, an elimination rally",
+    "extract": "Mario Kart World is a 2025 kart racing game developed and published by Nintendo for the Nintendo Switch 2. As in previous Mario Kart games, players control Mario series characters as they race against opponents. World introduces an open-world design and mode, off-roading techniques, an elimination rally mode, and unloc",
     "verified": true
    },
    "image": null,
